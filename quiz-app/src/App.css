@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+div .loading{
+  background-color: rgb(5, 22, 100);
+}
+h1{
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  size : 50px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  img {
+     animation: Login-spin infinite 3s linear;
+   }
+}
+@keyframes Login-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

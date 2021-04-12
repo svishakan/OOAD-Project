@@ -1,15 +1,22 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import firebase from "./firebase";
+import Register from "./register"
+import Login from "./login"
+import Loading from "./loading"
+
 //import "./App.css";
+
+//ReactDOM.render(<login />, document.getElementById('root'));
+//ReactDOM.render(<register />, document.getElementById('root'));
 
 function App() {
   const [creds, setCreds] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState("");
   const [handle, setHandle] = useState("");
   const [password, setPassword] = useState("");
-  const ref = firebase.firestore().collection("UserCreds");
+  const [login, setLogin] = useState(true);
 
   // function getCreds() {
   //   setLoading(true);
@@ -24,6 +31,7 @@ function App() {
   //     setLoading(false);
   //   });
   // }
+  const ref = firebase.firestore().collection("UserCreds");
 
   function getCreds() {
     console.log("vantan");
@@ -52,15 +60,31 @@ function App() {
         console.error(err);
       });
   }
-
+/*
   useEffect(() => {
     getCreds();
-  }, []);
+  }, []);*/
 
   if (loading) {
-    return <h1>Loading ....</h1>;
+    console.log("loading ulle");
+    return(
+      <div><Loading /></div>
+    ) ;
   }
-  return (
+  
+  if(login){
+    console.log("ulle");
+    return(
+      <div><Login /></div>
+    ) ;
+  }
+  else{
+    return(
+      <div><Register /></div>
+    ) ;
+  }
+ 
+  /*return (
     <div className="App">
       <h1>Hello Nara here!!</h1>
       {console.log("re-rendered")}
@@ -101,10 +125,10 @@ function App() {
             </div>
           ))
         }
-
       </div>
     </div>
-  );
+  );*/
+  
 }
 
 export default App;
