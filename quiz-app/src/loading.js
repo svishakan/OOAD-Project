@@ -1,10 +1,10 @@
 import "./loading.css";
-import circle from ".//images/Loading.jpg"
+import circle from ".//images/Loading.svg"
+import {Helmet} from 'react-helmet'
 function Loading(){
 return(
-    <div>
+    <div className="fullPage">
         <img src={circle} alt=""/>
-        <h1>Loading</h1>   
     </div>
     );
 }
