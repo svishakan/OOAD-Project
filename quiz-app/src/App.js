@@ -1,15 +1,18 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import firebase from "./firebase";
+import Register from "./register"
+// import Login from "./login"
+import Loading from "./loading"
+
 //import "./App.css";
 
+//ReactDOM.render(<login />, document.getElementById('root'));
+//ReactDOM.render(<register />, document.getElementById('root'));
+
 function App() {
-  const [creds, setCreds] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [username, setUsername] = useState("");
-  const [handle, setHandle] = useState("");
-  const [password, setPassword] = useState("");
-  const ref = firebase.firestore().collection("UserCreds");
+  const [login, setLogin] = useState(false);
 
   // function getCreds() {
   //   setLoading(true);
@@ -24,43 +27,31 @@ function App() {
   //     setLoading(false);
   //   });
   // }
-
-  function getCreds() {
-    console.log("vantan");
-    setLoading(true);
-    console.log("in");
-    ref.get().then((item) => {
-      console.log("out");
-      console.log(item);
-      const items = item.docs.map((doc) => doc.data());
-      setCreds(items);
-      setLoading(false);
-    });
-  }
-
-  function addUserCred(newUser) {
-    console.log("i was asked to come");
-
-    ref
-      //.doc() use if for some reason you want that firestore generates the id
-      .doc(newUser.id)
-      .set(newUser)
-      .then(() => {
-        setCreds((prev) => [newUser, ...prev]);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }
-
+  
+  
+/*
   useEffect(() => {
     getCreds();
-  }, []);
+  }, []);*/
 
   if (loading) {
-    return <h1>Loading ....</h1>;
+    return(
+      <div><Loading /></div>
+    ) ;
   }
-  return (
+  
+  // if(login){
+  //   return(
+  //     <div><Login /></div>
+  //   ) ;
+  // }
+  // else{
+     return(
+      <div><Register /></div>
+    ) ;
+  //}
+ 
+  /*return (
     <div className="App">
       <h1>Hello Nara here!!</h1>
       {console.log("re-rendered")}
@@ -101,10 +92,10 @@ function App() {
             </div>
           ))
         }
-
       </div>
     </div>
-  );
+  );*/
+  
 }
 
 export default App;
