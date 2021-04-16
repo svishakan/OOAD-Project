@@ -1,8 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import firebase from "./firebase";
 import Register from "./register"
-// import Login from "./login"
+import Login from "./login"
 import Loading from "./loading"
 
 //import "./App.css";
@@ -41,14 +40,14 @@ function App() {
   }
   
   // if(login){
-  //   return(
-  //     <div><Login /></div>
-  //   ) ;
+     return(
+       <div><Login /></div>
+     ) ;
   // }
   // else{
-     return(
-      <div><Register /></div>
-    ) ;
+  //    return(
+  //     <div><Register /></div>
+  //   ) ;
   //}
  
   /*return (

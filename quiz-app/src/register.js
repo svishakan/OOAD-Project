@@ -142,7 +142,6 @@ function Register() {
                 type="submit"
                 value="REGISTER"
                 name="register"
-                onClick=""
               />
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <input
