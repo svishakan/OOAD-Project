@@ -1,0 +1,28 @@
+table,th,td{
+    border : 2px solid coral;
+    border-collapse: collapse;
+}
+td{
+    align-content: center;
+}
+table{
+    width : 25%;
+    height : 40%;
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 30pt 30ppt;
+    
+}
+body{
+    align-content: center;
+    background-color: coral;
+}
+button{
+    width: 100px;
+    height: 100px;
+    font-weight: bold;
+    background-color: rgb(148, 148, 148);
+}
+button:hover{
+    background-color: yellow;
+}
