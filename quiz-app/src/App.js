@@ -1,100 +1,81 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Register from "./register"
-import Login from "./login"
-import Loading from "./loading"
-
+import Register from "./components/register";
+import Login from "./components/login";
+import Loading from "./components/loading";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
 //import "./App.css";
 
-//ReactDOM.render(<login />, document.getElementById('root'));
-//ReactDOM.render(<register />, document.getElementById('root'));
-
 function App() {
-  const [loading, setLoading] = useState(false);
-  const [login, setLogin] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  // function getCreds() {
-  //   setLoading(true);
-  //   console.log("in");
-  //   ref.onSnapshot((querySnapshot) => {
-  //     console.log("out")
-  //     const items = []
-  //     querySnapshot.forEach((doc) => {
-  //       items.push(doc.data())
-  //     })
-  //     setCreds(items);
-  //     setLoading(false);
-  //   });
-  // }
-  
-  
-/*
+  function getBg() {
+    const li = [
+      [
+        "bg-gradient-to-tl",
+        "from-yellow-500",
+        "via-yellow-600",
+        "to-yellow-700",
+      ],
+      ["bg-purple-500"],
+      ["bg-gradient-to-r", "from-pink-300", "via-purple-300", "to-indigo-400"],
+      ["bg-gradient-to-bl", "from-purple-400", "to-yellow-400"],
+    ];
+
+    const indx = Math.floor(Math.random() * li.length);
+    return li[indx];
+  }
+
   useEffect(() => {
-    getCreds();
-  }, []);*/
+    setTimeout(() => setLoading(false), 2000);
+    const style = getBg();
+    for (let i = 0; i < style.length; i++)
+      document.body.classList.add(style[i]);
+  }, []);
 
   if (loading) {
-    return(
-      <div><Loading /></div>
-    ) ;
+    return <Loading />;
   }
-  
-  // if(login){
-     return(
-       <div><Login /></div>
-     ) ;
-  // }
-  // else{
-  //    return(
-  //     <div><Register /></div>
-  //   ) ;
-  //}
- 
-  /*return (
-    <div className="App">
-      <h1>Hello Nara here!!</h1>
-      {console.log("re-rendered")}
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          addUserCred({ handle, username, password });
-        }}
-      >
-        <input
-          value={handle}
-          type="text"
-          placeholder="Handle Name"
-          onChange={(event) => setHandle(event.target.value)}
-        />
-        <input
-          value={username}
-          type="text"
-          placeholder="Username"
-          onChange={(event) => setUsername(event.target.value)}
-        />
-        <input
-          value={password}
-          type="password"
-          placeholder="Password"
-          onChange={(event) => setPassword(event.target.value)}
-        />
-        <input value="ADD USER" type="submit" />
-      </form>
-      <br />
-      <div>
-        {
-          creds.map((user) => (
-            <div key={user.id}>
-              <h2>Handle Name : {user.handle}</h2>
-                <p>Username : {user.username}</p>
-                <p>Password : {user.password}</p>
+
+  return (
+    <div>
+      {loading === true ? (
+        <Loading />
+      ) : (
+        <Router>
+          <div className="justify-items-center w-auto h-6/7 flex h-screen">
+            <div className="justify-items-center rounded-lg shadow-lg py-6 px-6 m-auto  bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 align-middle">
+              <div className="flex justify-around text-2xl text-yellow-600">
+                <div className="hover:text-yellow-400">
+                  <Link to="/enter">Sign in</Link>
+                </div>
+                <div className="hover:text-yellow-400">
+                  <Link to="/signup">Sign up</Link>
+                </div>
+              </div>
+              <Switch>
+                <Route exact path="/">
+                  <Redirect to="/enter" />
+                </Route>
+                <Route path="/signup">
+                  <Register />
+                </Route>
+                <Route path="/enter">
+                  <Login />
+                </Route>
+              </Switch>
             </div>
-          ))
-        }
-      </div>
+          </div>
+        </Router>
+      )}
     </div>
-  );*/
-  
+  );
 }
 
 export default App;
