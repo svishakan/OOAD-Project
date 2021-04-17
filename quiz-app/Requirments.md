@@ -1,3 +1,4 @@
+npm install react-scripts@latest
 npm install --save firebase
 npm install tailwindcss
 npm install react-helmet
