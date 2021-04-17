@@ -1,35 +1,32 @@
-.fullPage{
-    background-color: rgb(5, 22, 100);
-    background-repeat: repeat;
-    position: absolute;
-    margin: auto;
-    display:flex;
-    flex-wrap:nowrap;
-    width: 100vw;
-}
-
-h1{
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: bold;
-    color: white;
-    size : 50px;
+h1 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  color: white;
+  size: 50px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    div img {
-        animation: Login-spin infinite 2.5s linear;
-        width:100%;
+  div img {
+    animation: Login-spin infinite 2.5s linear;
+    /* width:20%;
         position: relative;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
-    }
-}
-@keyframes Login-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+        transform: translate(-50%, -50%); 
+        */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
   }
+}
+
+@keyframes Login-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

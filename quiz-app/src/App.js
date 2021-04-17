@@ -39,10 +39,6 @@ function App() {
       document.body.classList.add(style[i]);
   }, []);
 
-  if (loading) {
-    return <Loading />;
-  }
-
   return (
     <div>
       {loading === true ? (

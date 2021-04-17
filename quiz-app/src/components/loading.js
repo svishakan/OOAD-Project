@@ -1,13 +1,11 @@
 import "./loading.css";
-import circle from "../images/Loading.svg"
+import circle from "../images/Loading.svg";
 
-function Loading(){
-return(
-    <div className="bg-purple-900 bg-opacity-75 justify-items-center w-auto h-6/7 flex h-screen">
-    <div className="m-auto align-middle">
-       <img src={circle} alt=""/>
+function Loading() {
+  return (
+    <div className="fixed top-0 left-0 justify-center w-screen h-screen bg-purple-900 ">
+      <img src={circle} alt="" className="mx-auto block "/>
     </div>
-    </div>
-    );
+  );
 }
 export default Loading;
