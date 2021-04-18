@@ -1,53 +1,110 @@
 import React from "react";
 import { useState, useEffect } from "react";
+//import Loading from "./loading";
 import { Redirect } from "react-router-dom";
+//import CreateQuiz from "/components/crearequiz";
+//import TakeUpQuiz from "/components/takeupquiz";
+//import ViewProfile from "/components/viewprofile";
 
 import "./dashboard.css";
 
 function DashBoard() {
   const [handle, setHandle] = useState("");
   const [redirectHome, setRedirectHome] = useState(false);
+  const [redirectTake, setRedirectTake] = useState(false);
+  const [redirectSet, setRedirectSet] = useState(false);
+  //const [redirectHome, setRedirectHome] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   let myStorage = window.localStorage;
-  console.log(myStorage);
+
   useEffect(() => {
-    if (myStorage.getItem("handle") === null) {
+    if (myStorage.getItem("handle") === handle) {
       setRedirectHome(true);
     } else {
       setHandle(myStorage.getItem("handle"));
     }
-  }, [myStorage]);
+  }, []);
 
+  if (redirectSet) return <Redirect to="/quizcreator" />;
+  if (redirectTake) return <Redirect to="/quizfinder" />;
   return (
     <div>
       {redirectHome === true ? (
         <Redirect to="/enter" />
       ) : (
-        <div className="fixed top-0 left-0 justify-center w-screen h-screen">
-          <div>{handle}</div>
-          <table>
+        <div className="justify-items-center rounded-lg shadow-lg py-6 px-6 m-auto  bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 align-middle">
+          <div className="flex justify-end right absolute right-10">
+            <button
+              class="logout"
+              onClick={() => {
+                console.log("of to login");
+                setRedirectHome(true);
+              }}
+            >
+              Logout
+            </button>
+          </div>
+          <div className="fixed pt-20">
+            <div className="flex absolute justify-around w-screen ">
+              <button
+                className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+                onClick={() => {
+                  setRedirectTake(true);
+                }}
+              >
+                Take Up Quiz
+              </button>
+
+              <button
+                className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+                onClick={() => {
+                  setRedirectSet(true);
+                }}
+              >
+                Create a Quiz
+              </button>
+
+              <button
+                className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+                onClick={() => {}}
+              >
+                View Profie
+              </button>
+
+              <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"></button>
+            </div>
+          </div>
+
+          {/* <table>
+          <div className="flex items-center">
             <tr>
               <td>
-                <button onClick="take_quiz();">Take up a Quiz</button>
+              
+              <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded transform motion-safe:hover:scale-110">
+                Take Up Quiz</button>
               </td>
               <td>
-                <button onClick="create_quiz();">Create a Quiz</button>
+              <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                Create a Quiz</button>
               </td>
             </tr>
             <tr>
               <td>
-                <button onClick="view_profile();">View Profie</button>
+              <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+              View Profie</button>
               </td>
               <td>
-                <button onClick="();"></button>
+              <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+               </button>
               </td>
             </tr>
-          </table>
+            </div>
+          </table> */}
         </div>
       )}
-      ;
     </div>
   );
-} 
+}
 
 export default DashBoard;

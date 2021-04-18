@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import {Redirect} from "react-router-dom"
 import firebase from "../firebase";
 import Alert from "react-popup-alert";
 import "../index.css";
@@ -13,6 +14,8 @@ function Register() {
   const [password, setPassword] = useState("");
   const [confirm_password, setCPassword] = useState("");
   const [work_place, setWorkPlace] = useState("");
+
+  const [redirectHome, setRedirectHome] = useState(false);
 
   const ref = firebase.firestore().collection("UserCreds");
 
@@ -134,11 +137,15 @@ function Register() {
       }
       setLoading(false);
       onShowAlert(alertType, alertText, alertColor);
+      if(alertType === "Success!!") {
+        setRedirectHome(true);
+      }
     });
   };
 
+  if (redirectHome) return <Redirect to="/" />
   if (loading) return <Loading />;
-  else
+  
     return (
       <div className="py-14 px-14">
           <span className="text-left text-yellow-100 font-Lato text-base">

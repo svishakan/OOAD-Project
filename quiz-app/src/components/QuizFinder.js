@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import firebase from "../firebase";
 
 const QuizFinder = () => {
   const [redirect, setRedirect] = useState(false);
+  const [redirectHome, setRedirectHome] = useState(false);
   let [quizID, setQuizID] = useState(null);
-  let myStorage = window.localStorage;
-  
+
+  let myStorage = window.localStorage
   const quizDB = firebase.firestore().collection("QuizDB");
+
+    useEffect(() => {
+        if (myStorage.getItem("handle") === null) {
+            setRedirectHome(true);
+        }
+    }, [])
 
   const findQuiz = () => {
     //to check if a quiz with the given quizID exists
@@ -28,7 +35,6 @@ const QuizFinder = () => {
       .then((snapshot) => {
         if (snapshot.exists) {
           window.alert("Click OK to Begin Quiz!");
-          myStorage.setItem('qID', quizID);  
           setRedirect(true);
         } else {
           window.alert("Quiz with the ID: " + quizID + " does not exist!");
@@ -37,10 +43,18 @@ const QuizFinder = () => {
       });
   };
 
+  if(redirectHome) return <Redirect to="/" />
   return (
     <div>
       {redirect === true ? (
-        <Redirect to="/questionnaire" />
+        <Redirect
+          to={{
+            pathname: "/questionnaire",
+            state: {
+              qID: quizID,
+            },
+          }}
+        />
       ) : (
         <form
           id="creatorform"

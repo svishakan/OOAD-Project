@@ -1,5 +1,5 @@
 import React from 'react';
-import { isCompositeComponentWithType } from 'react-dom/test-utils';
+// import { isCompositeComponentWithType } from 'react-dom/test-utils';
 
 
 const Questionnaire = ({ totalQuestions, questionNumber, handleAnswer, data: { question, correct_answer, answers }, showAnswers, handleNextQuestion }) => {

@@ -92,9 +92,10 @@ function App() {
               <Route path="/quizfinder">
                 <QuizFinder />
               </Route>
-              <Route path="/questionnaire">
-                <Quiz />
-              </Route>
+              <Route
+                path="/questionnaire"
+                render={(props) => <Quiz {...props} />}
+              />
               <Route path="/quizbuilder">
                 <QuizBuilder />
               </Route>

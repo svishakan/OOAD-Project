@@ -7,7 +7,10 @@ let records = [];
 function QuizBuilder() {
   const [quizID, setQuizID] = useState("");
   const [redirectBack, setRedirectBack] = useState(false);
-  const batch = firebase.firestore().batch();
+  const [redirectDash, setRedirectDash] = useState(false);
+  const [redirectHome, setRedirectHome] = useState(false);
+  const [handle, setHandle] = useState("");
+  //const batch = firebase.firestore().batch();
   const quizDB = firebase.firestore().collection("QuizDB");
 
   let myStorage = window.localStorage;
@@ -15,9 +18,12 @@ function QuizBuilder() {
   const [questionNumber, setQuestionNumber] = useState(1);
 
   useEffect(() => {
-    if (myStorage.getItem("qID") === null) {
+    if (myStorage.getItem("handle") === null) {
+      setRedirectHome(true);
+    } else if (myStorage.getItem("qID") === null) {
       setRedirectBack(true);
     } else {
+      setHandle(myStorage.getItem("handle"));
       setQuizID(myStorage.getItem("qID"));
     }
   }, [myStorage]);
@@ -63,6 +69,7 @@ function QuizBuilder() {
         })
         .then(() => {
           console.log("Successfully written!");
+          setRedirectDash(true);
           //To Do: Set a redirect back to dashboard from here
         })
         .catch((err) => {
@@ -71,6 +78,8 @@ function QuizBuilder() {
     }
   };
 
+  if (redirectHome) return <Redirect to="/" />;
+  if (redirectDash) return <Redirect to="/dashboard" />;
   if (redirectBack) return <Redirect to="/quizcreator" />;
   return (
     <form

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import firebase from "../firebase";
 import { Redirect } from "react-router-dom";
 
@@ -9,7 +9,15 @@ function QuizCreator() {
   const quizDB = firebase.firestore().collection("QuizDB");
 
   const [redirect, setRedirect] = useState(false);
+  const [redirectHome, setRedirectHome] = useState(false);
 
+  let myStorage = window.localStorage;
+
+  useEffect(() => {
+    if (myStorage.getItem("handle") === null) {
+        setRedirectHome(true);
+      } 
+  }, [])
   const createQuiz = () => {
     //create the quiz in a new FireStore collection
 
@@ -35,6 +43,7 @@ function QuizCreator() {
       });
   };
 
+  if(redirectHome) return <Redirect to="/"/>
   return (
     <div>
       {redirect === true ? (
