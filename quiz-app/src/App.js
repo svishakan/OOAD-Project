@@ -4,6 +4,10 @@ import Register from "./components/register";
 import Login from "./components/login";
 import Loading from "./components/loading";
 import Dashboard from "./components/dashboard";
+import QuizFinder from "./components/QuizFinder";
+import QuizBuilder from "./components/QuizBuilder";
+import QuizCreator from "./components/QuizCreator";
+import Quiz from "./components/Quiz";
 
 import {
   BrowserRouter as Router,
@@ -79,10 +83,24 @@ function App() {
                   <Login />
                 </div>
               </Route>
-              <Route
-                path="/dashboard"
-                render={(props) => <Dashboard {...props} />}
-              />
+              <Route path="/dashboard">
+                <Dashboard />
+              </Route>
+              <Route path="/quiz">
+                <Redirect to="/quizfinder" />
+              </Route>
+              <Route path="/quizfinder">
+                <QuizFinder />
+              </Route>
+              <Route path="/questionnaire">
+                <Quiz />
+              </Route>
+              <Route path="/quizbuilder">
+                <QuizBuilder />
+              </Route>
+              <Route path="/quizcreator">
+                <QuizCreator />
+              </Route>
             </Switch>
           </div>
         </Router>

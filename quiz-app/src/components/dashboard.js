@@ -4,19 +4,19 @@ import { Redirect } from "react-router-dom";
 
 import "./dashboard.css";
 
-function DashBoard(props) {
+function DashBoard() {
   const [handle, setHandle] = useState("");
   const [redirectHome, setRedirectHome] = useState(false);
+
+  let myStorage = window.localStorage;
+  console.log(myStorage);
   useEffect(() => {
-    if (
-      props.location.state === undefined ||
-      props.location.state.handle === undefined
-    ) {
+    if (myStorage.getItem("handle") === null) {
       setRedirectHome(true);
     } else {
-      setHandle(props.location.state.handle);
+      setHandle(myStorage.getItem("handle"));
     }
-  }, [props.location.state]);
+  }, [myStorage]);
 
   return (
     <div>
@@ -48,25 +48,6 @@ function DashBoard(props) {
       ;
     </div>
   );
-} /*
-function take_quiz(){
-    return(
-        <div><TakeQuiz /></div>
-    );
-}
-function create_quiz(){
-    return(
-        <div><CreateQuiz /></div>
-    );
-function view_profile(){
-    return(
-        <div><ViewProfile /></div>
-    );
-}
-function (){
-    return(
-        <div>< /></div>
-    );
-}
-*/
+} 
+
 export default DashBoard;
