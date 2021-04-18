@@ -46,10 +46,10 @@ function QuizCreator() {
 
 
                     <label className="block text-gray-700 text-sm font-bold mb-2 mt-8">Quiz Title</label>
-                    <input id="qtitle" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray" placeholder="Quiz Title" required />
+                    <input id="qtitle" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100" placeholder="Quiz Title" required />
 
                     <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">Quiz Duration</label>
-                    <input id="qduration" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray" placeholder="Quiz Duration (in minutes)" type="number" required />
+                    <input id="qduration" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100" placeholder="Quiz Duration (in minutes)" type="number" required />
 
                     <div className="flex items-center justify-between mt-8">
                         <input className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="reset" value="Clear All" />

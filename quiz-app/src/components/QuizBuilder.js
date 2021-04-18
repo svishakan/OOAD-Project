@@ -43,6 +43,7 @@ function QuizBuilder(props) {
                 })
                 .then(() => {
                     console.log("Successfully written!");
+                    //To Do: Set a redirect back to dashboard from here
                 })
                 .catch((err) => {
                     console.error("Document writing error: ", err);
@@ -52,25 +53,25 @@ function QuizBuilder(props) {
     };
 
     return (
-        <form id="quizform" className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form id="quizform" className="bg-white shadow-md rounded px-8 pt-6 pb-8 m-12 w-full">
             <h1 className="block text-gray-700 text-lg text-center font-bold mb-2">Quiz Builder</h1>
             <h3 className="block text-gray-700 text-md text-center font-bold mb-2">Quiz ID: {quizID}</h3>
 
 
             <label className="block text-gray-700 text-sm font-bold mb-2 mt-8">Question #{questionNumber}</label>
-            <input id="ques" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray" placeholder="Question" required />
+            <input id="ques" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100" placeholder="Question" required />
 
             <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">Correct Answer</label>
-            <input id="ans1" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray" placeholder="Correct Answer" required />
+            <input id="ans1" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100" placeholder="Correct Answer" required />
 
             <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">Wrong Answer #1</label>
-            <input id="ans2" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray" placeholder="Wrong Answer #1" required />
+            <input id="ans2" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100" placeholder="Wrong Answer #1" required />
 
             <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">Wrong Answer #2</label>
-            <input id="ans3" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray" placeholder="Wrong Answer #2" />
+            <input id="ans3" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100" placeholder="Wrong Answer #2" />
 
             <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">Wrong Answer #3</label>
-            <input id="ans4" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray" placeholder="Wrong Answer #3" />
+            <input id="ans4" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100" placeholder="Wrong Answer #3" />
 
             <div className="flex items-center justify-between mt-8">
                 <input className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="reset" value="Clear All" />

@@ -47,7 +47,7 @@ const QuizFinder = () => {
                     <h1 className="block text-gray-700 text-lg text-center font-bold mb-2">Quiz Finder</h1>
 
                     <label className="block text-gray-700 text-sm font-bold mb-2 mt-8">Quiz ID</label>
-                    <input id="qid" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray" placeholder="8 Character Quiz ID" maxLength="8" required />
+                    <input id="qid" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:ring-2 focus:ring-blue-700" placeholder="8 Character Quiz ID" maxLength="8" required />
 
                     <div className="flex items-center justify-between mt-8">
                         <input className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="reset" value="Clear All" />
