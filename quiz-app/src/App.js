@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Register from "./components/register";
-import Login from "./components/login";
+import RegPage from "./components/RegPage";
+import LoginPage from "./components/LoginPage";
 import Loading from "./components/loading";
 import Dashboard from "./components/dashboard";
 import QuizFinder from "./components/QuizFinder";
@@ -51,37 +51,16 @@ function App() {
         <Loading />
       ) : (
         <Router>
-          <div className="justify-items-center w-auto h-6/7 flex h-screen">
+          <div>
             <Switch>
               <Route exact path="/">
                 <Redirect to="/enter" />
               </Route>
               <Route path="/signup">
-                <div className="justify-items-center rounded-lg shadow-lg py-6 px-6 m-auto  bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 align-middle">
-                  <div className="flex justify-around text-2xl text-yellow-600">
-                    <div className="hover:text-yellow-400">
-                      <Link to="/enter">Sign in</Link>
-                    </div>
-                    <div className="hover:text-yellow-400">
-                      <Link to="/signup">Sign up</Link>
-                    </div>
-                  </div>
-
-                  <Register />
-                </div>
+                <RegPage />  
               </Route>
               <Route path="/enter">
-                <div className="justify-items-center rounded-lg shadow-lg py-6 px-6 m-auto  bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 align-middle">
-                  <div className="flex justify-around text-2xl text-yellow-600">
-                    <div className="hover:text-yellow-400">
-                      <Link to="/enter">Sign in</Link>
-                    </div>
-                    <div className="hover:text-yellow-400">
-                      <Link to="/signup">Sign up</Link>
-                    </div>
-                  </div>
-                  <Login />
-                </div>
+                <LoginPage />
               </Route>
               <Route path="/dashboard">
                 <Dashboard />

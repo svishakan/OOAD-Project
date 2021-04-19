@@ -82,85 +82,87 @@ function QuizBuilder() {
   if (redirectDash) return <Redirect to="/dashboard" />;
   if (redirectBack) return <Redirect to="/quizcreator" />;
   return (
-    <form
-      id="quizform"
-      className="bg-white shadow-md rounded px-8 pt-6 pb-8 m-12 w-full"
-    >
-      <h1 className="block text-gray-700 text-lg text-center font-bold mb-2">
-        Quiz Builder
+    <div className="flex justify-center items-center h-screen">
+      <form
+        id="quizform"
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 m-12 w-full"
+      >
+        <h1 className="block text-gray-700 text-lg text-center font-bold mb-2">
+          Quiz Builder
       </h1>
-      <h3 className="block text-gray-700 text-md text-center font-bold mb-2">
-        Quiz ID: {quizID}
-      </h3>
+        <h3 className="block text-gray-700 text-md text-center font-bold mb-2">
+          Quiz ID: {quizID}
+        </h3>
 
-      <label className="block text-gray-700 text-sm font-bold mb-2 mt-8">
-        Question #{questionNumber}
-      </label>
-      <input
-        id="ques"
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100"
-        placeholder="Question"
-        required
-      />
-
-      <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">
-        Correct Answer
-      </label>
-      <input
-        id="ans1"
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100"
-        placeholder="Correct Answer"
-        required
-      />
-
-      <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">
-        Wrong Answer #1
-      </label>
-      <input
-        id="ans2"
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100"
-        placeholder="Wrong Answer #1"
-        required
-      />
-
-      <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">
-        Wrong Answer #2
-      </label>
-      <input
-        id="ans3"
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100"
-        placeholder="Wrong Answer #2"
-      />
-
-      <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">
-        Wrong Answer #3
-      </label>
-      <input
-        id="ans4"
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100"
-        placeholder="Wrong Answer #3"
-      />
-
-      <div className="flex items-center justify-between mt-8">
+        <label className="block text-gray-700 text-sm font-bold mb-2 mt-8">
+          Question #{questionNumber}
+        </label>
         <input
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          type="reset"
-          value="Clear All"
+          id="ques"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100"
+          placeholder="Question"
+          required
         />
+
+        <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">
+          Correct Answer
+      </label>
         <input
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          type="button"
-          value="Next Question"
-          onClick={nextQuestion}
+          id="ans1"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100"
+          placeholder="Correct Answer"
+          required
         />
+
+        <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">
+          Wrong Answer #1
+      </label>
         <input
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          type="button"
-          value="Upload Set"
-          onClick={uploadQuiz}
+          id="ans2"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100"
+          placeholder="Wrong Answer #1"
+          required
         />
-      </div>
-    </form>
+
+        <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">
+          Wrong Answer #2
+      </label>
+        <input
+          id="ans3"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100"
+          placeholder="Wrong Answer #2"
+        />
+
+        <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">
+          Wrong Answer #3
+      </label>
+        <input
+          id="ans4"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100"
+          placeholder="Wrong Answer #3"
+        />
+
+        <div className="flex items-center justify-between mt-8">
+          <input
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="reset"
+            value="Clear All"
+          />
+          <input
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button"
+            value="Next Question"
+            onClick={nextQuestion}
+          />
+          <input
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button"
+            value="Upload Set"
+            onClick={uploadQuiz}
+          />
+        </div>
+      </form>
+    </div>
   );
 }
 

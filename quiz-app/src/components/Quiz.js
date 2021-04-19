@@ -114,35 +114,36 @@ function Quiz(props) {
   if (redirectBack) return <Redirect to="/quizfinder" />;
 
   return questions.length > 0 ? (
-    <div className="container w-screen m-3">
-      <h1 className="text-3xl text-white text-center font-bold m-10">
-        {quizTitle}
-      </h1>
-      {currentIndex >= questions.length ? (
-        <div>
-          <h2 className="text-3xl text-white font-bold">
-            Quiz Ended! Your Score was {score}
+    <div className="flex justify-center items-center h-screen">
+      <div className="container w-screen m-3">
+        <h1 className="text-3xl text-white text-center font-bold m-10">
+          {quizTitle}
+        </h1>
+        {currentIndex >= questions.length ? (
+          <div align="center">
+            <h2 className="text-3xl text-white text-center font-bold">
+              Quiz Ended! Your Score was {score} / {questions.length}.
           </h2>
-          <div className="block px-20 py-2">
+            <br /><br />
             <input
               type="button"
-              value="Dashboard"
+              value="Go To Dashboard"
               name="return"
               className="rounded-full py-1 px-6 bg-green-800 text-white hover:bg-green-900"
               onClick={() => setRedirectDash(true)}
             />
           </div>
-        </div>
-      ) : (
-        <Questionnaire
-          totalQuestions={questions.length}
-          questionNumber={currentIndex + 1}
-          data={questions[currentIndex]}
-          handleAnswer={handleAnswer}
-          showAnswers={showAnswers}
-          handleNextQuestion={handleNextQuestion}
-        />
-      )}
+        ) : (
+          <Questionnaire
+            totalQuestions={questions.length}
+            questionNumber={currentIndex + 1}
+            data={questions[currentIndex]}
+            handleAnswer={handleAnswer}
+            showAnswers={showAnswers}
+            handleNextQuestion={handleNextQuestion}
+          />
+        )}
+      </div>
     </div>
   ) : (
     <Loading />

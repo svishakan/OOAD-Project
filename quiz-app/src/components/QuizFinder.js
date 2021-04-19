@@ -45,7 +45,7 @@ const QuizFinder = () => {
 
   if(redirectHome) return <Redirect to="/" />
   return (
-    <div>
+    <div className="flex justify-center items-center h-screen">
       {redirect === true ? (
         <Redirect
           to={{

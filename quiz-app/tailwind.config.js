@@ -2,11 +2,13 @@ module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    fontFamily: {
-      sans: ['Ubuntu', 'sans-serif'],
-      serif:  ['Arvo', 'serif'],
+    extend: {
+      fontFamily: {
+        'Lato': ['Lato', 'sans-serif'],
+        sans: ['Ubuntu', 'sans-serif'],
+        serif:  ['Arvo', 'serif'],
+      },
     },
-    extend: {},
   },
   variants: {
     extend: {},

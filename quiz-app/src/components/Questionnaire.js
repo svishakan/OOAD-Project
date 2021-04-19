@@ -20,7 +20,7 @@ const Questionnaire = ({ totalQuestions, questionNumber, handleAnswer, data: { q
                         const textColor = showAnswers ? answer === correct_answer ? 'text-green-800' : 'text-red-800' : 'text-purple-800';
 
                         return (
-                            <button className={`${textColor} bg-white p-4 font-semibold rounded shadow hover:shadow-lg hover:bg-gray-200`} onClick={() => handleAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }} />
+                            <button className={`${textColor} bg-white p-4 w-auto font-semibold rounded shadow hover:shadow-lg hover:bg-gray-200`} onClick={() => handleAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }} />
                         )
                     }
                 }
