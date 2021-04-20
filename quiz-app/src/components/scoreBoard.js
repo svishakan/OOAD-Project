@@ -1,7 +1,9 @@
 import firebase from "../firebase";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import React from "react";
 import { useState, useEffect } from "react";
+
+import "./quiztables.css";
 
 const ScoreBoard = (props) => {
     const [handle, setHandle] = useState("");
@@ -60,29 +62,44 @@ const ScoreBoard = (props) => {
     if (redirectBack) return <Redirect to="/YourQuizes" />;
 
     return (
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th> # </th>
-                        <th> Handle </th>
-                        <th> First Name </th>
-                        <th> Score </th>
-                        <th> % </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {scoreData.map((scoreData, idx) => (
+        <div className="container card col-lg-8 col-md-8 text-center quiz-box">
+            <div className="card-img">
+                <i className="fas fa-poll quiz-img" aria-hidden="true"></i>
+            </div>
+            <div className="card-body">
+                <h1 className="col-lg-12 quiz-title text-center">
+                    SCORECARD
+                </h1>
+                <table class="table table-dark table-bordered table-hover">
+                    <thead class="thead-dark">
                         <tr>
-                            <td>{idx + 1}</td>
-                            <td>{scoreData.handle}</td>
-                            <td>{scoreData.Username}</td>
-                            <td>{scoreData.Score}</td>
-                            <td>{scoreData.Percent}</td>
+                            <th scope="col"> # </th>
+                            <th scope="col"> Handle </th>
+                            <th scope="col"> First Name </th>
+                            <th scope="col"> Score </th>
+                            <th scope="col"> % </th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {scoreData.map((scoreData, idx) => (
+                            <tr>
+                                <td scope="row">{idx + 1}</td>
+                                <td scope="row">{scoreData.handle}</td>
+                                <td scope="row">{scoreData.Username}</td>
+                                <td scope="row">{scoreData.Score}</td>
+                                <td scope="row">{scoreData.Percent}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            <div className="d-flex justify-content-center pt-2 pb-5">
+                <Link to="/YourQuizes">
+                    <button
+                        className="btn btn-qb-neon-primary text-nowrap"
+                        type="button"
+                        value="BACK" >GO BACK</button></Link>
+            </div>
         </div>
     );
 };

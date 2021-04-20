@@ -87,7 +87,7 @@ const QuizSelector = () => {
         );
     }
     return (
-        <div class="container card col-lg-4 col-md-8 text-center quiz-box">
+        <div class="container card col-lg-8 col-md-8 text-center quiz-box">
             <div className="card-img">
                 <i className="fas fa-scroll quiz-img" aria-hidden="true"></i>
             </div>
