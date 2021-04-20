@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+    background: #222d32;
+    font-family: "Roboto", sans-serif;
+}
+
+.quiz-box {
+    margin-top: 75px;
+    height: auto;
+    background: #1a2226;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.quiz-img {
+    margin-top: 20px;
+    height: 100px;
+    font-size: 100px;
+    line-height: 100px;
+    background: -webkit-linear-gradient(#27ef9f, #0db8de);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.quiz-title {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #ecf0f5;
+    text-transform: uppercase;
+}
+
+.quiz-sub-title {
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #ecf0f5;
+}
+
+.quiz-label {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.quiz-question {
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 30px;
+    font-size: 25px;
+    color: white;
+    font-weight: 700;
+}
+
+.btn-ans-neon-primary,
+.btn-next-neon-primary {
+    font-family: "Roboto", sans-serif;
+    border-radius: 40px;
+    width: 40%;
+    margin: 20px;
+    margin-left: 10px;
+    text-decoration: none;
+    transition: 0.2s all;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid aqua;
+}
+
+.btn-next-neon-primary{
+    width: 20%;
+    border: 2px solid gold;
+}
+
+.btn-ans-neon-primary:hover,
+.btn-ans-neon-primary:focus {
+    background: #26a0da;
+    color: #000;
+    box-shadow: 0px 0px 5px #26a0da, 0px 0px 20px#26a0da, 0px 0px 40px #26a0da;
+    transition-delay: 0.2s;
+}
+
+.btn-next-neon-primary:hover,
+.btn-next-neon-primary:focus {
+    background: #f4d03f;
+    color: #000;
+    box-shadow: 0px 0px 5px #f4d03f, 0px 0px 20px#F4D03F, 0px 0px 40px #f4d03f;
+    transition-delay: 0.2s;
+}

@@ -2,6 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import firebase from "../firebase";
 
+import {
+  BrowserRouter as Router,
+  Link
+} from "react-router-dom";
+
+
+import "./quizforms.css";
+
 const QuizFinder = () => {
   const [redirect, setRedirect] = useState(false);
   const [redirectHome, setRedirectHome] = useState(false);
@@ -55,7 +63,7 @@ const QuizFinder = () => {
 
   if (redirectHome) return <Redirect to="/" />;
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div>
       {redirect === true ? (
         <Redirect
           to={{
@@ -66,39 +74,45 @@ const QuizFinder = () => {
           }}
         />
       ) : (
-        <form
-          id="creatorform"
-          className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-        >
-          <h1 className="block text-gray-700 text-lg text-center font-bold mb-2">
-            Quiz Finder
-          </h1>
-
-          <label className="block text-gray-700 text-sm font-bold mb-2 mt-8">
-            Quiz ID
-          </label>
-          <input
-            id="qid"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:ring-2 focus:ring-blue-700"
-            placeholder="8 Character Quiz ID"
-            maxLength="8"
-            required
-          />
-
-          <div className="flex items-center justify-between mt-8">
-            <input
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="reset"
-              value="Clear All"
-            />
-            <input
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button"
-              value="Attempt Quiz"
-              onClick={findQuiz}
-            />
+        <div className="container card col-lg-4 col-md-8 text-center quiz-box">
+          <div className="card-img">
+            <i className="fa fa-search quiz-img" aria-hidden="true"></i>
           </div>
-        </form>
+          <div className="card-body">
+            <h1 className="col-lg-12 quiz-title text-center">
+              QUIZ FINDER
+            </h1>
+            <form
+              id="finderform"
+              className="">
+
+              <div className="col-lg-12 form-group">
+                <label className="form-control-label">
+                  QUIZ ID
+                </label>
+                <input
+                  type="text"
+                  id="qid"
+                  className=""
+                  placeholder="8 Character Quiz ID"
+                  maxLength="8"
+                  required />
+              </div>
+
+              <div className="d-flex justify-content-center pb-5">
+                <Link to="/dashboard"><button
+                  className="btn btn-qf-neon-primary text-nowrap"
+                  type="button"
+                  value="BACK" >GO BACK</button></Link>
+                <button
+                  className="btn btn-qf-neon-primary text-nowrap"
+                  type="button"
+                  value="Attempt Quiz"
+                  onClick={findQuiz}>ATTEMPT QUIZ</button>
+              </div>
+            </form>
+          </div>
+        </div>
       )}
     </div>
   );

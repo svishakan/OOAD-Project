@@ -1,7 +1,9 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import React from "react";
 import { useState, useEffect } from "react";
-import RegPage from "./components/RegPage";
-import LoginPage from "./components/LoginPage";
+import Register from './components/register';
+import Login from "./components/login";
 import Loading from "./components/loading";
 import Dashboard from "./components/dashboard";
 import QuizFinder from "./components/QuizFinder";
@@ -59,10 +61,10 @@ function App() {
                 <Redirect to="/enter" />
               </Route>
               <Route path="/signup">
-                <RegPage />
+                <Register />
               </Route>
               <Route path="/enter">
-                <LoginPage />
+                <Login />
               </Route>
               <Route path="/dashboard">
                 <Dashboard />

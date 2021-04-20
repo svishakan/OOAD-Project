@@ -2,6 +2,13 @@ import React, { useState, useEffect } from "react";
 import firebase from "../firebase";
 import { Redirect } from "react-router-dom";
 
+import {
+  BrowserRouter as Router,
+  Link
+} from "react-router-dom";
+
+import "./quizforms.css";
+
 const { nanoid } = require("nanoid");
 const quizID = nanoid(8);
 
@@ -55,56 +62,66 @@ function QuizCreator() {
 
   if (redirectHome) return <Redirect to="/" />;
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="">
       {redirect === true ? (
         <Redirect to="/quizbuilder" />
       ) : (
-        <form
-          id="creatorform"
-          className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-        >
-          <h1 className="block text-gray-700 text-lg text-center font-bold mb-2">
-            Quiz Creator
-          </h1>
-          <h3 className="block text-gray-700 text-md text-center font-bold mb-2">
-            Quiz ID: {quizID}
-          </h3>
-
-          <label className="block text-gray-700 text-sm font-bold mb-2 mt-8">
-            Quiz Title
-          </label>
-          <input
-            id="qtitle"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100"
-            placeholder="Quiz Title"
-            required
-          />
-
-          <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">
-            Quiz Duration
-          </label>
-          <input
-            id="qduration"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100"
-            placeholder="Quiz Duration (in minutes)"
-            type="number"
-            required
-          />
-
-          <div className="flex items-center justify-between mt-8">
-            <input
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="reset"
-              value="Clear All"
-            />
-            <input
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button"
-              value="Set Quiz"
-              onClick={createQuiz}
-            />
+        <div className="container card col-lg-4 col-md-8 text-center quiz-box">
+          <div className="card-img">
+            <i className="fas fa-pencil-ruler quiz-img" aria-hidden="true"></i>
           </div>
-        </form>
+          <div className="card-body">
+            <h1 className="col-lg-12 quiz-title text-center">
+              QUIZ CREATOR
+          </h1>
+            <h3 className="col-lg-12 quiz-sub-title text-center">
+              QUIZ ID: {quizID}
+            </h3>
+            <form
+              id="creatorform"
+              className="">
+                
+              <div className="col-lg-12 form-group">
+                <label className="form-control-label" style={{width: "30%", "margin-right": "5px"}}>
+                  QUIZ TITLE
+                </label>
+                <input
+                  type="text"
+                  id="qtitle"
+                  className=""
+                  placeholder="Quiz Title"
+                  required
+                />
+              </div>
+
+              <div className="col-lg-12 form-group">
+                <label className="form-control-label" style={{width: "30%", "margin-right": "5px"}}>
+                  QUIZ DURATION
+                </label>
+                <input
+                  id="qduration"
+                  className=""
+                  placeholder="Quiz Duration (in minutes)"
+                  type="number"
+                  required
+                />
+              </div>
+
+              <div className="d-flex justify-content-center pb-5">
+                <Link to="/dashboard"><button
+                  className="btn btn-qf-neon-primary text-nowrap"
+                  type="button"
+                  value="BACK" >GO BACK</button></Link>
+                <input
+                  className="btn btn-qf-neon-primary text-nowrap"
+                  type="button"
+                  value="Set Quiz"
+                  onClick={createQuiz}
+                />
+              </div>
+            </form>
+          </div>
+        </div>
       )}
     </div>
   );
