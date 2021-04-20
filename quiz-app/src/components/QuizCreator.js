@@ -7,17 +7,21 @@ const quizID = nanoid(8);
 
 function QuizCreator() {
   const quizDB = firebase.firestore().collection("QuizDB");
-
+  const Users = firebase.firestore().collection("UserCreds");
   const [redirect, setRedirect] = useState(false);
   const [redirectHome, setRedirectHome] = useState(false);
+  const [handle, setHandle] = useState("");
 
   let myStorage = window.localStorage;
 
   useEffect(() => {
     if (myStorage.getItem("handle") === null) {
-        setRedirectHome(true);
-      } 
-  }, [])
+      setRedirectHome(true);
+    } else {
+      setHandle(myStorage.getItem("handle"));
+    }
+  }, []);
+
   const createQuiz = () => {
     //create the quiz in a new FireStore collection
 
@@ -31,11 +35,17 @@ function QuizCreator() {
       .set({
         quizName: qName,
         quizDuration: qDuration,
+        Scores: [],
       })
       .then(() => {
         console.log("Successfully written!");
         document.getElementById("creatorform").reset();
         myStorage.setItem("qID", quizID);
+
+        Users.doc(handle).update({
+          CreatedQuizes: firebase.firestore.FieldValue.arrayUnion(quizID),
+        });
+
         setRedirect(true);
       })
       .catch((err) => {
@@ -43,7 +53,7 @@ function QuizCreator() {
       });
   };
 
-  if(redirectHome) return <Redirect to="/"/>
+  if (redirectHome) return <Redirect to="/" />;
   return (
     <div className="flex justify-center items-center h-screen">
       {redirect === true ? (

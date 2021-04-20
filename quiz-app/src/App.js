@@ -8,6 +8,8 @@ import QuizFinder from "./components/QuizFinder";
 import QuizBuilder from "./components/QuizBuilder";
 import QuizCreator from "./components/QuizCreator";
 import Quiz from "./components/Quiz";
+import QuizSelector from "./components/QuizSelector";
+import ScoreBoard from "./components/scoreBoard";
 
 import {
   BrowserRouter as Router,
@@ -57,7 +59,7 @@ function App() {
                 <Redirect to="/enter" />
               </Route>
               <Route path="/signup">
-                <RegPage />  
+                <RegPage />
               </Route>
               <Route path="/enter">
                 <LoginPage />
@@ -81,6 +83,13 @@ function App() {
               <Route path="/quizcreator">
                 <QuizCreator />
               </Route>
+              <Route path="/YourQuizes">
+                <QuizSelector />
+              </Route>
+              <Route
+                path="/results"
+                render={(props) => <ScoreBoard {...props} />}
+              />
             </Switch>
           </div>
         </Router>

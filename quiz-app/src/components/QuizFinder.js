@@ -5,16 +5,20 @@ import firebase from "../firebase";
 const QuizFinder = () => {
   const [redirect, setRedirect] = useState(false);
   const [redirectHome, setRedirectHome] = useState(false);
+  const [handle, setHandle] = useState("");
   let [quizID, setQuizID] = useState(null);
 
-  let myStorage = window.localStorage
+  let myStorage = window.localStorage;
   const quizDB = firebase.firestore().collection("QuizDB");
+  const Users = firebase.firestore().collection("UserCreds");
 
-    useEffect(() => {
-        if (myStorage.getItem("handle") === null) {
-            setRedirectHome(true);
-        }
-    }, [])
+  useEffect(() => {
+    if (myStorage.getItem("handle") === null) {
+      setRedirectHome(true);
+    } else {
+      setHandle(myStorage.getItem("handle"));
+    }
+  }, []);
 
   const findQuiz = () => {
     //to check if a quiz with the given quizID exists
@@ -34,8 +38,14 @@ const QuizFinder = () => {
       .get()
       .then((snapshot) => {
         if (snapshot.exists) {
-          window.alert("Click OK to Begin Quiz!");
-          setRedirect(true);
+          Users.doc(handle)
+            .update({
+              TakenQuizes: firebase.firestore.FieldValue.arrayUnion(qID),
+            })
+            .then(() => {
+              window.alert("Click OK to Begin Quiz!");
+              setRedirect(true);
+            });
         } else {
           window.alert("Quiz with the ID: " + quizID + " does not exist!");
           console.log("Does not exist.");
@@ -43,7 +53,7 @@ const QuizFinder = () => {
       });
   };
 
-  if(redirectHome) return <Redirect to="/" />
+  if (redirectHome) return <Redirect to="/" />;
   return (
     <div className="flex justify-center items-center h-screen">
       {redirect === true ? (

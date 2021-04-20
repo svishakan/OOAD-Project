@@ -39,6 +39,7 @@ function Login() {
         if (data["Password"] === password) {
           setLoading(false);
           myStorage.setItem("handle", handle);
+          myStorage.setItem("Username", data.Username);
           setRedirect(true);
           console.log("not redirected");
         } else {

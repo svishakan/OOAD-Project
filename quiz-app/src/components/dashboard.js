@@ -13,6 +13,7 @@ function DashBoard() {
   const [redirectHome, setRedirectHome] = useState(false);
   const [redirectTake, setRedirectTake] = useState(false);
   const [redirectSet, setRedirectSet] = useState(false);
+  const [redirectReport, setRedirectReport] = useState(false);
   //const [redirectHome, setRedirectHome] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -28,6 +29,7 @@ function DashBoard() {
 
   if (redirectSet) return <Redirect to="/quizcreator" />;
   if (redirectTake) return <Redirect to="/quizfinder" />;
+  if (redirectReport) return <Redirect to="/YourQuizes" />;
   return (
     <div>
       {redirectHome === true ? (
@@ -72,7 +74,12 @@ function DashBoard() {
                 View Profie
               </button>
 
-              <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"></button>
+              <button
+                className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+                onClick={() => {setRedirectReport(true)}}
+              >
+                Reportcard
+              </button>
             </div>
           </div>
 

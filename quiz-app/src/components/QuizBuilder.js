@@ -86,10 +86,14 @@ function QuizBuilder() {
       <form
         id="quizform"
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 m-12 w-full"
+        onSubmit={(event) => {
+          event.preventDefault();
+          uploadQuiz();
+        }}
       >
         <h1 className="block text-gray-700 text-lg text-center font-bold mb-2">
           Quiz Builder
-      </h1>
+        </h1>
         <h3 className="block text-gray-700 text-md text-center font-bold mb-2">
           Quiz ID: {quizID}
         </h3>
@@ -106,7 +110,7 @@ function QuizBuilder() {
 
         <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">
           Correct Answer
-      </label>
+        </label>
         <input
           id="ans1"
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100"
@@ -116,7 +120,7 @@ function QuizBuilder() {
 
         <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">
           Wrong Answer #1
-      </label>
+        </label>
         <input
           id="ans2"
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100"
@@ -126,7 +130,7 @@ function QuizBuilder() {
 
         <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">
           Wrong Answer #2
-      </label>
+        </label>
         <input
           id="ans3"
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100"
@@ -135,7 +139,7 @@ function QuizBuilder() {
 
         <label className="block text-gray-700 text-sm font-bold mb-2 mt-4">
           Wrong Answer #3
-      </label>
+        </label>
         <input
           id="ans4"
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray focus:bg-blue-100"
@@ -156,9 +160,8 @@ function QuizBuilder() {
           />
           <input
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="button"
+            type="submit"
             value="Upload Set"
-            onClick={uploadQuiz}
           />
         </div>
       </form>

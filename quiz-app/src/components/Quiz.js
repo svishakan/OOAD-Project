@@ -14,6 +14,8 @@ function Quiz(props) {
   const [quizTitle, setQuizTitle] = useState("");
   const [quizDuration, setQuizDuration] = useState(0);
   const [handle, setHandle] = useState("");
+  const [username, setUsername] = useState("");
+  const [loading, setLoading] = useState(false);
 
   let myStorage = window.localStorage;
   let quizID = "props.location.state.qID"; //extract quizID from local storage
@@ -23,12 +25,14 @@ function Quiz(props) {
 
   // console.log(quizID);
   const quizDB = firebase.firestore().collection("QuizDB");
-
   const quizMeta = firebase.firestore().collection("QuizDB");
+  const Users = firebase.firestore().collection("UserCreds");
 
-  // useEffect(() => {
+  //useEffect(() => {
 
-  // }, [])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  //}, [currentIndex]);
+
   const getData = () => {
     //console.log(quizID);
 
@@ -83,6 +87,7 @@ function Quiz(props) {
     } else {
       console.log("Props");
       setHandle(myStorage.getItem("handle"));
+      setUsername(myStorage.getItem("Username"));
       console.log(props.location.state);
       // eslint-disable-next-line react-hooks/exhaustive-deps
       quizID = props.location.state.qID;
@@ -106,13 +111,41 @@ function Quiz(props) {
 
   const handleNextQuestion = () => {
     setShowAnswers(false);
-    setCurrentIndex(currentIndex + 1);
+    setCurrentIndex((prev) => prev + 1);
+    console.log(currentIndex, questions.length);
+
+    console.log(currentIndex);
+  };
+
+  const loadIntoDB = () => {
+    //setLoading(true);
+    console.log("in exit");
+    const scoreData = {
+      handle: handle,
+      Username: username,
+      Score: score,
+      Percent: Math.round((score / questions.length) * 100 * 100) / 100,
+    };
+    console.log(scoreData);
+    console.log(quizDB);
+    console.log(props.location.state.qID);
+    quizDB
+      .doc(props.location.state.qID)
+      .update({
+        Scores: firebase.firestore.FieldValue.arrayUnion(scoreData),
+      })
+      .then(() => {
+        console.log("matter over");
+        //setLoading(false);
+      });
+    //setEndOfQuiz(true);
+    return "";
   };
 
   if (redirectHome) return <Redirect to="/" />;
   if (redirectDash) return <Redirect to="/dashboard" />;
   if (redirectBack) return <Redirect to="/quizfinder" />;
-
+  if (loading) return <Loading />;
   return questions.length > 0 ? (
     <div className="flex justify-center items-center h-screen">
       <div className="container w-screen m-3">
@@ -121,10 +154,12 @@ function Quiz(props) {
         </h1>
         {currentIndex >= questions.length ? (
           <div align="center">
+            <div>{loadIntoDB()}</div>
             <h2 className="text-3xl text-white text-center font-bold">
               Quiz Ended! Your Score was {score} / {questions.length}.
-          </h2>
-            <br /><br />
+            </h2>
+            <br />
+            <br />
             <input
               type="button"
               value="Go To Dashboard"
