@@ -101,6 +101,7 @@ function QuizCreator() {
                 <input
                   id="qduration"
                   className=""
+                  min="0"
                   placeholder="Quiz Duration (in minutes)"
                   type="number"
                   required

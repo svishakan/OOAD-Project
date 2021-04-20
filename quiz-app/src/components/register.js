@@ -338,7 +338,7 @@ function Register() {
                   <Link to="/"><button
                   className="btn btn-l-neon-primary text-nowrap"
                   type="button"
-                  value="BACK" >GO BACK</button></Link>
+                  value="BACK">GO BACK</button></Link>
               </div>
             </form>
           </div>

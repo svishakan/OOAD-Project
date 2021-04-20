@@ -67,6 +67,20 @@ input[type="number"] {
     color: #ecf0f5;
 }
 
+/* Chrome, Safari, Edge, Opera */
+/*To remove the up and down arrows in input-type number*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+/*To remove the up and down arrows in input-type number*/
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .form-group {
     margin-bottom: 40px;
     outline: 0px;

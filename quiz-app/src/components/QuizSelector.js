@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { Redirect, Link } from "react-router-dom";
 import firebase from "../firebase";
 
+import "./quiztables.css";
+
 const QuizSelector = () => {
   const [redirect, setRedirect] = useState(false);
   const [redirectHome, setRedirectHome] = useState(false);
@@ -85,27 +87,46 @@ const QuizSelector = () => {
     );
   }
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th> # </th>
-            <th> Title </th>
-          </tr>
-        </thead>
-        <tbody>
-          {quizData.map((quizdet, idx) => (
+    <div class="container card col-lg-4 col-md-8 text-center quiz-box">
+      <div className="card-img">
+        <i className="fas fa-scroll quiz-img" aria-hidden="true"></i>
+      </div>
+      <div className="card-body">
+        <h1 className="col-lg-12 quiz-title text-center">
+          QUIZ REPORTS
+        </h1>
+        <table class="table table-dark table-bordered table-hover">
+          <thead class="thead-dark">
             <tr>
-              <Link
-                to={{ pathname: "/results", state: { qID: quizdet.quizID } }}
-              >
-                <td>{idx + 1}</td>
-                <td>{quizdet.title}</td>
-              </Link>
+              <th scope="col">#</th>
+              <th scope="col">Title</th>
+              <th scope="col">View</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {quizData.map((quizdet, idx) => (
+              <tr>
+                <td scope="row">{idx + 1}</td>
+                <td scope="row">{quizdet.title}</td>
+                <td scope="row">
+                  <Link to={{ pathname: "/results", state: { qID: quizdet.quizID } }}>
+                    <button
+                      className="btn btn-l-neon-primary text-nowrap"
+                      type="button"
+                      value="VIEW">View</button>
+                  </Link></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="d-flex justify-content-center pt-2 pb-5">
+          <Link to="/dashboard">
+            <button
+              className="btn btn-qb-neon-primary text-nowrap"
+              type="button"
+              value="BACK" >GO BACK</button></Link>
+        </div>
     </div>
   );
 };
