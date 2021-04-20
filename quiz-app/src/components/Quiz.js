@@ -168,9 +168,10 @@ function Quiz(props) {
             </h1>
             {currentIndex >= questions.length ? (
                 <div align="center" className="pb-5">
+                    <div>{loadIntoDB()}</div>
                     <h2 className="col-lg-12 quiz-sub-title text-center">
                         Quiz Ended! Your Score was {score} / {questions.length}.
-          </h2>
+                    </h2>
                     <br /><br />
                     <button
                         type="button"
