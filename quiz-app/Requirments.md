@@ -1,6 +1,6 @@
+- add .env file to quiz-app/
 - npm install react-scripts@latest
 - npm install --save firebase
-- npm install tailwindcss
 - npm install react-helmet
 - npm install @craco/craco
 - npm install reactjs-popup --save
