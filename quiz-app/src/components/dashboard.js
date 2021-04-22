@@ -21,13 +21,13 @@ function DashBoard() {
 
   let myStorage = window.localStorage;
 
-  // useEffect(() => {
-  //   if (myStorage.getItem("handle") === handle) {
-  //     setRedirectHome(true);
-  //   } else {
-  //     setHandle(myStorage.getItem("handle"));
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (myStorage.getItem("handle") === handle) {
+      setRedirectHome(true);
+    } else {
+      setHandle(myStorage.getItem("handle"));
+    }
+  }, []);
 
   if (redirectSet) return <Redirect to="/quizcreator" />;
   if (redirectTake) return <Redirect to="/quizfinder" />;
@@ -42,15 +42,15 @@ function DashBoard() {
             
             
             <nav
-              class="navbar navbar-expand-lg navbar-light bg-light"
+              className="navbar navbar-expand-lg navbar-light bg-light"
               style={{ backgroundColor: "#e3f2fd" }}
             >
-              <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+              <div className="container-fluid">
+                <a className="navbar-brand" href="#">
                   Hi, {myStorage.getItem("handle")}
                 </a>
                 <button
-                  class="navbar-toggler"
+                  className="navbar-toggler"
                   type="button"
                   data-toggle="collapse"
                   data-target="#navbarNavAltMarkup"
@@ -58,14 +58,14 @@ function DashBoard() {
                   aria-expanded="false"
                   aria-label="Toggle navigation"
                 >
-                  <span class="navbar-toggler-icon"></span>
+                  <span className="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                  <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="#">
-                      Profile <span class="sr-only">(current)</span>
+                <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div className="navbar-nav">
+                    <a className="nav-item nav-link active" href="#">
+                      Profile <span className="sr-only">(current)</span>
                     </a>
-                    <a class="nav-item nav-link" href="#">
+                    <a className="nav-item nav-link" href="#">
                       Logout
                     </a>
                   </div>
@@ -73,7 +73,7 @@ function DashBoard() {
               </div>
             </nav>
             <button
-              class="logout"
+              className="logout"
               onClick={() => {
                 console.log("of to login");
                 setRedirectHome(true);
