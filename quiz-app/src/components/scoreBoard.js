@@ -58,22 +58,31 @@ const ScoreBoard = (props) => {
             });
     };
 
+    const convertTimeStamp = (timestamp) => {
+        //to convert the epoch time to locale string
+
+        let date = new Date(parseInt(timestamp));
+
+        return date.toLocaleString();
+    }
+
     if (redirectHome) return <Redirect to="/" />;
     if (redirectBack) return <Redirect to="/YourQuizes" />;
 
     return (
-        <div className="container card col-lg-8 col-md-8 text-center quiz-box">
+        <div className="container card col-lg-8 col-md-12 col-sm-12 text-center quiz-box">
             <div className="card-img">
                 <i className="fas fa-poll quiz-img" aria-hidden="true"></i>
             </div>
             <div className="card-body">
-                <h1 className="col-lg-12 quiz-title text-center">
+                <h1 className="col-lg-12 col-md-12 col-sm-12 quiz-title text-center">
                     SCORECARD
                 </h1>
                 <table class="table table-dark table-bordered table-hover">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col"> # </th>
+                            <th scope="col"> Submission Time </th>
                             <th scope="col"> Handle </th>
                             <th scope="col"> First Name </th>
                             <th scope="col"> Score </th>
@@ -84,6 +93,7 @@ const ScoreBoard = (props) => {
                         {scoreData.map((scoreData, idx) => (
                             <tr>
                                 <td scope="row">{idx + 1}</td>
+                                <td scope="row">{convertTimeStamp(scoreData.timestamp)}</td>
                                 <td scope="row">{scoreData.handle}</td>
                                 <td scope="row">{scoreData.Username}</td>
                                 <td scope="row">{scoreData.Score}</td>
