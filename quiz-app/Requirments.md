@@ -10,3 +10,4 @@
 - npm install react-bootstrap bootstrap
 - npm install font-awesome
 - npm i @use-it/interval
+- npm install --save react-html-table-to-excel

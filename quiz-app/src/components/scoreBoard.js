@@ -2,6 +2,7 @@ import firebase from "../firebase";
 import { Link, Redirect } from "react-router-dom";
 import React from "react";
 import { useState, useEffect } from "react";
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 
 import "./quiztables.css";
 
@@ -16,6 +17,7 @@ const ScoreBoard = (props) => {
     let myStorage = window.localStorage;
     let qID = "";
     let scoreList = [];
+
     useEffect(() => {
         console.log(props);
         if (myStorage.getItem("handle") == null) {
@@ -39,6 +41,10 @@ const ScoreBoard = (props) => {
 
     const getData = async () => {
         console.log("qID :" + qID);
+
+        //for extracting qID for export
+        myStorage.setItem("qID", qID);
+
         await quizDB
             .doc(qID)
             .get()
@@ -78,15 +84,16 @@ const ScoreBoard = (props) => {
                 <h1 className="col-lg-12 col-md-12 col-sm-12 quiz-title text-center">
                     SCORECARD
                 </h1>
-                <table class="table table-dark table-bordered table-hover">
+                <div id="tablediv">
+                <table id="scoretable" class="table table-dark table-bordered table-hover">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col"> # </th>
                             <th scope="col"> Submission Time </th>
                             <th scope="col"> Handle </th>
-                            <th scope="col"> First Name </th>
+                            <th scope="col"> Name </th>
                             <th scope="col"> Score </th>
-                            <th scope="col"> % </th>
+                            <th scope="col"> Percentage </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,13 +109,22 @@ const ScoreBoard = (props) => {
                         ))}
                     </tbody>
                 </table>
+                </div>
             </div>
             <div className="d-flex justify-content-center pt-2 pb-5">
                 <Link to="/YourQuizes">
                     <button
-                        className="btn btn-qb-neon-primary text-nowrap"
+                        className="btn btn-qb-neon-primary"
                         type="button"
-                        value="BACK" >GO BACK</button></Link>
+                        value="BACK">GO BACK</button></Link>
+
+                    <ReactHTMLTableToExcel
+                    className="download-table-xls-button btn btn-qb-neon-primary"
+                    table="scoretable"
+                    filename={`Marksheet: ${window.localStorage.getItem("qID")}`}
+                    sheet={qID}
+                    buttonText="EXPORT"/>
+
             </div>
         </div>
     );
