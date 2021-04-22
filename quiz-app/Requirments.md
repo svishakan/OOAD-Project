@@ -8,4 +8,5 @@
 - npm install react-router-dom
 - npm install nanoid
 - npm install react-bootstrap bootstrap
-- npm i font-awesome
+- npm install font-awesome
+- npm i @use-it/interval
