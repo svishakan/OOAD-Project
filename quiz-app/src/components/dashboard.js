@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 //import Loading from "./loading";
 import { Redirect } from "react-router-dom";
+//import 'bootstrap/dist/css/bootstrap.css';
+
 //import CreateQuiz from "/components/crearequiz";
 //import TakeUpQuiz from "/components/takeupquiz";
 //import ViewProfile from "/components/viewprofile";
@@ -19,13 +21,13 @@ function DashBoard() {
 
   let myStorage = window.localStorage;
 
-  useEffect(() => {
-    if (myStorage.getItem("handle") === handle) {
-      setRedirectHome(true);
-    } else {
-      setHandle(myStorage.getItem("handle"));
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (myStorage.getItem("handle") === handle) {
+  //     setRedirectHome(true);
+  //   } else {
+  //     setHandle(myStorage.getItem("handle"));
+  //   }
+  // }, []);
 
   if (redirectSet) return <Redirect to="/quizcreator" />;
   if (redirectTake) return <Redirect to="/quizfinder" />;
@@ -37,6 +39,39 @@ function DashBoard() {
       ) : (
         <div className="justify-items-center rounded-lg shadow-lg py-6 px-6 m-auto  bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 align-middle">
           <div className="flex justify-end right absolute right-10">
+            
+            
+            <nav
+              class="navbar navbar-expand-lg navbar-light bg-light"
+              style={{ backgroundColor: "#e3f2fd" }}
+            >
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                  Hi, {myStorage.getItem("handle")}
+                </a>
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarNavAltMarkup"
+                  aria-controls="navbarNavAltMarkup"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">
+                      Profile <span class="sr-only">(current)</span>
+                    </a>
+                    <a class="nav-item nav-link" href="#">
+                      Logout
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </nav>
             <button
               class="logout"
               onClick={() => {
@@ -76,7 +111,9 @@ function DashBoard() {
 
               <button
                 className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-                onClick={() => {setRedirectReport(true)}}
+                onClick={() => {
+                  setRedirectReport(true);
+                }}
               >
                 Reportcard
               </button>
