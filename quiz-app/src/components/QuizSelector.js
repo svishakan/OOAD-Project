@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Redirect, Link } from "react-router-dom";
 import firebase from "../firebase";
+import Loading from "./loading";
 
 import "./quiztables.css";
 
@@ -12,6 +13,7 @@ const QuizSelector = () => {
     const [quizID, setQuizID] = useState("");
     const [quizData, setQuizData] = useState([]);
     const [handle, setHandle] = useState("");
+    const [loading, setLoading] = useState(false);
 
     let myStorage = window.localStorage;
     const quizDB = firebase.firestore().collection("QuizDB");
@@ -23,6 +25,7 @@ const QuizSelector = () => {
             setRedirectHome(true);
         } else {
             //setHandle(myStorage.getItem("handle"));
+            setLoading(true);   //started loading data
             setData(myStorage.getItem("handle")).then(() => {
                 console.log(myStorage.getItem("handle"));
                 makeQuizSet().then(() => {
@@ -67,6 +70,7 @@ const QuizSelector = () => {
                     ]);
                 });
         }
+        setLoading(false);  //finished loading data
     };
 
     // const linkChange = (qID) => {
@@ -87,6 +91,7 @@ const QuizSelector = () => {
         );
     }
     return (
+        loading? <Loading /> : (
         <div class="container card col-lg-8 col-md-8 text-center quiz-box">
             <div className="card-img">
                 <i className="fas fa-scroll quiz-img" aria-hidden="true"></i>
@@ -99,6 +104,7 @@ const QuizSelector = () => {
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">#</th>
+                            <th scope="col">Quiz ID</th>
                             <th scope="col">Title</th>
                             <th scope="col">View</th>
                         </tr>
@@ -107,6 +113,7 @@ const QuizSelector = () => {
                         {quizData.map((quizdet, idx) => (
                             <tr>
                                 <td scope="row">{idx + 1}</td>
+                                <td scope="row">{quizdet.quizID}</td>
                                 <td scope="row">{quizdet.title}</td>
                                 <td scope="row">
                                     <Link to={{ pathname: "/results", state: { qID: quizdet.quizID } }}>
@@ -128,7 +135,7 @@ const QuizSelector = () => {
                         value="BACK" >GO BACK</button></Link>
             </div>
         </div>
-    );
+    ));
 };
 
 export default QuizSelector;

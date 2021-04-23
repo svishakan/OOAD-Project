@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 
 import "./quiztables.css";
+import Loading from "./loading";
 
 const ScoreBoard = (props) => {
     const [handle, setHandle] = useState("");
@@ -13,6 +14,8 @@ const ScoreBoard = (props) => {
     const quizDB = firebase.firestore().collection("QuizDB");
     const [redirectHome, setRedirectHome] = useState(false);
     const [redirectBack, setRedirectBack] = useState(false);
+    const [loading, setLoading] = useState(false);
+
     //  console.log("in");
     let myStorage = window.localStorage;
     let qID = "";
@@ -36,12 +39,15 @@ const ScoreBoard = (props) => {
                 console.log(scoreList);
                 setScoreData([...scoreList])
             });
+
+            setLoading(false);  //finished loading data
         }
     }, [scoreList]);
 
     const getData = async () => {
         console.log("qID :" + qID);
 
+        setLoading(true);   //started loading data
         //for extracting qID for export
         myStorage.setItem("qID", qID);
 
@@ -76,7 +82,7 @@ const ScoreBoard = (props) => {
     if (redirectBack) return <Redirect to="/YourQuizes" />;
 
     return (
-        <div className="container card col-lg-8 col-md-12 col-sm-12 text-center quiz-box">
+        loading? <Loading /> : (<div className="container card col-lg-8 col-md-12 col-sm-12 text-center quiz-box">
             <div className="card-img">
                 <i className="fas fa-poll quiz-img" aria-hidden="true"></i>
             </div>
@@ -127,7 +133,7 @@ const ScoreBoard = (props) => {
 
             </div>
         </div>
-    );
+    ));
 };
 
 export default ScoreBoard;
