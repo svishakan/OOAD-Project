@@ -100,7 +100,7 @@ const QuizSelector = () => {
                 <h1 className="col-lg-12 quiz-title text-center">
                     QUIZ REPORTS
                 </h1>
-                <table class="table table-dark table-bordered table-hover">
+                <table class="table table-dark table-bordered table-hover col-sm-12">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">#</th>

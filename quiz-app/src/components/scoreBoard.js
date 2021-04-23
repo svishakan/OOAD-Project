@@ -91,7 +91,7 @@ const ScoreBoard = (props) => {
                     SCORECARD
                 </h1>
                 <div id="tablediv">
-                <table id="scoretable" class="table table-dark table-bordered table-hover">
+                <table id="scoretable" class="table table-dark table-bordered table-hover col-sm-12">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col"> # </th>
