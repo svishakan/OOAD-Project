@@ -12,3 +12,4 @@
 - npm i @use-it/interval
 - npm install --save react-html-table-to-excel
 - npm install email-validator
+- npm install emailjs-com --save
