@@ -89,7 +89,7 @@ const Feedback = () => {
                                 <label className="form-control-label">FEEDBACK</label>
                                 <textarea
                                     style={{resize: "none"}}
-                                    class="form-control"
+                                    className="form-control form-control-textarea"
                                     name="message"
                                     rows="5"
                                     placeholder="Kindly enter your feedback here">
@@ -97,7 +97,7 @@ const Feedback = () => {
                             </div>
 
                             <div className="col-lg-12 loginbttm">
-                                <div className="col-lg-12 d-flex justify-content-center login-btm login-button">
+                                <div className="col-lg-12 d-flex justify-content-center login-btm feedback-button">
                                     <button
                                         type="submit"
                                         value="Mail us"
