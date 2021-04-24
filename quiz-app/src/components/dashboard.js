@@ -2,7 +2,16 @@ import React from "react";
 import { useState, useEffect } from "react";
 //import Loading from "./loading";
 import { Redirect } from "react-router-dom";
-//import 'bootstrap/dist/css/bootstrap.css';
+//import Navbar from 'react-bootstrap/Navbar'
+import {
+  Navbar,
+  Nav,
+  NavItem,
+  NavDropdown,
+  DropdownButton,
+  MenuItem,
+  CollapsibleNav,
+} from "react-bootstrap";
 
 //import CreateQuiz from "/components/crearequiz";
 //import TakeUpQuiz from "/components/takeupquiz";
@@ -37,90 +46,81 @@ function DashBoard() {
       {redirectHome === true ? (
         <Redirect to="/enter" />
       ) : (
-        <div className="justify-items-center rounded-lg shadow-lg py-6 px-6 m-auto  bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 align-middle">
-          <div className="flex justify-end right absolute right-10">
-            
-            
-            <nav
-              class="navbar navbar-expand-lg navbar-light bg-light"
-              style={{ backgroundColor: "#e3f2fd" }}
-            >
-              <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                  Hi, {myStorage.getItem("handle")}
-                </a>
-                <button
-                  class="navbar-toggler"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#navbarNavAltMarkup"
-                  aria-controls="navbarNavAltMarkup"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                  <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="#">
-                      Profile <span class="sr-only">(current)</span>
-                    </a>
-                    <a class="nav-item nav-link" href="#">
-                      Logout
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </nav>
-            <button
-              class="logout"
-              onClick={() => {
-                console.log("of to login");
-                setRedirectHome(true);
-              }}
-            >
-              Logout
-            </button>
-          </div>
-          <div className="fixed pt-20">
-            <div className="flex absolute justify-around w-screen ">
-              <button
-                className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-                onClick={() => {
-                  setRedirectTake(true);
-                }}
-              >
-                Take Up Quiz
-              </button>
+        <div>
+          <div className="text-center ">
+            <div className="">
+              <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar.Brand>Hi, {myStorage.getItem("handle")}</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                  <Nav className="mr-auto">
+                    <NavDropdown title="Settings" id="collasible-nav-dropdown">
+                      <NavDropdown.Item href="/enter">
+                        <div className="card-img">
+                          <i class="fa fa-sign-out" aria-hidden="true" />
+                          Logout
+                        </div>
+                      </NavDropdown.Item>
 
-              <button
-                className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-                onClick={() => {
-                  setRedirectSet(true);
-                }}
-              >
-                Create a Quiz
-              </button>
-
-              <button
-                className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-                onClick={() => {}}
-              >
-                View Profie
-              </button>
-
-              <button
-                className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-                onClick={() => {
-                  setRedirectReport(true);
-                }}
-              >
-                Reportcard
-              </button>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item href="#action/3.4">
+                        Separated link
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                    <div className="flex justify-right-10">
+                      <Navbar.Brand>
+                        <picture
+                          src="/src/images/loading.svg"
+                          width="30"
+                          height="30"
+                          className="d-inline-block align-top"
+                          alt="logo"
+                        />
+                      </Navbar.Brand>
+                    </div>
+                  </Nav>
+                </Navbar.Collapse>
+              </Navbar>
             </div>
-          </div>
+            <div className="fixed pt-20">
+              <div className="flex absolute justify-around w-screen ">
+                <button
+                  className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+                  onClick={() => {
+                    setRedirectTake(true);
+                  }}
+                >
+                  Take Up Quiz
+                </button>
 
-          {/* <table>
+                <button
+                  className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+                  onClick={() => {
+                    setRedirectSet(true);
+                  }}
+                >
+                  Create a Quiz
+                </button>
+
+                <button
+                  className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+                  onClick={() => {}}
+                >
+                  View Profie
+                </button>
+
+                <button
+                  className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+                  onClick={() => {
+                    setRedirectReport(true);
+                  }}
+                >
+                  Reportcard
+                </button>
+              </div>
+            </div>
+
+            {/* <table>
           <div className="flex items-center">
             <tr>
               <td>
@@ -145,6 +145,7 @@ function DashBoard() {
             </tr>
             </div>
           </table> */}
+          </div>
         </div>
       )}
     </div>
