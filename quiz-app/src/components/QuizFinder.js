@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import firebase from "../firebase";
+import Toaster from "./toaster";
+import { render } from "@testing-library/react";
 
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
@@ -47,8 +49,18 @@ const QuizFinder = () => {
               TakenQuizes: firebase.firestore.FieldValue.arrayUnion(qID),
             })
             .then(() => {
-              window.alert("Click OK to Begin Quiz!");
-              setRedirect(true);
+              
+              render(
+                <Toaster 
+                    headerText={"Quiz Found!"} 
+                    bodyText={`Your quiz will begin in a moment! Get ready!`}
+                    bgType={"bg-success"}
+                    textColor={"text-white"} />
+            );
+             
+            //start quiz in 3 seconds
+            setTimeout(() => { setRedirect(true); }, 3000);
+
             });
           setDuration(snapshot.data().quizDuration);
         } else {

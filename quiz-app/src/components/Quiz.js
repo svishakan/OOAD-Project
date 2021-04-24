@@ -4,6 +4,9 @@ import { Questionnaire } from ".";
 import { Redirect } from "react-router-dom";
 import firebase from "../firebase";
 import Loading from "./loading";
+import Toaster from "./toaster";
+
+import { render } from "@testing-library/react";
 
 import "./quiz.css";
 
@@ -49,6 +52,15 @@ function Quiz(props) {
         //console.log(quizDuration + " xD")
         if (quizDuration < 0) {
             setCurrentIndex(() => questions.length + 1);
+
+            render(
+                <Toaster 
+                    headerText={"Timer expired!"} 
+                    bodyText={`Your timer ran out! Your answer submissions were saved.`}
+                    bgType={"bg-danger"}
+                    delayTime={5000}
+                    textColor={"text-white"} />
+            );
         }
         //console.log(currentIndex);
     }, [quizDuration]);
@@ -136,6 +148,31 @@ function Quiz(props) {
         setSelectedAnswer(answer);
     };
 
+    const displayAnswerInfo = () => {
+
+        if(selectedAnswer){
+            render(
+                <Toaster 
+                    headerText={"Answer saved!"} 
+                    bodyText={`You selected ${selectedAnswer} for the previous question.`}
+                    bgType={"bg-info"}
+                    delayTime={2000}
+                    textColor={"text-white"} />
+            );
+        }
+
+        else{
+            render(
+                <Toaster 
+                    headerText={"Answer not selected!"} 
+                    bodyText={`You did not select an answer for the previous question.`}
+                    bgType={"bg-warning"}
+                    delayTime={2000}
+                    textColor={"text-black"} />
+            );
+        }
+    }
+
     const handleNextQuestion = () => {
         // setShowAnswers(false);
         // setCurrentIndex((prev) => prev + 1);
@@ -143,12 +180,14 @@ function Quiz(props) {
 
         // console.log(currentIndex);
 
-        if(currentIndex + 2 == questions.length){
+        displayAnswerInfo();
+
+        if(currentIndex + 2 === questions.length){
             //to change the next button style to a submit button on the last question
             document.getElementById("next-q-btn").className += " fa-check-circle icon-btn-submit";
         }
 
-        if (selectedAnswer == questions[currentIndex].correct_answer) {
+        if (selectedAnswer === questions[currentIndex].correct_answer) {
             scoreSheet[currentIndex] = 1;
         }
 
@@ -156,7 +195,7 @@ function Quiz(props) {
             scoreSheet[currentIndex] = 0;
         }
 
-        if(currentIndex + 1 == questions.length){
+        if(currentIndex + 1 === questions.length){
             //to calculate the total score
             calculateScore();
         }
@@ -164,17 +203,20 @@ function Quiz(props) {
         document.getElementById("next-q-btn").blur();
         setShowAnswers(false);
         setCurrentIndex(currentIndex + 1);
+        setSelectedAnswer(null);    //clear the selectedAnswer
     };
 
     const handlePreviousQuestion = () => {
         if (currentIndex <= 0) return;
 
-        if(currentIndex + 1 == questions.length){
+        displayAnswerInfo();
+
+        if(currentIndex + 1 === questions.length){
             //to change the next button style back to old style
             document.getElementById("next-q-btn").className = "icon-btn far fa-arrow-alt-circle-right";
         }
 
-        if (selectedAnswer == questions[currentIndex].correct_answer) {
+        if (selectedAnswer === questions[currentIndex].correct_answer) {
             scoreSheet[currentIndex] = 1;
         }
 
@@ -188,6 +230,7 @@ function Quiz(props) {
         setCurrentIndex(currentIndex - 1);
 
         scoreSheet[currentIndex - 1] = 0;
+        setSelectedAnswer(null);    //clear the selectedAnswer
 
     }
 
@@ -286,6 +329,7 @@ const Timer = ({ duration, update }) => {
 
     //setTime(() => duration*60);
     //console.log(duration);
+
     let time = duration;
     //duration = time;
     useInterval(() => {
@@ -309,8 +353,10 @@ const Timer = ({ duration, update }) => {
             if (hours) string = `${hours}:${minutes}:${seconds}`;
             else string = `${minutes}:${seconds}`;
 
-            if (duration < 0) string = "Times Up!";
-
+            if (duration < 0) {
+                string = "Times Up!";
+            }
+                
             //html = string;
             setDisplayTime(string);
         }

@@ -1,6 +1,8 @@
+import { render } from "@testing-library/react";
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import firebase from "../firebase";
+import Toaster from "./toaster";
 
 import "./quizforms.css";
 
@@ -52,6 +54,14 @@ function QuizBuilder() {
 
         setQuestionNumber(questionNumber + 1);
         document.getElementById("quizform").reset();
+
+        render(
+            <Toaster 
+                headerText={"Question Saved!"} 
+                bodyText={`Question ${questionNumber} has been stored successfully!`}
+                bgType={"bg-success"}
+                textColor={"text-white"} />
+        );
     };
 
     const uploadQuiz = () => {
@@ -72,10 +82,27 @@ function QuizBuilder() {
                 .then(() => {
                     console.log("Successfully written!");
                     setRedirectDash(true);
-                    //To Do: Set a redirect back to dashboard from here
+
+                    render(
+                        <Toaster 
+                            headerText={"Question Set Uploaded!"} 
+                            bodyText={`Your quiz ${quizID} has been uploaded successfully!`}
+                            bgType={"bg-success"}
+                            delayTime={5000}
+                            textColor={"text-white"} />
+                    );
                 })
                 .catch((err) => {
                     console.error("Document writing error: ", err);
+
+                    render(
+                        <Toaster 
+                            headerText={"Upload Failed!"} 
+                            bodyText={`Your quiz ${quizID} could not be uploaded. Try again!`}
+                            bgType={"bg-danger"}
+                            delayTime={5000}
+                            textColor={"text-white"} />
+                    );
                 });
         }
     };
