@@ -216,7 +216,7 @@ function Register() {
 									size="20"
 									onChange={(event) => setUsername(event.target.value)}
 									className="form-control"
-									required/>
+									required />
 							</div>
 							<div className="form-group">
 								<label className="form-control-label">HANDLE*</label>
@@ -229,7 +229,7 @@ function Register() {
 									size="20"
 									onChange={(event) => setHandle(event.target.value)}
 									className="form-control"
-									required/>
+									required />
 							</div>
 							<div className="form-group">
 								<label className="form-control-label">EMAIL</label>
@@ -240,7 +240,7 @@ function Register() {
 									value={email}
 									size="20"
 									onChange={(event) => setEmail(event.target.value)}
-									className="form-control"/>
+									className="form-control" />
 							</div>
 							<div className="form-group">
 								<label className="form-control-label">
@@ -253,7 +253,7 @@ function Register() {
 									value={work_place}
 									size="20"
 									onChange={(event) => setWorkPlace(event.target.value)}
-									className="form-control"/>
+									className="form-control" />
 							</div>
 							<div className="form-group">
 								<label className="form-control-label">PASSWORD*</label>
@@ -265,7 +265,7 @@ function Register() {
 									size="20"
 									onChange={(event) => setPassword(event.target.value)}
 									className="form-control"
-									required/>
+									required />
 							</div>
 							<div className="form-group">
 								<label className="form-control-label">CONFIRM PASSWORD*</label>
@@ -277,7 +277,7 @@ function Register() {
 									size="20"
 									onChange={(event) => setCPassword(event.target.value)}
 									className="form-control"
-									required/>
+									required />
 							</div>
 							<div className="col-lg-12 d-inline-flex login-btm login-button justify-content-between">
 								<button

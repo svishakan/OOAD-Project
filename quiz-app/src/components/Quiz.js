@@ -135,16 +135,6 @@ function Quiz(props) {
     };
 
     const handleAnswer = (answer) => {
-        // if (!showAnswers) {
-        //   //prevent double answers
-        //   //check for the answer
-        //   if (answer === questions[currentIndex].correct_answer) {
-        //     //increase the score
-        //     setScore(score + 1);
-        //   }
-        // }
-
-        // setShowAnswers(true);
         setSelectedAnswer(answer);
     };
 
@@ -174,12 +164,7 @@ function Quiz(props) {
     }
 
     const handleNextQuestion = () => {
-        // setShowAnswers(false);
-        // setCurrentIndex((prev) => prev + 1);
-        // console.log(currentIndex, questions.length);
-
-        // console.log(currentIndex);
-
+        
         displayAnswerInfo();
 
         if(currentIndex + 2 === questions.length){

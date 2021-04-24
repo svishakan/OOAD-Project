@@ -2,9 +2,6 @@
 - npm install react-scripts@latest
 - npm install --save firebase
 - npm install react-helmet
-- npm install @craco/craco
-- npm install reactjs-popup --save
-- npm install --save react-popup-alert
 - npm install react-router-dom
 - npm install nanoid
 - npm install react-bootstrap bootstrap
@@ -13,3 +10,11 @@
 - npm install --save react-html-table-to-excel
 - npm install email-validator
 - npm install emailjs-com --save
+
+--
+Unnecessary Packages:
+--
+
+- npm install @craco/craco
+- npm install reactjs-popup --save
+- npm install --save react-popup-alert

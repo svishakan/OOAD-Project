@@ -138,3 +138,7 @@ body {
     box-shadow: 0px 0px 5px #7CFC00, 0px 0px 20px #7CFC00, 0px 0px 40px #7CFC00;
     transition-delay: 0.2s;
 }
+
+.set-p-hidden{
+    visibility: hidden;
+}
