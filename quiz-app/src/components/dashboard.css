@@ -20,19 +20,22 @@ body{
 button:hover{
     background-color: yellow;
 }
-
-
+*/
 button{
     width: 100px;
     height: 75px;
     font-weight: bold;
     background-color: rgb(148, 148, 148);
-}*/
-
- button.logout:hover{
+}
+button.logout{
+    width : 75px;
+    height : 40px;
+    border-radius: 12px;
+}
+button.logout:hover{
     background-color: red;
     box-shadow: 0 12px 216px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0, 0, 0, 0.19);
-} 
+}
 
 table{
     vertical-align: middle;

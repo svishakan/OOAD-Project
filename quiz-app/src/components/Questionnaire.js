@@ -2,10 +2,8 @@ import React from 'react';
 
 import "./quiz.css";
 
-// import { isCompositeComponentWithType } from 'react-dom/test-utils';
 
-
-const Questionnaire = ({ totalQuestions, questionNumber, handleAnswer, data: { question, correct_answer, answers }, showAnswers, handleNextQuestion }) => {
+const Questionnaire = ({ totalQuestions, questionNumber, handleAnswer, data: { question, correct_answer, answers }, showAnswers, handlePreviousQuestion, handleNextQuestion }) => {
 
     return (
         <div className="flex flex-col">
@@ -29,7 +27,10 @@ const Questionnaire = ({ totalQuestions, questionNumber, handleAnswer, data: { q
 
                 )}
             </div>
-            {(<button onClick={handleNextQuestion} id="next-q-btn" className="btn btn-block btn-next-neon-primary text-nowrap float-right">Next Question</button>)}
+            <div className="d-flex flex-row justify-content-between">
+                {(<a onClick={handlePreviousQuestion} id="prev-q-btn" className="icon-btn far fa-arrow-alt-circle-left"></a>)}
+                {(<a onClick={handleNextQuestion} id="next-q-btn" className="icon-btn far fa-arrow-alt-circle-right"></a>)}
+            </div>
         </div>
 
     )
