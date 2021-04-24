@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.8.3",
     "@use-it/interval": "^1.0.0",
     "bootstrap": "^4.6.0",
+    "email-validator": "^2.0.4",
     "firebase": "^8.4.1",
     "font-awesome": "^4.7.0",
     "nanoid": "^3.1.22",
