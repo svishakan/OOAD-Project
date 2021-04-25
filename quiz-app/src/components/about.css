@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+body {
+    background: #222d32;
+    font-family: "Roboto", sans-serif;
+}
+
+.card-custom-img {
+    margin-top: 10px;
+    height: 150px;
+    font-size: 150px;
+    line-height: 150px;
+    text-align: center;
+    background: -webkit-linear-gradient(#27ef9f, #0db8de);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-img {
+    margin-top: 20px;
+    height: 100px;
+    font-size: 100px;
+    line-height: 100px;
+    text-align: center;
+    background: -webkit-linear-gradient(#27ef9f, #0db8de);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.connect-img {
+    height: 50px;
+    font-size: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: -webkit-linear-gradient(#27ef9f, #0db8de);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-title {
+    font-size: 3em;
+    margin-top: 25px;
+    color: #fff;
+}
+
+.title-name {
+    font-family: "Pacifico", cursive;
+    font-size: 2.5em;
+    color: #00f9ff;
+}
+
+.about-box {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 75px;
+    background: #1a2226;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.card-p-text {
+    font-family: "Righteous", cursive;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 2px;
+}
+
+.card:hover{
+    box-shadow: 0px 0px 5px #F4D03F, 0px 0px 20px#F4D03F, 0px 0px 40px #F4D03F;
+}
+
+.connect-img:hover {
+    background: -webkit-linear-gradient(#ffee28, #ff7843);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition-delay: 0.2s;
+}
+
+.card-custom-margin {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.btn-gb-neon-primary {
+    border-radius: 40px;
+    width: fit-content;
+    text-decoration: none;
+    transition: 0.2s all;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid aqua;
+}
+
+.btn-gb-neon-primary:hover {
+    background: #26a0da;
+    color: #000;
+    box-shadow: 0px 0px 5px #26a0da, 0px 0px 20px#26a0da, 0px 0px 40px #26a0da;
+    transition-delay: 0.2s;
+}

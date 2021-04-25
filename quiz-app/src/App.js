@@ -13,6 +13,8 @@ import Quiz from "./components/Quiz";
 import QuizSelector from "./components/QuizSelector";
 import ScoreBoard from "./components/scoreBoard";
 import Feedback from "./components/feedback";
+import About from "./components/about";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -94,6 +96,9 @@ function App() {
               />
               <Route path="/feedback">
                 <Feedback />
+              </Route>
+              <Route path="/about">
+                <About />
               </Route>
             </Switch>
           </div>
