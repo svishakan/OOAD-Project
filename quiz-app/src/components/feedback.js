@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Toaster from "./toaster";
 
 import { render } from "@testing-library/react";
@@ -97,13 +98,20 @@ const Feedback = () => {
                             </div>
 
                             <div className="col-lg-12 loginbttm">
-                                <div className="col-lg-12 d-flex justify-content-center login-btm feedback-button">
+                                <div className="d-flex justify-content-between pb-5 feedback-button">
+                                    <Link to="/dashboard">
+                                        <button
+                                            className="btn btn-qf-neon-primary text-nowrap"
+                                            type="button"
+                                            value="BACK">
+                                            BACK</button>
+                                    </Link>
                                     <button
                                         type="submit"
                                         value="Mail us"
                                         name="Mail"
                                         className="btn btn-l-neon-primary text-nowrap">
-                                        Send Feedback
+                                        SEND
                                     </button>
                                 </div>
                             </div>

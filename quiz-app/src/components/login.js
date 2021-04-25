@@ -100,6 +100,7 @@ function Login() {
     else
         return (
             <div className="container">
+                <h1 className="col-lg-12 page-title">WELCOME TO QUIZ APP!</h1>
                 {redirect === true ? (
                     <Redirect to="/dashboard" />
                 ) : (
