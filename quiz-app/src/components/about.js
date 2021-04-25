@@ -16,7 +16,7 @@ const About = () => {
                         <i className="card-img-top card-custom-img fas fa-user-ninja"></i>
                         <div className="card-body">
                             <p className="card-text text-white card-p-text">
-                                "Nee Mangooni Amaichar Enbadhai Manikku Oru Murai Kaatugirai."
+                                "Build Up Panramo, Peela Udramo Adhu Mukkiyam Illa, Namma Edhu Pannalum Indha Ulagam Nammala Odaney Uththu Paakanum."
                             </p>
                         </div>
                         <div class="card-footer d-flex justify-content-around">
@@ -30,7 +30,7 @@ const About = () => {
                         <i className="card-img-top card-custom-img fas fa-user-graduate"></i>
                         <div className="card-body">
                             <p className="card-text text-white card-p-text">
-                                "Namakku Vaaitha Adimaigal Migavum Thiramaisaaligal."
+                                "Namakku Vaaitha Adimaigal Migavum Thiramai Saaligal."
                             </p>
                         </div>
                         <div class="card-footer d-flex justify-content-around">
@@ -42,9 +42,9 @@ const About = () => {
                     <div className="card about-box">
                         <h1 className="card-header title-name">Vishakan Subramanian</h1>
                         <i className="card-img-top card-custom-img fas fa-user-astronaut"></i>
-                        <div className="card-body">
+                        <div className="card-body" style={{wordWrap: "break-word"}}>
                             <p className="card-text text-white card-p-text">
-                                "Unakku Parisum Kidaiyaathu Ondrum Kidaiyaathu Udhaippatharkkul Odividu."
+                                "Jaaminukkum Meenukum Vidhyaasame Theriyadha Ungala Enaku Assistant-ah Vechaen Paathiya, Adha Nenachu Naan Romba Perumai Padren Da."
                             </p>
                         </div>
                         <div class="card-footer d-flex justify-content-around">
