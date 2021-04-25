@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 
 import "./quizforms.css";
+import { render } from "@testing-library/react";
+import Toaster from "./toaster";
 
 const { nanoid } = require("nanoid");
 const quizID = nanoid(8);
@@ -54,9 +56,28 @@ function QuizCreator() {
                 });
 
                 setRedirect(true);
+
+                render(
+                    <Toaster 
+                        headerText={"Quiz Initiated"} 
+                        bodyText={`${quizID} is your new quiz ID. Kindly make note of it.`}
+                        bgType={"bg-info"}
+                        delayTime={5000}
+                        textColor={"text-white"} />
+                );
+
             })
             .catch((err) => {
                 console.error("Document writing error: ", err);
+
+                render(
+                    <Toaster 
+                        headerText={"Quiz Initiated"} 
+                        bodyText={`An error occurred! Your quiz could not be set.`}
+                        bgType={"bg-danger"}
+                        delayTime={5000}
+                        textColor={"text-white"} />
+                );
             });
     };
 

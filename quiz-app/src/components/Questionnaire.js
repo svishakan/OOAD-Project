@@ -4,6 +4,11 @@ import "./quiz.css";
 
 
 const Questionnaire = ({ totalQuestions, questionNumber, handleAnswer, data: { question, correct_answer, answers }, showAnswers, handlePreviousQuestion, handleNextQuestion }) => {
+    let setPreviousHidden = "";
+
+    if(questionNumber == 1){
+        setPreviousHidden = "set-p-hidden"
+    }
 
     return (
         <div className="flex flex-col">
@@ -28,7 +33,7 @@ const Questionnaire = ({ totalQuestions, questionNumber, handleAnswer, data: { q
                 )}
             </div>
             <div className="d-flex flex-row justify-content-between">
-                {(<a onClick={handlePreviousQuestion} id="prev-q-btn" className="icon-btn far fa-arrow-alt-circle-left"></a>)}
+                {(<a onClick={handlePreviousQuestion} id="prev-q-btn" className={`icon-btn far fa-arrow-alt-circle-left ${setPreviousHidden}`}></a>)}
                 {(<a onClick={handleNextQuestion} id="next-q-btn" className="icon-btn far fa-arrow-alt-circle-right"></a>)}
             </div>
         </div>

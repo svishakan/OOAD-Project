@@ -1,8 +1,8 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import React from "react";
 import { useState, useEffect } from "react";
-import Register from './components/register';
+import Register from "./components/register";
 import Login from "./components/login";
 import Loading from "./components/loading";
 import Dashboard from "./components/dashboard";
@@ -12,7 +12,7 @@ import QuizCreator from "./components/QuizCreator";
 import Quiz from "./components/Quiz";
 import QuizSelector from "./components/QuizSelector";
 import ScoreBoard from "./components/scoreBoard";
-
+import Feedback from "./components/feedback";
 import {
   BrowserRouter as Router,
   Switch,
@@ -92,6 +92,9 @@ function App() {
                 path="/results"
                 render={(props) => <ScoreBoard {...props} />}
               />
+              <Route path="/feedback">
+                <Feedback />
+              </Route>
             </Switch>
           </div>
         </Router>
