@@ -42,7 +42,7 @@ const About = () => {
                     <div className="card about-box">
                         <h1 className="card-header title-name">Vishakan Subramanian</h1>
                         <i className="card-img-top card-custom-img fas fa-user-astronaut"></i>
-                        <div className="card-body" style={{wordWrap: "break-word"}}>
+                        <div className="card-body" style={{ wordWrap: "break-word" }}>
                             <p className="card-text text-white card-p-text">
                                 "Jaaminukkum Meenukum Vidhyaasame Theriyadha Ungala Enaku Assistant-ah Vechaen Paathiya, Adha Nenachu Naan Romba Perumai Padren Da."
                             </p>
@@ -63,6 +63,18 @@ const About = () => {
                         value="BACK">
                         GO BACK</button>
                 </Link>
+            </div>
+            <div className="about-footer text-center">
+                <p>Powered By:
+                <i className="footer-img fab fa-github" />
+                    <i className="footer-img fab fa-react" />
+                    <i className="footer-img fab fa-bootstrap" />
+                    <i className="footer-img fab fa-google" />
+                    <i className="footer-img fab fa-font-awesome" />
+                    <i className="footer-img fab fa-html5" />
+                    <i className="footer-img fab fa-css3" />
+                    <i className="footer-img fab fa-js" />
+                </p>
             </div>
         </div>
     );

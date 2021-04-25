@@ -39,6 +39,40 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+.connect-img:hover {
+    background: -webkit-linear-gradient(#ffee28, #ff7843);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition-delay: 0.2s;
+}
+
+.about-footer {
+    padding-top: 2.5%;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer-img {
+    height: 1em;
+    font-size: 1em;
+    line-height: 1em;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    background: -webkit-linear-gradient(#27ef9f, #0db8de);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-img:hover {
+    background: -webkit-linear-gradient(#ffee28, #ff7843);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition-delay: 0.2s;
+}
+
 .about-title {
     font-size: 3em;
     margin-top: 25px;
@@ -68,15 +102,8 @@ body {
     letter-spacing: 2px;
 }
 
-.card:hover{
-    box-shadow: 0px 0px 5px #F4D03F, 0px 0px 20px#F4D03F, 0px 0px 40px #F4D03F;
-}
-
-.connect-img:hover {
-    background: -webkit-linear-gradient(#ffee28, #ff7843);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition-delay: 0.2s;
+.card:hover {
+    box-shadow: 0px 0px 5px #f4d03f, 0px 0px 20px#F4D03F, 0px 0px 40px #f4d03f;
 }
 
 .card-custom-margin {
