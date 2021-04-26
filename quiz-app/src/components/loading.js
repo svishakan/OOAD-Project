@@ -1,4 +1,4 @@
-import "./loading.css";
+//import "./loading.css";
 import circle from "../images/Loading.svg";
 
 function Loading() {

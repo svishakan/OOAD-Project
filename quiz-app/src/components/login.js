@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import firebase from "../firebase";
 import { Redirect } from "react-router-dom";
 import * as crypto from "crypto";
-import "../index.css";
 import Loading from "./loading";
 import Toaster from "./toaster";
 
@@ -11,7 +10,8 @@ import { render } from "@testing-library/react";
 
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
-import "./login.css";
+//import "../index.css";
+//import "./login.css";
 
 function Login() {
   const [loading, setLoading] = useState(false);
@@ -103,7 +103,7 @@ function Login() {
   else
     return (
       <div className="container">
-        <h1 className="col-lg-12 page-title">WELCOME TO QUIZ APP!</h1>
+        <h1 className="col-lg-12 login-page-title">WELCOME TO QUIZ APP!</h1>
         {redirect === true ? (
           <Redirect to="/dashboard" />
         ) : (

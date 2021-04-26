@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import firebase from "../firebase";
 import Toaster from "./toaster";
 
-import "./quizforms.css";
+//import "./quizforms.css";
 
 let records = [];
 
@@ -146,7 +146,7 @@ function QuizBuilder() {
                     className="">
 
                     <div className="col-lg-12 form-group">
-                        <label className="form-control-label" style={{ width: "15%", "margin-right": "5px" }}>
+                        <label className="quiz-form-control-label" style={{ width: "15%", "margin-right": "5px" }}>
                             QUESTION #{questionNumber}
                         </label>
                         <input
@@ -160,7 +160,7 @@ function QuizBuilder() {
                     </div>
 
                     <div className="col-lg-12 form-group">
-                        <label className="form-control-label" style={{ width: "15%", "margin-right": "5px" }}>
+                        <label className="quiz-form-control-label" style={{ width: "15%", "margin-right": "5px" }}>
                             CORRECT ANSWER
                         </label>
                         <input
@@ -174,7 +174,7 @@ function QuizBuilder() {
                     </div>
 
                     <div className="col-lg-12 form-group">
-                        <label className="form-control-label" style={{ width: "15%", "margin-right": "5px" }}>
+                        <label className="quiz-form-control-label" style={{ width: "15%", "margin-right": "5px" }}>
                             WRONG ANSWER #1
                         </label>
                         <input
@@ -188,7 +188,7 @@ function QuizBuilder() {
                     </div>
 
                     <div className="col-lg-12 form-group">
-                        <label className="form-control-label" style={{ width: "15%", "margin-right": "5px" }}>
+                        <label className="quiz-form-control-label" style={{ width: "15%", "margin-right": "5px" }}>
                             WRONG ANSWER #2
                         </label>
                         <input
@@ -201,7 +201,7 @@ function QuizBuilder() {
                     </div>
 
                     <div className="col-lg-12 form-group">
-                        <label className="form-control-label" style={{ width: "15%", "margin-right": "5px" }}>
+                        <label className="quiz-form-control-label" style={{ width: "15%", "margin-right": "5px" }}>
                             WRONG ANSWER #3
                         </label>
                         <input

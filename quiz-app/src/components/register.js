@@ -5,7 +5,6 @@ import firebase from "../firebase";
 import * as EmailValidator from "email-validator";
 import * as crypto from "crypto";
 import emailjs from "emailjs-com";
-import "../index.css";
 import Loading from "./loading";
 import Toaster from "./toaster";
 
@@ -13,7 +12,8 @@ import { render } from "@testing-library/react";
 
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
-import "./login.css";
+// import "../index.css";
+// import "./login.css";
 
 function Register() {
   const [loading, setLoading] = useState(false);

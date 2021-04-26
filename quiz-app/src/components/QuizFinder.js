@@ -6,7 +6,7 @@ import { render } from "@testing-library/react";
 
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
-import "./quizforms.css";
+//import "./quizforms.css";
 
 const QuizFinder = () => {
     const [redirect, setRedirect] = useState(false);
@@ -108,7 +108,7 @@ const QuizFinder = () => {
                         <h1 className="col-lg-12 quiz-title text-center">QUIZ FINDER</h1>
                         <form id="finderform" className="">
                             <div className="col-lg-12 form-group">
-                                <label className="form-control-label">QUIZ ID</label>
+                                <label className="quiz-form-control-label">QUIZ ID</label>
                                 <input
                                     type="text"
                                     id="qid"

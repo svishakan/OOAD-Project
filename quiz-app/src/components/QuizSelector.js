@@ -4,7 +4,7 @@ import { Redirect, Link } from "react-router-dom";
 import firebase from "../firebase";
 import Loading from "./loading";
 
-import "./quiztables.css";
+//import "./quiztables.css";
 
 const QuizSelector = () => {
     const [redirect, setRedirect] = useState(false);

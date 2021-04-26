@@ -1,6 +1,6 @@
 import React from 'react';
 
-import "./quiz.css";
+//import "./quiz.css";
 
 
 const Questionnaire = ({ totalQuestions, questionNumber, handleAnswer, data: { question, correct_answer, answers }, showAnswers, handlePreviousQuestion, handleNextQuestion }) => {
@@ -25,7 +25,7 @@ const Questionnaire = ({ totalQuestions, questionNumber, handleAnswer, data: { q
 
                         //const textColor = showAnswers ? answer === correct_answer ? 'text-green-800' : 'text-red-800' : 'text-purple-800';
                         return (
-                            <button className={`btn btn-block btn-ans-neon-primary`} onClick={() => handleAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }} />
+                            <button className={`btn-lg btn-block btn-ans-neon-primary`} onClick={() => handleAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }} />
                         )
                     }
                 }

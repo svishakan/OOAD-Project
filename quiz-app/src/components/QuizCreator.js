@@ -7,7 +7,7 @@ import {
     Link
 } from "react-router-dom";
 
-import "./quizforms.css";
+//import "./quizforms.css";
 import { render } from "@testing-library/react";
 import Toaster from "./toaster";
 
@@ -111,7 +111,7 @@ function QuizCreator() {
                         }>
 
                             <div className="col-lg-12 form-group">
-                                <label className="form-control-label" style={{ width: "30%", "margin-right": "5px" }}>
+                                <label className="quiz-form-control-label" style={{ width: "30%", "margin-right": "5px" }}>
                                     QUIZ TITLE
                                 </label>
                                 <input
@@ -124,7 +124,7 @@ function QuizCreator() {
                             </div>
 
                             <div className="col-lg-12 form-group">
-                                <label className="form-control-label" style={{ width: "30%", "margin-right": "5px" }}>
+                                <label className="quiz-form-control-label" style={{ width: "30%", "margin-right": "5px" }}>
                                     QUIZ DURATION
                                 </label>
                                 <input
@@ -138,7 +138,7 @@ function QuizCreator() {
                             </div>
 
                             <div className="col-lg-12 form-group">
-                                <label className="form-control-label" style={{ width: "30%", "margin-right": "5px" }}>
+                                <label className="quiz-form-control-label" style={{ width: "30%", "margin-right": "5px" }}>
                                     QUIZ LENGTH
                                 </label>
                                 <input

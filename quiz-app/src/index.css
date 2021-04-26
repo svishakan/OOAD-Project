@@ -1,18 +1,609 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@tailwind forms;
+/* Default CSS */
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
 }
+
+/* Default CSS Ends */
+
+/* @ Imports */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+/* @ Imports Ends */
+
+/* Loading Page CSS */
+
+h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: bold;
+    color: white;
+    size: 50px;
+}
+
+.cog-key {
+    font-size: 750%;
+    background: -webkit-linear-gradient(#27ef9f, #0db8de);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    top: 50%;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 45%;
+    left: 45%;
+}
+
+/* Loading Page CSS Ends*/
+
+/* Login & Registraion Page CSS */
+
+body {
+    background: #222d32;
+    font-family: "Roboto", sans-serif;
+}
+
+.login-page-title {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    font-family: "Pacifico", cursive;
+    color: #00f9ff;
+}
+
+.login-box {
+    margin-top: 75px;
+    height: auto;
+    background: #1a2226;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.login-img {
+    margin-top: 10px;
+    height: 100px;
+    font-size: 100px;
+    line-height: 100px;
+    background: -webkit-linear-gradient(#27ef9f, #0db8de);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.login-title {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 2px;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #ecf0f5;
+}
+
+.important-text {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.login-form {
+    margin-top: 25px;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"] {
+    background-color: #1a2226;
+    border: none;
+    border-bottom: 2px solid #0db8de;
+    border-top: 0px;
+    border-radius: 0px;
+    font-weight: bold;
+    outline: 0;
+    margin-bottom: 20px;
+    padding-left: 0px;
+    color: #ecf0f5;
+}
+
+/* Chrome, Safari, Edge, Opera */
+/*To remove the up and down arrows in input-type number*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+/*To remove the up and down arrows in input-type number*/
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.form-group {
+    margin-bottom: 40px;
+    outline: 0px;
+}
+
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-bottom: 2px solid #0db8de;
+    outline: 0;
+    background-color: #1a2226;
+    color: #ecf0f5;
+}
+
+.form-control-textarea {
+    font-family: "Roboto", sans-serif;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 2px solid #0db8de;
+    outline: 0;
+    background-color: #1a2226;
+    color: #ecf0f5;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0;
+}
+
+label {
+    margin-bottom: 0px;
+}
+
+.form-control-label {
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn-l-outline-primary {
+    box-sizing: border-box;
+    color: #0db8de;
+    border: 2px solid aqua;
+    border-radius: 40px;
+    background: transparent;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    width: fit-content;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.btn-l-outline-primary:hover {
+    background-color: #0db8de;
+    right: 0px;
+}
+
+.btn-l-neon-primary {
+    border-radius: 40px;
+    width: fit-content;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: transparent;
+    text-decoration: none;
+    transition: 0.2s all;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid aqua;
+}
+
+.btn-l-neon-primary:hover {
+    background: #26a0da;
+    color: #000;
+    box-shadow: 0px 0px 5px #26a0da, 0px 0px 20px#26a0da, 0px 0px 40px #26a0da;
+    transition-delay: 0.2s;
+}
+
+.login-btm {
+    float: left;
+}
+
+.login-button {
+    padding-right: 0px;
+    text-align: right;
+    margin-bottom: 25px;
+}
+
+.feedback-button {
+    text-align: right;
+    margin-bottom: 25px;
+}
+
+.login-text {
+    text-align: left;
+    padding-left: 0px;
+    margin-bottom: 20px;
+    color: #a2a4a4;
+}
+
+.loginbttm {
+    padding: 0px;
+}
+
+/* Login & Registraion Page CSS Ends */
+
+/* Dashboard Page CSS */
+
+div.card-custom {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-header2 {
+    /* background-color:rgba(1, 167, 167, 0.863); */
+    /* background: -webkit-linear-gradient(#27ef9f, #0db8de); */
+    background-image: linear-gradient(
+        to right,
+        rgb(39, 239, 159),
+        rgb(13, 184, 222)
+    );
+    color: white;
+}
+
+div.card-body2 {
+    background: #1a2226;
+    color: white;
+    height: 100px;
+    padding-left: 20px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.navbar-nav {
+    margin-left: auto;
+    padding-right: 50px;
+}
+
+.user {
+    padding-right: 10pt;
+}
+
+/* Dashboard Page CSS Ends */
+
+/* About Page CSS */
+
+.card-custom-img {
+    margin-top: 10px;
+    height: 150px;
+    font-size: 150px;
+    line-height: 150px;
+    text-align: center;
+    background: -webkit-linear-gradient(#27ef9f, #0db8de);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-img {
+    margin-top: 20px;
+    height: 100px;
+    font-size: 100px;
+    line-height: 100px;
+    text-align: center;
+    background: -webkit-linear-gradient(#27ef9f, #0db8de);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.connect-img {
+    height: 50px;
+    font-size: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: -webkit-linear-gradient(#27ef9f, #0db8de);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.connect-img:hover {
+    background: -webkit-linear-gradient(#ffee28, #ff7843);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition-delay: 0.2s;
+}
+
+.about-footer {
+    padding-top: 2.5%;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer-img {
+    height: 1em;
+    font-size: 1em;
+    line-height: 1em;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    background: -webkit-linear-gradient(#27ef9f, #0db8de);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-img:hover {
+    background: -webkit-linear-gradient(#ffee28, #ff7843);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition-delay: 0.2s;
+}
+
+.about-title {
+    font-size: 3em;
+    margin-top: 25px;
+    color: #fff;
+}
+
+.title-name {
+    font-family: "Pacifico", cursive;
+    font-size: 2.5em;
+    color: #00f9ff;
+}
+
+.about-box {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 75px;
+    background: #1a2226;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.card-p-text {
+    font-family: "Righteous", cursive;
+    font-size: 17px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.about-box:hover {
+    box-shadow: 0px 0px 5px #f4d03f, 0px 0px 20px#F4D03F, 0px 0px 40px #f4d03f;
+}
+
+.card-custom-margin {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.btn-gb-neon-primary {
+    border-radius: 40px;
+    width: fit-content;
+    text-decoration: none;
+    background: transparent;
+    transition: 0.2s all;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid aqua;
+}
+
+.btn-gb-neon-primary:hover {
+    background: #26a0da;
+    color: #000;
+    box-shadow: 0px 0px 5px #26a0da, 0px 0px 20px#26a0da, 0px 0px 40px #26a0da;
+    transition-delay: 0.2s;
+}
+
+/* About Page CSS Ends */
+
+/* Quiz Forms CSS */
+
+.quiz-box {
+    margin-top: 75px;
+    height: auto;
+    background: #1a2226;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.quiz-img {
+    margin-top: 20px;
+    height: 100px;
+    font-size: 100px;
+    line-height: 100px;
+    background: -webkit-linear-gradient(#27ef9f, #0db8de);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.quiz-title {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #ecf0f5;
+    text-transform: uppercase;
+}
+
+.quiz-sub-title {
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #ecf0f5;
+}
+
+.quiz-form-control-label {
+    margin-right: 25px;
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn-qf-neon-primary {
+    border-radius: 40px;
+    width: fit-content;
+    margin-left: 10%;
+    text-decoration: none;
+    background: transparent;
+    transition: 0.2s all;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid aqua;
+}
+
+.btn-qf-neon-primary:hover {
+    background: #26a0da;
+    color: #000;
+    box-shadow: 0px 0px 5px #26a0da, 0px 0px 20px#26a0da, 0px 0px 40px #26a0da;
+    transition-delay: 0.2s;
+}
+
+.btn-qb-neon-primary {
+    border-radius: 40px;
+    width: fit-content;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: transparent;
+    text-decoration: none;
+    transition: 0.2s all;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid aqua;
+}
+
+.btn-qb-neon-primary:hover {
+    background: #26a0da;
+    color: #000;
+    box-shadow: 0px 0px 5px #26a0da, 0px 0px 20px#26a0da, 0px 0px 40px #26a0da;
+    transition-delay: 0.2s;
+}
+
+/* Quiz Forms CSS Ends */
+
+/* Quiz CSS Starts */
+
+.quiz-label {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.quiz-question {
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 30px;
+    font-size: 25px;
+    color: white;
+    font-weight: 700;
+}
+
+.btn-ans-neon-primary {
+    font-family: "Roboto", sans-serif;
+    border-radius: 40px;
+    width: 40%;
+    margin: 20px;
+    margin-left: 10px;
+    text-decoration: none;
+    background: transparent;
+    transition: 0.2s all;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid aqua;
+}
+
+/* .btn-next-neon-primary {
+    padding-right: 15%;
+    border-radius: 9999px;
+    width: fit-content;
+    color: gold;
+    transition: 0.2s all;
+    font-size: 50px;
+    float: right;
+} */
+
+.icon-btn {
+    text-align: center;
+    font-size: 4em;
+    display: inline-block;
+    text-decoration: none;
+    width: 2em;
+    height: 2em;
+    padding: 0.5em 0;
+    position: relative;
+    color: gold;
+    border-radius: 100%;
+}
+
+.btn-ans-neon-primary:hover,
+.btn-ans-neon-primary:focus {
+    background: #26a0da;
+    color: #000;
+    box-shadow: 0px 0px 5px #26a0da, 0px 0px 20px#26a0da, 0px 0px 40px #26a0da;
+    transition-delay: 0.2s;
+}
+
+.btn-next-neon-primary:hover,
+.btn-next-neon-primary:focus,
+.icon-btn:hover,
+.icon-btn:focus {
+    text-decoration: none;
+    background: #f4d03f;
+    color: #000;
+    box-shadow: 0px 0px 5px #f4d03f, 0px 0px 20px#F4D03F, 0px 0px 40px #f4d03f;
+    transition-delay: 0.2s;
+}
+
+.icon-btn-submit {
+    text-align: center;
+    font-size: 4em;
+    display: inline-block;
+    text-decoration: none;
+    width: 2em;
+    height: 2em;
+    padding: 0.5em 0;
+    position: relative;
+    color: #7cfc00;
+    border-radius: 100%;
+}
+
+.btn-submit-neon-primary:hover,
+.btn-submit-neon-primary:focus,
+.icon-btn-submit:hover,
+.icon-btn-submit:focus {
+    text-decoration: none;
+    background: #7cfc00;
+    color: #000;
+    box-shadow: 0px 0px 5px #7cfc00, 0px 0px 20px #7cfc00, 0px 0px 40px #7cfc00;
+    transition-delay: 0.2s;
+}
+
+.set-p-hidden {
+    visibility: hidden;
+}
+
+/* Quiz CSS Ends */

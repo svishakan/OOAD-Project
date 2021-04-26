@@ -8,7 +8,7 @@ import Toaster from "./toaster";
 
 import { render } from "@testing-library/react";
 
-import "./quiz.css";
+//import "./quiz.css";
 
 //const API_URL = "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy";
 

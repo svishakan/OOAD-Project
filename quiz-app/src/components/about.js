@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
-import "./about.css";
+//import "./about.css";
 
 const About = () => {
     return (

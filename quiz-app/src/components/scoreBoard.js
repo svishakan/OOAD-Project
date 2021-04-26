@@ -4,7 +4,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 
-import "./quiztables.css";
+//import "./quiztables.css";
 import Loading from "./loading";
 
 const ScoreBoard = (props) => {

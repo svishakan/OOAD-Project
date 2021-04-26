@@ -13,8 +13,6 @@ import {
 import Toaster from "./toaster";
 import UserPic from "../images/user.svg";
 
-import "./dashboard.css";
-import "./about.css";
 import { render } from "@testing-library/react";
 
 function DashBoard() {
@@ -107,14 +105,13 @@ function DashBoard() {
             <div className="">
               <div className="card-deck card-custom-margin">
                 <div className="card about-box">
-                  <h1 className="card-header2 ">Take Up a Quiz</h1>
+                  <h1 className="card-header2">Take Up a Quiz</h1>
                   <div className="card-body">
                     <p className="card-text text-white card-p-text">
                       Got your 'QuizID'? Ready to take a Quiz? Then hit that GO
                       button!!
                     </p>
                     <button
-                      class="btn btn-primary"
                       className="btn btn-qf-neon-primary text-nowrap"
                       onClick={() => {
                         setRedirectTake(true);
@@ -133,7 +130,6 @@ function DashBoard() {
                       the quiz.
                     </p>
                     <button
-                      class="btn btn-warning"
                       className="btn btn-qf-neon-primary text-nowrap"
                       onClick={() => {
                         setRedirectSet(true);
@@ -151,7 +147,6 @@ function DashBoard() {
                       View the report(s) of the quizes you created.
                     </p>
                     <button
-                      class="btn btn-success"
                       className="btn btn-qf-neon-primary text-nowrap"
                       onClick={() => {
                         setRedirectReport(true);
