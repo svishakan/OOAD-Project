@@ -28,10 +28,10 @@ const QuizSelector = () => {
             setLoading(true);   //started loading data
             setData(myStorage.getItem("handle")).then(() => {
                 console.log(myStorage.getItem("handle"));
-                makeQuizSet().then(() => {
-                    console.log("here i am back");
-                    console.log(quizData);
-                });
+                // makeQuizSet().then(() => {
+                //     console.log("here i am back");
+                //     console.log(quizData);
+                // });
             });
         }
     }, [myStorage]);
@@ -54,24 +54,25 @@ const QuizSelector = () => {
             .catch((err) => {
                 console.log(err);
             });
+            setLoading(false);  //finished loading data
+    
     };
 
-    const makeQuizSet = async () => {
-        console.log("in make");
-        for (let i = 0; i < qIDS.length; i++) {
-            const id = qIDS[i];
-            await quizDB
-                .doc(id)
-                .get()
-                .then((data) => {
-                    setQuizData((old_array) => [
-                        ...old_array,
-                        { quizID: id, title: data.data().quizName },
-                    ]);
-                });
-        }
-        setLoading(false);  //finished loading data
-    };
+    // const makeQuizSet = async () => {
+    //     console.log("in make");
+    //     for (let i = 0; i < qIDS.length; i++) {
+    //         const id = qIDS[i];
+    //         await quizDB
+    //             .doc(id)
+    //             .get()
+    //             .then((data) => {
+    //                 setQuizData((old_array) => [
+    //                     ...old_array,
+    //                     { quizID: id, title: data.data().quizName },
+    //                 ]);
+    //             });
+    //     }
+    // };
 
     // const linkChange = (qID) => {
     //   setQuizID(qID);
@@ -110,11 +111,11 @@ const QuizSelector = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {quizData.map((quizdet, idx) => (
+                        {quizIDS.map((quizdet, idx) => (
                             <tr>
                                 <td scope="row">{idx + 1}</td>
                                 <td scope="row">{quizdet.quizID}</td>
-                                <td scope="row">{quizdet.title}</td>
+                                <td scope="row">{quizdet.quizTitle}</td>
                                 <td scope="row">
                                     <Link to={{ pathname: "/results", state: { qID: quizdet.quizID } }}>
                                         <button

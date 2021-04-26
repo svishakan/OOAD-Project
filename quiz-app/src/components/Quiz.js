@@ -238,12 +238,13 @@ function Quiz(props) {
 
     const loadIntoDB = (totalScore) => {
         //setLoading(true);
+        let timestamp = Date.now().toString();
 
         console.log("in exit");
         const scoreData = {
             handle: handle,
             Username: username,
-            timestamp: Date.now().toString(),
+            timestamp: timestamp,
             Score: totalScore,
             Percent: Math.round((totalScore / questions.length) * 100 * 100) / 100,
         };
@@ -255,8 +256,18 @@ function Quiz(props) {
             .update({
                 Scores: firebase.firestore.FieldValue.arrayUnion(scoreData),
             })
-            .then(() => {
+            .then((result) => {
                 console.log("matter over");
+                Users.doc(handle)
+                            .update({
+                                TakenQuizes: firebase.firestore.FieldValue.arrayUnion({
+                                    quizID: props.location.state.qID,
+                                    quizTitle: props.location.state.qName,
+                                    timestamp: timestamp,
+                                    Score: totalScore,
+                                    Percent: Math.round((totalScore / questions.length) * 100 * 100) / 100,                        
+                                }),
+                            })
                 //setLoading(false);
             });
         //setEndOfQuiz(true);
