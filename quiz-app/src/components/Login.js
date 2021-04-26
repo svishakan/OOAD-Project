@@ -1,12 +1,12 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import firebase from "../firebase";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
-import * as crypto from "crypto";
-import Loading from "./loading";
-import Toaster from "./toaster";
 import { render } from "@testing-library/react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
+import * as crypto from "crypto";
+import firebase from "../Firebase";
+import Loading from "./Loading";
+import Toaster from "./Toaster";
+
 
 function Login() {
     const [loading, setLoading] = useState(false);

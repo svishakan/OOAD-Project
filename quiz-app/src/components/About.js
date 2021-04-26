@@ -71,6 +71,7 @@ const About = () => {
                     <i className="footer-img fab fa-html5" />
                     <i className="footer-img fab fa-css3" />
                     <i className="footer-img fab fa-js" />
+                    <i className="footer-img fab fa-npm" />
                 </p>
             </div>
         </div>

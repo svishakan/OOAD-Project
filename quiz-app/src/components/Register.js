@@ -1,14 +1,14 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import firebase from "../firebase";
+import { render } from "@testing-library/react";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import * as EmailValidator from "email-validator";
 import * as crypto from "crypto";
 import emailjs from "emailjs-com";
-import Loading from "./loading";
-import Toaster from "./toaster";
-import { render } from "@testing-library/react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import firebase from "../Firebase";
+import Loading from "./Loading";
+import Toaster from "./Toaster";
+
 
 function Register() {
   const [loading, setLoading] = useState(false);
@@ -350,7 +350,7 @@ function Register() {
       <div className="row justify-content-center">
         <div className="col-lg-6 col-md-8 login-box">
           <div className="col-lg-12 login-img">
-            <i className="fa fa-address-card" aria-hidden="true"></i>
+            <i className="far fa-id-badge" aria-hidden="true"></i>
           </div>
           <div className="col-lg-12 login-title">CREATE AN ACCOUNT</div>
           <div className="col-lg-12 login-form">

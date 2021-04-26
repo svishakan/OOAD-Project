@@ -1,8 +1,7 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect, Link } from "react-router-dom";
-import firebase from "../firebase";
-import Loading from "./loading";
+import firebase from "../Firebase";
+import Loading from "./Loading";
 
 const QuizSelector = () => {
     const [redirect, setRedirect] = useState(false);

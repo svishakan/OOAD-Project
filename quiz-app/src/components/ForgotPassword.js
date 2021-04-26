@@ -1,12 +1,12 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { render } from "@testing-library/react";
-import emailjs from "emailjs-com";
 import { Link, Redirect } from "react-router-dom";
+import emailjs from "emailjs-com";
 import * as crypto from "crypto";
-import Loading from "./loading";
-import firebase from "../firebase";
-import Toaster from "./toaster";
+import firebase from "../Firebase";
+import Toaster from "./Toaster";
+import Loading from "./Loading";
+
 
 const ForgotPassword = () => {
     const [loading, setLoading] = useState(false);

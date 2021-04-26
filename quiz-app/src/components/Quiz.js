@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
-import useInterval from "@use-it/interval";
-import Questionnaire from "./Questionnaire";
 import { Redirect } from "react-router-dom";
-import firebase from "../firebase";
-import Loading from "./loading";
-import Toaster from "./toaster";
 import { render } from "@testing-library/react";
+import useInterval from "@use-it/interval";
+import firebase from "../Firebase";
+import Loading from "./Loading";
+import Toaster from "./Toaster";
+import Questionnaire from "./Questionnaire";
 
 //const API_URL = "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy";
+
 
 function Quiz(props) {
     const [questions, setQuestions] = useState([]);

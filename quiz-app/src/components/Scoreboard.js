@@ -1,9 +1,9 @@
-import firebase from "../firebase";
+import React, { useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
-import React from "react";
-import { useState, useEffect } from "react";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
-import Loading from "./loading";
+import firebase from "../Firebase";
+import Loading from "./Loading";
+
 
 const ScoreBoard = (props) => {
     const [handle, setHandle] = useState("");

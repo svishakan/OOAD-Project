@@ -1,11 +1,10 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import emailjs from "emailjs-com";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Toaster from "./toaster";
-
 import { render } from "@testing-library/react";
+import emailjs from "emailjs-com";
+import Toaster from "./Toaster";
+
 
 const Feedback = () => {
     const [handle, setHandle] = useState("");
@@ -98,7 +97,7 @@ const Feedback = () => {
                             </div>
 
                             <div className="col-lg-12 loginbttm">
-                                <div className="d-flex justify-content-between pb-5 feedback-button">
+                                <div className="d-flex justify-content-between pb-2 feedback-button">
                                     <Link to="/dashboard">
                                         <button
                                             className="btn btn-qf-neon-primary text-nowrap"

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import firebase from "../firebase";
 import { Redirect } from "react-router-dom";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import { render } from "@testing-library/react";
-import Toaster from "./toaster";
+import firebase from "../Firebase";
+import Toaster from "./Toaster";
 
 const { nanoid } = require("nanoid");
+
 
 function QuizCreator() {
   const quizID = nanoid(8);
@@ -131,7 +132,7 @@ function QuizCreator() {
                 <input
                   id="qduration"
                   className=""
-                  min="5"
+                  min="1"
                   placeholder="Quiz Duration (in minutes)"
                   type="number"
                   required

@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,18 +8,18 @@ import {
 } from "react-router-dom";
 
 //File imports
-import Register from "./components/register";
-import Login from "./components/login";
-import Loading from "./components/loading";
-import Dashboard from "./components/dashboard";
+import Register from "./components/Register";
+import Login from "./components/Login";
+import Loading from "./components/Loading";
+import Dashboard from "./components/Dashboard";
 import QuizFinder from "./components/QuizFinder";
 import QuizBuilder from "./components/QuizBuilder";
 import QuizCreator from "./components/QuizCreator";
 import Quiz from "./components/Quiz";
 import QuizSelector from "./components/QuizSelector";
-import ScoreBoard from "./components/scoreBoard";
-import Feedback from "./components/feedback";
-import About from "./components/about";
+import ScoreBoard from "./components/Scoreboard";
+import Feedback from "./components/Feedback";
+import About from "./components/About";
 import ForgotPassword from "./components/ForgotPassword"
 import Profile from "./components/profile"
 

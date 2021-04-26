@@ -21,6 +21,7 @@ code {
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
 
 /* @ Imports Ends */
 
@@ -257,12 +258,15 @@ div.card-custom {
 .card-header2 {
     /* background-color:rgba(1, 167, 167, 0.863); */
     /* background: -webkit-linear-gradient(#27ef9f, #0db8de); */
-    background-image: linear-gradient(
-        to right,
-        rgb(39, 239, 159),
-        rgb(13, 184, 222)
+    font-family: "Cabin", sans-serif;
+    background: rgba(0, 255, 235, 1);
+    background: linear-gradient(
+        331deg,
+        rgba(0, 255, 235, 1) 0%,
+        rgba(58, 120, 250, 1) 50%,
+        rgba(53, 244, 255, 1) 100%
     );
-    color: white;
+    color: #fff;
 }
 
 div.card-body2 {
@@ -281,6 +285,24 @@ div.card-body2 {
 
 .user {
     padding-right: 10pt;
+}
+
+.about-box {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 75px;
+    padding-bottom: 20px;
+    background: #1a2226;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.about-box:hover {
+    box-shadow: 0px 0px 5px #f4d03f, 0px 0px 20px#F4D03F, 0px 0px 40px #f4d03f;
+}
+
+.ice-hover:hover {
+    box-shadow: 0px 0px 5px #99fadc, 0px 0px 20px#99fadc, 0px 0px 40px #99fadc;
 }
 
 /* Dashboard Page CSS Ends */
@@ -365,24 +387,11 @@ div.card-body2 {
     color: #00f9ff;
 }
 
-.about-box {
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 75px;
-    background: #1a2226;
-    text-align: center;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
 .card-p-text {
     font-family: "Righteous", cursive;
     font-size: 17px;
     text-transform: uppercase;
     letter-spacing: 2px;
-}
-
-.about-box:hover {
-    box-shadow: 0px 0px 5px #f4d03f, 0px 0px 20px#F4D03F, 0px 0px 40px #f4d03f;
 }
 
 .card-custom-margin {

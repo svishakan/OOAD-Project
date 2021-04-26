@@ -1,10 +1,11 @@
-import { render } from "@testing-library/react";
 import React, { useState, useEffect } from "react";
+import { render } from "@testing-library/react";
 import { Redirect } from "react-router-dom";
-import firebase from "../firebase";
-import Toaster from "./toaster";
+import firebase from "../Firebase";
+import Toaster from "./Toaster";
 
 let records = [];
+
 
 function QuizBuilder() {
     const [quizID, setQuizID] = useState("");
@@ -77,7 +78,7 @@ function QuizBuilder() {
     const uploadQuiz = () => {
         //upload the quiz to the Firestore DB
 
-        //nextQuestion(); //store the most recent question as well
+        nextQuestion(); //store the most recent question as well
 
         console.log("Quiz ID: " + quizID + "\nQuiz Length: " + quizLength);
 
@@ -141,7 +142,11 @@ function QuizBuilder() {
 
                 <form
                     id="quizform"
-                    className="">
+                    className=""
+                    onSubmit = {(e) => {
+                        e.preventDefault();
+                        nextQuestion();
+                    }}>
 
                     <div className="col-lg-12 form-group">
                         <label className="quiz-form-control-label" style={{ width: "15%", "margin-right": "5px" }}>
@@ -219,9 +224,8 @@ function QuizBuilder() {
                         >CLEAR ALL</button>
                         <button
                             className="btn btn-qb-neon-primary text-nowrap"
-                            type="button"
+                            type="submit"
                             value="Next Question"
-                            onClick={nextQuestion}
                         >NEXT QUESTION</button>
                         <button
                             className="btn btn-qb-neon-primary text-nowrap"
