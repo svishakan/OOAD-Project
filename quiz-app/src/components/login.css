@@ -1,8 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
 body {
     background: #222d32;
     font-family: "Roboto", sans-serif;
+}
+
+.page-title {
+    margin-top: 50px;   
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    font-family: "Pacifico", cursive;
+    color: 	#00f9ff;
 }
 
 .login-box {
@@ -85,7 +96,7 @@ input[type="password"] {
     color: #ecf0f5;
 }
 
-.form-control-textarea{
+.form-control-textarea {
     font-family: "Roboto", sans-serif;
     border-color: inherit;
     -webkit-box-shadow: none;
@@ -158,10 +169,10 @@ label {
 .login-button {
     padding-right: 0px;
     text-align: right;
-    margin-bottom: 25px; 
+    margin-bottom: 25px;
 }
 
-.feedback-button{
+.feedback-button {
     text-align: right;
     margin-bottom: 25px;
 }
@@ -176,4 +187,3 @@ label {
 .loginbttm {
     padding: 0px;
 }
-
