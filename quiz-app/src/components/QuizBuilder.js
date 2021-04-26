@@ -10,6 +10,7 @@ let records = [];
 
 function QuizBuilder() {
     const [quizID, setQuizID] = useState("");
+    const [quizLength, setQuizLength] = useState(0);
     const [redirectBack, setRedirectBack] = useState(false);
     const [redirectDash, setRedirectDash] = useState(false);
     const [redirectHome, setRedirectHome] = useState(false);
@@ -29,6 +30,8 @@ function QuizBuilder() {
         } else {
             setHandle(myStorage.getItem("handle"));
             setQuizID(myStorage.getItem("qID"));
+            setQuizLength(myStorage.getItem("qLength"));
+            document.getElementById("uploadSetBtn").style.display = "none";
         }
     }, [myStorage]);
 
@@ -55,9 +58,18 @@ function QuizBuilder() {
         setQuestionNumber(questionNumber + 1);
         document.getElementById("quizform").reset();
 
+        if (questionNumber >= quizLength) {
+            //display upload button only if the minimum number of questions have been entered
+            document.getElementById("uploadSetBtn").style.display = "inline";
+        }
+
+        else {
+            document.getElementById("uploadSetBtn").style.display = "none";
+        }
+
         render(
-            <Toaster 
-                headerText={"Question Saved!"} 
+            <Toaster
+                headerText={"Question Saved!"}
                 bodyText={`Question ${questionNumber} has been stored successfully!`}
                 bgType={"bg-success"}
                 textColor={"text-white"} />
@@ -67,7 +79,9 @@ function QuizBuilder() {
     const uploadQuiz = () => {
         //upload the quiz to the Firestore DB
 
-        nextQuestion(); //store the most recent question as well
+        //nextQuestion(); //store the most recent question as well
+
+        console.log("Quiz ID: " + quizID + "\nQuiz Length: " + quizLength);
 
         for (let i = 0; i < records.length; i++) {
             quizDB
@@ -84,8 +98,8 @@ function QuizBuilder() {
                     setRedirectDash(true);
 
                     render(
-                        <Toaster 
-                            headerText={"Question Set Uploaded!"} 
+                        <Toaster
+                            headerText={"Question Set Uploaded!"}
                             bodyText={`Your quiz ${quizID} has been uploaded successfully!`}
                             bgType={"bg-success"}
                             delayTime={5000}
@@ -96,13 +110,16 @@ function QuizBuilder() {
                     console.error("Document writing error: ", err);
 
                     render(
-                        <Toaster 
-                            headerText={"Upload Failed!"} 
+                        <Toaster
+                            headerText={"Upload Failed!"}
                             bodyText={`Your quiz ${quizID} could not be uploaded. Try again!`}
                             bgType={"bg-danger"}
                             delayTime={5000}
                             textColor={"text-white"} />
                     );
+                })
+                .finally(() => {
+                    records = [];
                 });
         }
     };
@@ -211,6 +228,7 @@ function QuizBuilder() {
                         <button
                             className="btn btn-qb-neon-primary text-nowrap"
                             type="button"
+                            id="uploadSetBtn"
                             value="Upload Set"
                             onClick={uploadQuiz}
                         >UPLOAD SET</button>

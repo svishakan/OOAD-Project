@@ -24,8 +24,9 @@ function Quiz(props) {
     const [loading, setLoading] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [scoreSheet, setScoreSheet] = useState([]);
+    
 
-
+    let quizLength = 0;
     let myStorage = window.localStorage;
     let quizID = "props.location.state.qID"; //extract quizID from local storage
     const [redirectBack, setRedirectBack] = useState(false);
@@ -98,6 +99,7 @@ function Quiz(props) {
                 const metadata = doc.data();
                 setQuizTitle(metadata.quizName);
                 setQuizDuration(metadata.quizDuration * 60 + 1);
+                quizLength = metadata.quizLength;
                 console.log(metadata);
             });
 
@@ -111,6 +113,8 @@ function Quiz(props) {
                 console.log(documents);
 
                 let questions = [];
+
+                console.log(quizLength);
 
                 setScoreSheet(Array(documents.length).fill(0));
 
@@ -128,6 +132,7 @@ function Quiz(props) {
                 }
 
                 questions.sort(() => Math.random() - 0.5);
+                questions = questions.splice(0, quizLength);
 
                 setQuestions(questions);
                 //console.log(questions);
