@@ -12,9 +12,9 @@ import { render } from "@testing-library/react";
 import Toaster from "./toaster";
 
 const { nanoid } = require("nanoid");
-const quizID = nanoid(8);
 
 function QuizCreator() {
+    const quizID = nanoid(8);
     const quizDB = firebase.firestore().collection("QuizDB");
     const Users = firebase.firestore().collection("UserCreds");
     const [redirect, setRedirect] = useState(false);
@@ -36,6 +36,7 @@ function QuizCreator() {
 
         const qName = document.getElementById("qtitle").value;
         const qDuration = document.getElementById("qduration").value;
+        const qLength = document.getElementById("qlength").value;
 
         let myStorage = window.localStorage;
 
@@ -44,12 +45,14 @@ function QuizCreator() {
             .set({
                 quizName: qName,
                 quizDuration: qDuration,
+                quizLength: qLength,
                 Scores: [],
             })
             .then(() => {
                 console.log("Successfully written!");
                 document.getElementById("creatorform").reset();
                 myStorage.setItem("qID", quizID);
+                myStorage.setItem("qLength", qLength);
 
                 Users.doc(handle).update({
                     CreatedQuizes: firebase.firestore.FieldValue.arrayUnion(quizID),
@@ -58,8 +61,8 @@ function QuizCreator() {
                 setRedirect(true);
 
                 render(
-                    <Toaster 
-                        headerText={"Quiz Initiated"} 
+                    <Toaster
+                        headerText={"Quiz Initiated"}
                         bodyText={`${quizID} is your new quiz ID. Kindly make note of it.`}
                         bgType={"bg-info"}
                         delayTime={5000}
@@ -71,8 +74,8 @@ function QuizCreator() {
                 console.error("Document writing error: ", err);
 
                 render(
-                    <Toaster 
-                        headerText={"Quiz Initiated"} 
+                    <Toaster
+                        headerText={"Quiz Initiated"}
                         bodyText={`An error occurred! Your quiz could not be set.`}
                         bgType={"bg-danger"}
                         delayTime={5000}
@@ -100,7 +103,12 @@ function QuizCreator() {
                         </h3>
                         <form
                             id="creatorform"
-                            className="">
+                            className=""
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                createQuiz();
+                            }
+                        }>
 
                             <div className="col-lg-12 form-group">
                                 <label className="form-control-label" style={{ width: "30%", "margin-right": "5px" }}>
@@ -122,11 +130,30 @@ function QuizCreator() {
                                 <input
                                     id="qduration"
                                     className=""
-                                    min="0"
+                                    min="5"
                                     placeholder="Quiz Duration (in minutes)"
                                     type="number"
                                     required
                                 />
+                            </div>
+
+                            <div className="col-lg-12 form-group">
+                                <label className="form-control-label" style={{ width: "30%", "margin-right": "5px" }}>
+                                    QUIZ LENGTH
+                                </label>
+                                <input
+                                    id="qlength"
+                                    className=""
+                                    min="1"
+                                    placeholder="Number of Questions"
+                                    type="number"
+                                    required
+                                />
+                                <small className="form-text text-white text-justify">
+                                    <strong style={{ textDecoration: "underline" }}>Note:</strong> You can set more questions than the specified number,
+                                    and only the set number of questions will be served from your
+                                    question pool appropriately.
+                                </small>
                             </div>
 
                             <div className="d-flex justify-content-center pb-5">
@@ -136,9 +163,8 @@ function QuizCreator() {
                                     value="BACK" >GO BACK</button></Link>
                                 <input
                                     className="btn btn-qf-neon-primary text-nowrap"
-                                    type="button"
+                                    type="submit"
                                     value="Set Quiz"
-                                    onClick={createQuiz}
                                 />
                             </div>
                         </form>

@@ -102,7 +102,7 @@ body {
     letter-spacing: 2px;
 }
 
-.card:hover {
+.about-box:hover {
     box-shadow: 0px 0px 5px #f4d03f, 0px 0px 20px#F4D03F, 0px 0px 40px #f4d03f;
 }
 
