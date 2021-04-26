@@ -57,21 +57,21 @@ function DashBoard() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="navbar-nav ml-auto">
-                    <img class="user" height="50" src={UserPic} />
+                    <img class="user" height="37" src={UserPic} />
                     <div class="">
-                      <div className="card-img">
+                      {/* <div className="card-img">
                         <i
                           class="fa fa-user-circle-o fa-3x"
                           aria-hidden="true"
                         ></i>
-                      </div>
+                      </div> */}
 
                       <NavDropdown
                         title={myStorage.getItem("handle")}
                         id="collasible-nav-dropdown"
                       >
-                        <NavDropdown.Item href="#profile">
-                          Edit Profile
+                        <NavDropdown.Item href="/profile">
+                          View Profile
                         </NavDropdown.Item>
                         <NavDropdown.Item href="/Feedback">
                           Got a feedback?

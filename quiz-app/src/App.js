@@ -24,6 +24,7 @@ import ScoreBoard from "./components/scoreBoard";
 import Feedback from "./components/feedback";
 import About from "./components/about";
 import ForgotPassword from "./components/forgotPswrd"
+import Profile from "./components/profile"
 
 
 //import "./App.css";
@@ -106,6 +107,9 @@ function App() {
               </Route>
               <Route path="/passwordreset">
                 <ForgotPassword />
+              </Route>
+              <Route path="/profile">
+                <Profile />
               </Route>
             </Switch>
           </div>
