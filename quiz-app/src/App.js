@@ -21,7 +21,7 @@ import QuizSelector from "./components/QuizSelector";
 import ScoreBoard from "./components/scoreBoard";
 import Feedback from "./components/feedback";
 import About from "./components/about";
-import ForgotPassword from "./components/forgotPswrd"
+import ForgotPassword from "./components/ForgotPassword"
 import Profile from "./components/profile"
 
 

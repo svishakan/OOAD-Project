@@ -448,14 +448,7 @@ function Register() {
                 />
               </div>
               <div className="col-lg-12 d-inline-flex login-btm login-button justify-content-between">
-                <input
-                  type="submit"
-                  value="SIGN UP"
-                  name="login"
-                  className="btn btn-l-neon-primary text-nowrap"
-                />
-                {/* SIGN UP
-                </button> */}
+                
                 <Link to="/">
                   <button
                     className="btn btn-l-neon-primary text-nowrap"
@@ -465,6 +458,13 @@ function Register() {
                     GO BACK
                   </button>
                 </Link>
+
+                <input
+                  type="submit"
+                  value="SIGN UP"
+                  name="login"
+                  className="btn btn-l-neon-primary text-nowrap"
+                />
               </div>
             </form>
           </div>
