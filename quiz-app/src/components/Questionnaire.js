@@ -1,8 +1,5 @@
 import React from 'react';
 
-//import "./quiz.css";
-
-
 const Questionnaire = ({ totalQuestions, questionNumber, handleAnswer, data: { question, correct_answer, answers }, showAnswers, handlePreviousQuestion, handleNextQuestion }) => {
     let setPreviousHidden = "";
 

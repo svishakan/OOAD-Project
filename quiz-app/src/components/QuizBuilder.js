@@ -4,8 +4,6 @@ import { Redirect } from "react-router-dom";
 import firebase from "../firebase";
 import Toaster from "./toaster";
 
-//import "./quizforms.css";
-
 let records = [];
 
 function QuizBuilder() {

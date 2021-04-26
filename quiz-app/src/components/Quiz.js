@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import useInterval from "@use-it/interval";
-import { Questionnaire } from ".";
+import Questionnaire from "./Questionnaire";
 import { Redirect } from "react-router-dom";
 import firebase from "../firebase";
 import Loading from "./loading";
 import Toaster from "./toaster";
-
 import { render } from "@testing-library/react";
-
-//import "./quiz.css";
 
 //const API_URL = "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy";
 

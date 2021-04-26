@@ -7,11 +7,7 @@ import Loading from "./loading";
 import Toaster from "./toaster";
 
 import { render } from "@testing-library/react";
-
 import { BrowserRouter as Router, Link } from "react-router-dom";
-
-//import "../index.css";
-//import "./login.css";
 
 function Login() {
   const [loading, setLoading] = useState(false);

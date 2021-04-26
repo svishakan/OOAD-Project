@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
+import UserPic from "../images/user.svg";
 import {
   Button,
   Navbar,
@@ -9,11 +10,6 @@ import {
   NavDropdown,
   MenuItem,
 } from "react-bootstrap";
-
-import Toaster from "./toaster";
-import UserPic from "../images/user.svg";
-
-import { render } from "@testing-library/react";
 
 function DashBoard() {
   const [handle, setHandle] = useState("");

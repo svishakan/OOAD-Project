@@ -3,8 +3,6 @@ import { Link, Redirect } from "react-router-dom";
 import React from "react";
 import { useState, useEffect } from "react";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
-
-//import "./quiztables.css";
 import Loading from "./loading";
 
 const ScoreBoard = (props) => {

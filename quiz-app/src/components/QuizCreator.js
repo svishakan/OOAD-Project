@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import firebase from "../firebase";
 import { Redirect } from "react-router-dom";
-
 import { BrowserRouter as Router, Link } from "react-router-dom";
-
-//import "./quizforms.css";
 import { render } from "@testing-library/react";
 import Toaster from "./toaster";
 
@@ -110,7 +107,7 @@ function QuizCreator() {
             >
               <div className="col-lg-12 form-group">
                 <label
-                  className="form-control-label"
+                  className="quiz-form-control-label"
                   style={{ width: "30%", "margin-right": "5px" }}
                 >
                   QUIZ TITLE
@@ -126,7 +123,7 @@ function QuizCreator() {
 
               <div className="col-lg-12 form-group">
                 <label
-                  className="form-control-label"
+                  className="quiz-form-control-label"
                   style={{ width: "30%", "margin-right": "5px" }}
                 >
                   QUIZ DURATION
@@ -143,7 +140,7 @@ function QuizCreator() {
 
               <div className="col-lg-12 form-group">
                 <label
-                  className="form-control-label"
+                  className="quiz-form-control-label"
                   style={{ width: "30%", "margin-right": "5px" }}
                 >
                   QUIZ LENGTH
