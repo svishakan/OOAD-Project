@@ -1,45 +1,27 @@
-/*table,th,td{
-    border : 2px solid ;
-    border-collapse: collapse;
+div.card-custom {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
 }
-td{
-    align-content: center;
-}
-table{
-    width : 25%;
-    height : 40%;
-    margin-left: auto;
-    margin-right: auto;
-    border-spacing: 30pt 30ppt;
-    
-}
-body{
-    align-content: center;
-    background-color: coral;
-}
-button:hover{
-    background-color: yellow;
-}
-*/
-button{
-    width: 100px;
-    height: 75px;
-    font-weight: bold;
-    background-color: rgb(148, 148, 148);
-}
-button.logout{
-    width : 75px;
-    height : 40px;
-    border-radius: 12px;
-}
-button.logout:hover{
-    background-color: red;
-    box-shadow: 0 12px 216px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0, 0, 0, 0.19);
-}
+.card-header2{
+  /* background-color:rgba(1, 167, 167, 0.863); */
+  /* background: -webkit-linear-gradient(#27ef9f, #0db8de); */
+  background-image: linear-gradient(to right, rgb(39,239,159) , rgb(13,184,222));
+  color: white;
 
-table{
-    vertical-align: middle;
-    border-spacing: 10pt 300pt;
-    margin-left: auto;
-    margin-right: auto;
+}
+div.card-body2{
+  background: #1a2226;
+  color: white;
+  height: 100px;
+  padding-left: 20px;
+  padding-top: 10px;
+  font-weight: bold;
+}
+.navbar-nav {
+  margin-left: auto;
+  padding-right: 50px;
+}
+.user{
+  padding-right: 10pt;
 }
