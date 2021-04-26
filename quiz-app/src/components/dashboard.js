@@ -28,14 +28,14 @@ function DashBoard() {
   const [loading, setLoading] = useState(false);
 
   let myStorage = window.localStorage;
-
-  // useEffect(() => {
-  //   if (myStorage.getItem("handle") === handle) {
-  //     setRedirectHome(true);
-  //   } else {
-  //     setHandle(myStorage.getItem("handle"));
-  //   }
-  // }, []);
+  
+  useEffect(() => {
+    if (myStorage.getItem("handle") === null) {
+      setRedirectHome(true);
+    } else {
+      setHandle(myStorage.getItem("handle"));
+    }
+  }, []);
 
   if (redirectSet) return <Redirect to="/quizcreator" />;
   if (redirectTake) return <Redirect to="/quizfinder" />;
@@ -60,8 +60,11 @@ function DashBoard() {
                     <img class="user" height="50" src={UserPic} />
                     <div class="">
                       <div className="card-img">
-                      <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
-                    </div>
+                        <i
+                          class="fa fa-user-circle-o fa-3x"
+                          aria-hidden="true"
+                        ></i>
+                      </div>
 
                       <NavDropdown
                         title={myStorage.getItem("handle")}
@@ -126,8 +129,8 @@ function DashBoard() {
                   <h1 className="card-header2">Create a Quiz</h1>
                   <div className="card-body">
                     <p className="card-text text-white card-p-text">
-                      Create you own quiz, share the QuizID to let others
-                      take the quiz.
+                      Create you own quiz, share the QuizID to let others take
+                      the quiz.
                     </p>
                     <button
                       class="btn btn-warning"

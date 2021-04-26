@@ -2,6 +2,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import React from "react";
 import { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
+
+//File imports
 import Register from "./components/register";
 import Login from "./components/login";
 import Loading from "./components/loading";
@@ -14,14 +23,9 @@ import QuizSelector from "./components/QuizSelector";
 import ScoreBoard from "./components/scoreBoard";
 import Feedback from "./components/feedback";
 import About from "./components/about";
+import ForgotPassword from "./components/forgotPswrd"
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-} from "react-router-dom";
+
 //import "./App.css";
 
 function App() {
@@ -60,7 +64,7 @@ function App() {
           <div>
             <Switch>
               <Route exact path="/">
-                <Redirect to="/enter" />
+                <Redirect to="/dashboard" />
               </Route>
               <Route path="/signup">
                 <Register />
@@ -99,6 +103,9 @@ function App() {
               </Route>
               <Route path="/about">
                 <About />
+              </Route>
+              <Route path="/passwordreset">
+                <ForgotPassword />
               </Route>
             </Switch>
           </div>
