@@ -10,6 +10,7 @@
 - npm install --save react-html-table-to-excel
 - npm install email-validator
 - npm install emailjs-com --save
+- npm i react-toast-notifications
 
 --
 Unnecessary Packages:

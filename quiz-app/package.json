@@ -22,6 +22,7 @@
     "react-popup-alert": "^2.0.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
+    "react-toast-notifications": "^2.4.4",
     "reactjs-popup": "^2.0.4",
     "web-vitals": "^1.1.1"
   },

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { render } from "@testing-library/react";
+import { useToasts } from 'react-toast-notifications';
 import { Redirect } from "react-router-dom";
 import firebase from "../Firebase";
-import Toaster from "./Toaster";
 
 let records = [];
 
@@ -16,6 +15,7 @@ function QuizBuilder() {
     const [redirectDash, setRedirectDash] = useState(false);
     const [redirectHome, setRedirectHome] = useState(false);
     const [handle, setHandle] = useState("");
+    const { addToast } = useToasts();
     const quizDB = firebase.firestore().collection("QuizDB");
     const Users = firebase.firestore().collection("UserCreds");
 
@@ -70,13 +70,7 @@ function QuizBuilder() {
             document.getElementById("uploadSetBtn").style.display = "none";
         }
 
-        render(
-            <Toaster
-                headerText={"Question Saved!"}
-                bodyText={`Question ${questionNumber} has been stored successfully!`}
-                bgType={"bg-success"}
-                textColor={"text-white"} />
-        );
+        addToast(`Question ${questionNumber} has been stored successfully!`, { appearance: "success" });
     };
 
     const createQuizInDB = () => {
@@ -100,28 +94,11 @@ function QuizBuilder() {
                     }),
                 });
 
-                render(
-                    <Toaster
-                        headerText={"Quiz Initiated"}
-                        bodyText={`${quizID} is your new quiz ID. Kindly make note of it.`}
-                        bgType={"bg-info"}
-                        delayTime={5000}
-                        textColor={"text-white"}
-                    />
-                );
+                addToast(`${quizID} is your new quiz ID. Kindly make note of it.`, { appearance: "info" });
             })
             .catch((err) => {
                 console.error("Document writing error: ", err);
-
-                render(
-                    <Toaster
-                        headerText={"Quiz Initiated"}
-                        bodyText={`An error occurred! Your quiz could not be set.`}
-                        bgType={"bg-danger"}
-                        delayTime={5000}
-                        textColor={"text-white"}
-                    />
-                );
+                addToast(`An error occurred! Your quiz could not be set.`, { appearance: "error" });
             });
     }
 
@@ -147,30 +124,17 @@ function QuizBuilder() {
                 .then(() => {
                     console.log("Successfully written!");
                     setRedirectDash(true);
-
-                    render(
-                        <Toaster
-                            headerText={"Question Set Uploaded!"}
-                            bodyText={`Your quiz ${quizID} has been uploaded successfully!`}
-                            bgType={"bg-success"}
-                            delayTime={5000}
-                            textColor={"text-white"} />
-                    );
                 })
                 .catch((err) => {
                     console.error("Document writing error: ", err);
-
-                    render(
-                        <Toaster
-                            headerText={"Upload Failed!"}
-                            bodyText={`Your quiz ${quizID} could not be uploaded. Try again!`}
-                            bgType={"bg-danger"}
-                            delayTime={5000}
-                            textColor={"text-white"} />
-                    );
+                    addToast(`Your quiz ${quizID} could not be uploaded. Try again!`, { appearance: "error" });
                 })
                 .finally(() => {
                     records = [];
+
+                    if (redirectDash === true) {
+                        addToast(`Your quiz ${quizID} has been uploaded successfully!`, { appearance: "success" });
+                    }
                 });
         }
     };

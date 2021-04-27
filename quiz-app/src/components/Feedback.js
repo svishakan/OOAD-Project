@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { render } from "@testing-library/react";
+import { useToasts } from 'react-toast-notifications';
 import emailjs from "emailjs-com";
-import Toaster from "./Toaster";
 
 
 const Feedback = () => {
     const [handle, setHandle] = useState("");
     const [redirectHome, setRedirectHome] = useState(false);
+    const { addToast } = useToasts();
     let myStorage = window.localStorage;
 
     useEffect(() => {
@@ -30,26 +30,12 @@ const Feedback = () => {
             )
             .then(
                 (result) => {
-                    render(
-                        <Toaster
-                            headerText={"Feedback Sent"}
-                            bodyText={"Thank you for your valuable feedback. We appreciate it!"}
-                            bgType={"bg-success"}
-                            textColor={"text-white"}
-                        />
-                    );
+                    addToast("Thank you for your valuable feedback. We appreciate it!", { appearance: "success" });
 
                     console.log(result.text);
                 },
                 (error) => {
-                    render(
-                        <Toaster
-                            headerText={"Error: Feedback"}
-                            bodyText={"Your feedback could not be sent! Try again later!"}
-                            bgType={"bg-danger"}
-                            textColor={"text-white"}
-                        />
-                    );
+                    addToast("Your feedback could not be sent! Try again later!", { appearance: "error" });
 
                     console.log(error.text);
                 }
@@ -88,7 +74,7 @@ const Feedback = () => {
                             <div className="form-group">
                                 <label className="form-control-label">FEEDBACK</label>
                                 <textarea
-                                    style={{resize: "none"}}
+                                    style={{ resize: "none" }}
                                     className="form-control form-control-textarea"
                                     name="message"
                                     rows="5"

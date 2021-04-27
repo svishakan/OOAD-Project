@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
+import { useToasts } from 'react-toast-notifications';
 import UserPic from "../images/user.svg";
 import {
     Button,
@@ -17,6 +18,7 @@ function DashBoard() {
     const [redirectTake, setRedirectTake] = useState(false);
     const [redirectSet, setRedirectSet] = useState(false);
     const [redirectReport, setRedirectReport] = useState(false);
+    const { addToast } = useToasts();
     // const [redirectFeedback, setredirectFeedback] = useState(false);
 
     const [loading, setLoading] = useState(false);
@@ -81,6 +83,7 @@ function DashBoard() {
                                                 <NavDropdown.Item href="/enter">
                                                     <div className="card-img">
                                                         <i className="fa fa-sign-out" aria-hidden="true" />
+
                                                         Logout
                                                     </div>
                                                 </NavDropdown.Item>

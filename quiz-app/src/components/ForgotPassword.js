@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { render } from "@testing-library/react";
 import { Link, Redirect } from "react-router-dom";
+import { useToasts } from 'react-toast-notifications';
 import emailjs from "emailjs-com";
 import * as crypto from "crypto";
 import firebase from "../Firebase";
-import Toaster from "./Toaster";
 import Loading from "./Loading";
 
 
@@ -18,19 +17,8 @@ const ForgotPassword = () => {
     const [reset, setReset] = useState(false);
     const [acceptPassword, setAcceptPassword] = useState(false);
     const [redirectHome, setRedirectHome] = useState(false);
+    const { addToast } = useToasts();
     const ref = firebase.firestore().collection("UserCreds");
-
-    const showAlert = (alertHeader, alertBody, alertBgColor) => {
-        render(
-            <Toaster
-                headerText={alertHeader}
-                bodyText={alertBody}
-                bgType={alertBgColor}
-                textColor={"text-white"}
-                vPosition={"10%"}
-            />
-        );
-    };
 
     const encrpyt = (word) => {
         const hmac = crypto.createHmac("sha256", process.env.REACT_APP_HMAC_ID);
@@ -58,35 +46,21 @@ const ForgotPassword = () => {
                 {
                     token: encrpyt(handle + "34"),
                     email: email,
-                    app_name: "Traid-V support",
+                    app_name: "QuizHut",
                 },
                 process.env.REACT_APP_EMAILJS_USER_ID
             )
             .then(
                 (result) => {
                     console.log("Send Successfully");
-                    render(
-                        <Toaster
-                            headerText={"Verification"}
-                            bodyText={"A Token has been sent to you via e-mail."}
-                            bgType={"bg-success"}
-                            textColor={"text-white"}
-                        />
-                    );
+                    addToast("A Token has been sent to you via e-mail.", { appearance: "success" });
 
                     console.log(result.text);
                     setReset(true);
                 },
                 (error) => {
                     console.log("gotcha");
-                    render(
-                        <Toaster
-                            headerText={"Error: Email"}
-                            bodyText={"Your reset email could not be sent! Try again later!"}
-                            bgType={"bg-danger"}
-                            textColor={"text-white"}
-                        />
-                    );
+                    addToast("Your reset email could not be sent! Try again later!", { appearance: "error" });
 
                     console.log(error.text);
                 }
@@ -100,8 +74,9 @@ const ForgotPassword = () => {
         } else {
             let alertHeader = "Error!";
             let alertBody = "Token doesn't match";
-            let alertBgColor = "bg-danger";
-            showAlert(alertHeader, alertBody, alertBgColor);
+            let alertBgColor = "error";
+
+            addToast(alertBody, { appearance: alertBgColor });
             setToken("");
         }
     };
@@ -114,12 +89,12 @@ const ForgotPassword = () => {
             } else {
                 let alertHeader, alertBody, alertBgColor;
                 alertHeader = "Error!";
-                alertBody =
-                    "Handle or email not found / Doesn't belong to the same acoount.";
-                alertBgColor = "bg-danger";
+                alertBody = "Handle or email not found/doesn't belong to the same acoount.";
+                alertBgColor = "error";
+
+                addToast(alertBody, { appearance: alertBgColor });
                 setEmail("");
                 setHandle("");
-                showAlert(alertHeader, alertBody, alertBgColor);
             }
         });
     };
@@ -137,7 +112,7 @@ const ForgotPassword = () => {
             setCPassword("");
             alertHeader = "Error: Password";
             alertBody = "Password must contain atleast 5 characters";
-            alertBgColor = "bg-danger";
+            alertBgColor = "error";
             exit = true;
         }
 
@@ -146,13 +121,13 @@ const ForgotPassword = () => {
             setCPassword("");
             alertHeader = "Error: Password Match";
             alertBody = "Passwords do not match! Please enter the same password.";
-            alertBgColor = "bg-danger";
+            alertBgColor = "error";
             exit = true;
         }
 
         if (exit) {
             setLoading(false);
-            showAlert(alertHeader, alertBody, alertBgColor);
+            addToast(alertBody, { appearance: alertBgColor });
             return false;
         }
 
@@ -167,9 +142,9 @@ const ForgotPassword = () => {
         ref.doc(handle).update({ Password: encrpyt(password) });
         alertHeader = "Success!";
         alertBody = "Your password has been updated. Try logging in after 20-30s.";
-        alertBgColor = "bg-success";
+        alertBgColor = "success";
         setLoading(false);
-        showAlert(alertHeader, alertBody, alertBgColor);
+        addToast(alertBody, { appearance: alertBgColor });
         setRedirectHome(true);
     };
 
@@ -196,8 +171,7 @@ const ForgotPassword = () => {
                                 onSubmit={(event) => {
                                     event.preventDefault();
                                     updatePswrd();
-                                }}
-                            >
+                                }}>
                                 <div className="form-group">
                                     <label className="form-control-label">PASSWORD*</label>
                                     <input
@@ -233,13 +207,12 @@ const ForgotPassword = () => {
                                         name="login"
                                         className="btn btn-l-neon-primary text-nowrap"
                                     />
-                                    
+
                                     <Link to="/">
                                         <button
                                             className="btn btn-l-neon-primary text-nowrap"
                                             type="button"
-                                            value="BACK"
-                                        >
+                                            value="BACK">
                                             GO BACK
                                         </button>
                                     </Link>
@@ -368,7 +341,7 @@ const ForgotPassword = () => {
                                     name="login"
                                     className="btn btn-l-neon-primary text-nowrap"
                                 />
-                                
+
                                 <Link to="/">
                                     <button
                                         className="btn btn-l-neon-primary text-nowrap"

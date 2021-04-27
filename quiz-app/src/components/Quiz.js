@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Redirect } from "react-router-dom";
-import { render } from "@testing-library/react";
+import { useToasts } from 'react-toast-notifications';
 import useInterval from "@use-it/interval";
 import firebase from "../Firebase";
 import Loading from "./Loading";
-import Toaster from "./Toaster";
 import Questionnaire from "./Questionnaire";
 
 //const API_URL = "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy";
@@ -21,6 +20,7 @@ function Quiz(props) {
     const [loading, setLoading] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [scoreSheet, setScoreSheet] = useState([]);
+    const { addToast } = useToasts();
 
     let quizLength = 0;
     let myStorage = window.localStorage;
@@ -50,14 +50,7 @@ function Quiz(props) {
         if (quizDuration < 0) {
             setCurrentIndex(() => questions.length + 1);
 
-            render(
-                <Toaster
-                    headerText={"Timer expired!"}
-                    bodyText={`Your timer ran out! Your answer submissions were saved.`}
-                    bgType={"bg-danger"}
-                    delayTime={5000}
-                    textColor={"text-white"} />
-            );
+            addToast(`Your timer ran out! Your answer submissions were saved.`, { appearance: "error" });
         }
         //console.log(currentIndex);
     }, [quizDuration]);
@@ -140,25 +133,11 @@ function Quiz(props) {
     const displayAnswerInfo = () => {
 
         if (selectedAnswer) {
-            render(
-                <Toaster
-                    headerText={"Answer saved!"}
-                    bodyText={`You selected ${selectedAnswer} for the previous question.`}
-                    bgType={"bg-info"}
-                    delayTime={2000}
-                    textColor={"text-white"} />
-            );
+            addToast(`You selected ${selectedAnswer} for the previous question.`, { appearance: "info", autoDismissTimeout: 2000 });
         }
 
         else {
-            render(
-                <Toaster
-                    headerText={"Answer not selected!"}
-                    bodyText={`You did not select an answer for the previous question.`}
-                    bgType={"bg-warning"}
-                    delayTime={2000}
-                    textColor={"text-black"} />
-            );
+            addToast(`You did not select an answer for the previous question.`, { appearance: "warning", autoDismissTimeout: 2000 });
         }
     };
 

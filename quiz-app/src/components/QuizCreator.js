@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import { render } from "@testing-library/react";
 import firebase from "../Firebase";
-import Toaster from "./Toaster";
 
 const { nanoid } = require("nanoid");
 

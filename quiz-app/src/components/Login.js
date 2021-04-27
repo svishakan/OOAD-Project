@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
-import { render } from "@testing-library/react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
+import { useToasts } from 'react-toast-notifications';
 import * as crypto from "crypto";
 import firebase from "../Firebase";
 import Loading from "./Loading";
-import Toaster from "./Toaster";
 
 
 function Login() {
@@ -14,6 +13,7 @@ function Login() {
     const [password, setPassword] = useState("");
     const [errorText, setErrText] = useState("");
     const [redirect, setRedirect] = useState(false);
+    const { addToast } = useToasts();
     const ref = firebase.firestore().collection("UserCreds");
     let myStorage = window.localStorage;
 
@@ -53,41 +53,19 @@ function Login() {
                     myStorage.setItem("Username", data.Username);
                     setRedirect(true);
 
-                    render(
-                        <Toaster
-                            headerText={"Logged In"}
-                            bodyText={`Welcome, ${handle}. Your login was successful!`}
-                            bgType={"bg-success"}
-                            textColor={"text-white"}
-                        />
-                    );
+                    addToast(`Welcome, ${handle}. Your login was successful!`, { appearance: "success" });
 
                     console.log("not redirected");
                 } else {
                     setErrText("** Invalid Handle or Password");
-
-                    render(
-                        <Toaster
-                            headerText={"Invalid Credentials"}
-                            bodyText={`You entered invalid credentials. Kindly re-check.`}
-                            bgType={"bg-danger"}
-                            textColor={"text-white"}
-                        />
-                    );
+                    addToast(`You entered invalid credentials. Kindly re-check.`, { appearance: "error" });
 
                     resetForm();
                 }
             } else {
                 setErrText("** Invalid Handle or Password");
+                addToast(`You entered invalid credentials. Kindly re-check.`, { appearance: "error" });
 
-                render(
-                    <Toaster
-                        headerText={"Invalid Credentials"}
-                        bodyText={`You entered invalid credentials. Kindly re-check.`}
-                        bgType={"bg-danger"}
-                        textColor={"text-white"}
-                    />
-                );
                 resetForm();
             }
             setLoading(false);
