@@ -76,7 +76,7 @@ function Login() {
     else
         return (
             <div className="container">
-                <h1 className="col-lg-12 login-page-title">WELCOME TO QUIZ APP!</h1>
+                <h1 className="col-lg-12 login-page-title" style={{textTransform: "none"}}>QuizHut</h1>
                 {redirect === true ? (
                     <Redirect to="/dashboard" />
                 ) : (

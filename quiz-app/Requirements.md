@@ -1,7 +1,6 @@
 - add .env file to quiz-app/
 - npm install react-scripts@latest
 - npm install --save firebase
-- npm install react-helmet
 - npm install react-router-dom
 - npm install nanoid
 - npm install react-bootstrap bootstrap
@@ -11,7 +10,7 @@
 - npm install email-validator
 - npm install emailjs-com --save
 - npm i react-toast-notifications
-- npm install --save react-native-progress-circle
+- npm install --save react-circular-progressbar
 
 --
 Unnecessary Packages:
@@ -20,3 +19,4 @@ Unnecessary Packages:
 - npm install @craco/craco
 - npm install reactjs-popup --save
 - npm install --save react-popup-alert
+- npm install react-helmet

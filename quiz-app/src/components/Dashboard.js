@@ -46,24 +46,15 @@ function DashBoard() {
                 <div>
                     <div className="justify-items-center">
                         <div className="flex justify-end right absolute right-10">
-                            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                            <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
                                 <Navbar.Brand>
-                                    Wecome, {myStorage.getItem("handle")}.
+                                    Wecome to QuizHut!
                                 </Navbar.Brand>
                                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                                 <Navbar.Collapse id="responsive-navbar-nav">
                                     <Nav className="navbar-nav ml-auto">
-                                        <img className="user" height="37" src={UserPic} />
-                                        <div className="">
-                                            {/* <div className="card-img">
-                        <i
-                          className="fa fa-user-circle-o fa-3x"
-                          aria-hidden="true"
-                        ></i>
-                      </div> */}
-
                                             <NavDropdown
-                                                title={myStorage.getItem("handle")}
+                                                title={<span><img className="user" height="37" src={UserPic}/>{handle}</span>}
                                                 id="collasible-nav-dropdown"
                                             >
                                                 <NavDropdown.Item href="/profile">
@@ -83,12 +74,10 @@ function DashBoard() {
                                                 <NavDropdown.Item href="/enter">
                                                     <div className="card-img">
                                                         <i className="fa fa-sign-out" aria-hidden="true" />
-
                                                         Logout
                                                     </div>
                                                 </NavDropdown.Item>
                                             </NavDropdown>
-                                        </div>
                                         <div className="flex justify-right-10">
                                             <Navbar.Brand>
                                                 <picture

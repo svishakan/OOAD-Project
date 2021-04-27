@@ -22,7 +22,7 @@ import ScoreBoard from "./components/Scoreboard";
 import Feedback from "./components/Feedback";
 import About from "./components/About";
 import ForgotPassword from "./components/ForgotPassword"
-import Profile from "./components/profile"
+import Profile from "./components/Profile"
 
 
 //import "./App.css";

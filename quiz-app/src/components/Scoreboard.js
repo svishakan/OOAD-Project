@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import firebase from "../Firebase";
 import Loading from "./Loading";
@@ -108,7 +110,20 @@ const ScoreBoard = (props) => {
                                 <td scope="row">{scoreData.handle}</td>
                                 <td scope="row">{scoreData.Username}</td>
                                 <td scope="row">{scoreData.Score}</td>
-                                <td scope="row">{scoreData.Percent}</td>
+                                {/* <td scope="row">{scoreData.Percent}</td> */}
+                                <td className="d-flex justify-content-center" scope="row">
+                                        <div style={{ width: 65, height: 65 }}>
+                                            <CircularProgressbar
+                                                value={scoreData.Percent}
+                                                text={`${scoreData.Percent}%`}
+                                                styles={buildStyles({
+                                                    textSize: "25px",
+                                                    textColor: '#f4d03f',
+                                                    backgroundColor: '#26a0da',
+                                                })}
+                                            />
+                                        </div>
+                                    </td>
                             </tr>
                         ))}
                     </tbody>
