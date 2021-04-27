@@ -11,6 +11,7 @@
 - npm install email-validator
 - npm install emailjs-com --save
 - npm i react-toast-notifications
+- npm install --save react-native-progress-circle
 
 --
 Unnecessary Packages:
