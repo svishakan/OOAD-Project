@@ -14,7 +14,6 @@ function Quiz(props) {
     const [questions, setQuestions] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [score, setScore] = useState(0);
-    const [showAnswers, setShowAnswers] = useState(false);
     const [quizTitle, setQuizTitle] = useState("");
     const [quizDuration, setQuizDuration] = useState(0);
     const [handle, setHandle] = useState("");
@@ -112,9 +111,7 @@ function Quiz(props) {
 
                 let questions = [];
 
-                console.log(quizLength);
-
-                setScoreSheet(Array(documents.length).fill(0));
+                setScoreSheet(Array(quizLength).fill(null));
 
                 for (let i = 0; i < documents.length; i++) {
 
@@ -133,7 +130,7 @@ function Quiz(props) {
                 questions = questions.splice(0, quizLength);
 
                 setQuestions(questions);
-                //console.log(questions);
+                
             });
     };
 
@@ -164,6 +161,29 @@ function Quiz(props) {
                     textColor={"text-black"} />
             );
         }
+    };
+
+    const selectAnsweredQuestion = (direction) => {
+        //select an already answered question by default
+
+        setSelectedAnswer(scoreSheet[currentIndex]);
+
+        setTimeout(() => {
+            //wait for the question set to render, then set focus on its answer
+
+            if(scoreSheet[currentIndex + direction] != null){
+                //select the previously selected answer if it was selected
+                document.getElementById(`${scoreSheet[currentIndex + direction]}-opt`).click();
+                document.getElementById(`${scoreSheet[currentIndex + direction]}-opt`).focus();
+            }
+
+            else{
+                setSelectedAnswer(null);
+            }
+
+        }, 100);
+
+
     }
 
     const handleNextQuestion = () => {
@@ -175,23 +195,23 @@ function Quiz(props) {
             document.getElementById("next-q-btn").className += " fa-check-circle icon-btn-submit";
         }
 
-        if (selectedAnswer === questions[currentIndex].correct_answer) {
-            scoreSheet[currentIndex] = 1;
-        }
-
-        else {
-            scoreSheet[currentIndex] = 0;
+        if(selectedAnswer){
+            scoreSheet[currentIndex] = selectedAnswer;
+        } else{
+            scoreSheet[currentIndex] = null;
         }
 
         if(currentIndex + 1 === questions.length){
             //to calculate the total score
-            calculateScore();
+            calculateScore(questions);
         }
 
         document.getElementById("next-q-btn").blur();
-        setShowAnswers(false);
+
         setCurrentIndex(currentIndex + 1);
-        setSelectedAnswer(null);    //clear the selectedAnswer
+
+        selectAnsweredQuestion(1);
+
     };
 
     const handlePreviousQuestion = () => {
@@ -204,29 +224,27 @@ function Quiz(props) {
             document.getElementById("next-q-btn").className = "icon-btn far fa-arrow-alt-circle-right";
         }
 
-        if (selectedAnswer === questions[currentIndex].correct_answer) {
-            scoreSheet[currentIndex] = 1;
-        }
-
-        else {
-            scoreSheet[currentIndex] = 0;
+        if(selectedAnswer){
+            scoreSheet[currentIndex] = selectedAnswer;
+        } else{
+            scoreSheet[currentIndex] = null;
         }
 
         document.getElementById("prev-q-btn").blur();
-        setShowAnswers(false);
 
         setCurrentIndex(currentIndex - 1);
 
-        scoreSheet[currentIndex - 1] = 0;
-        setSelectedAnswer(null);    //clear the selectedAnswer
-
+        selectAnsweredQuestion(-1);
+        
     }
 
-    const calculateScore = () => {
+    const calculateScore = (questions) => {
         let totalScore = 0;
 
-        for (let i = 0; i < scoreSheet.length; i++) {
-            totalScore += scoreSheet[i];
+        for (let i = 0; i < questions.length; i++) {
+            if(questions[i].correct_answer === scoreSheet[i]){
+                totalScore += 1;
+            }
         }
 
         setScore(totalScore);
@@ -235,7 +253,6 @@ function Quiz(props) {
     }
 
     const loadIntoDB = (totalScore) => {
-        //setLoading(true);
         let timestamp = Date.now().toString();
 
         console.log("in exit");
@@ -309,7 +326,6 @@ function Quiz(props) {
                         questionNumber={currentIndex + 1}
                         data={questions[currentIndex]}
                         handleAnswer={handleAnswer}
-                        showAnswers={showAnswers}
                         handlePreviousQuestion={handlePreviousQuestion}
                         handleNextQuestion={handleNextQuestion}
                     />

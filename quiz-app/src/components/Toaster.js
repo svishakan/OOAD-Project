@@ -15,7 +15,7 @@ function Toaster({ headerText, smallText = "now", bodyText, delayTime = "3000", 
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </Toast.Header>
-                <Toast.Body>{bodyText}</Toast.Body>
+                <Toast.Body dangerouslySetInnerHTML={{ __html: bodyText }}></Toast.Body>
             </Toast>
         </div>
         

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Questionnaire = ({ totalQuestions, questionNumber, handleAnswer, data: { question, correct_answer, answers }, showAnswers, handlePreviousQuestion, handleNextQuestion }) => {
+const Questionnaire = ({ totalQuestions, questionNumber, handleAnswer, data: { question, correct_answer, answers }, handlePreviousQuestion, handleNextQuestion }) => {
     let setPreviousHidden = "";
 
     if(questionNumber == 1){
@@ -16,13 +16,11 @@ const Questionnaire = ({ totalQuestions, questionNumber, handleAnswer, data: { q
                 <h2 className="quiz-question" dangerouslySetInnerHTML={{ __html: question }} />
             </div>
             <div className="pb-5">
-                {answers.map(answer => {
+                {answers.map((answer, index) => {
                     if (answer.trim() != "") {
-                        //display answer option only if it is not null
-
                         //const textColor = showAnswers ? answer === correct_answer ? 'text-green-800' : 'text-red-800' : 'text-purple-800';
                         return (
-                            <button className={`btn-lg btn-block btn-ans-neon-primary`} onClick={() => handleAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }} />
+                            <button id={`${answer}-opt`} className={`btn-lg btn-block btn-ans-neon-primary`} onClick={() => handleAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }} />
                         )
                     }
                 }
