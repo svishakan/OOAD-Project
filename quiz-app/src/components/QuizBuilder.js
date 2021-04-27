@@ -10,12 +10,14 @@ let records = [];
 function QuizBuilder() {
     const [quizID, setQuizID] = useState("");
     const [quizLength, setQuizLength] = useState(0);
+    const [quizDuration, setQuizDuration] = useState(0);
+    const [quizName, setQuizName] = useState("");
     const [redirectBack, setRedirectBack] = useState(false);
     const [redirectDash, setRedirectDash] = useState(false);
     const [redirectHome, setRedirectHome] = useState(false);
     const [handle, setHandle] = useState("");
-    //const batch = firebase.firestore().batch();
     const quizDB = firebase.firestore().collection("QuizDB");
+    const Users = firebase.firestore().collection("UserCreds");
 
     let myStorage = window.localStorage;
 
@@ -29,7 +31,9 @@ function QuizBuilder() {
         } else {
             setHandle(myStorage.getItem("handle"));
             setQuizID(myStorage.getItem("qID"));
+            setQuizName(myStorage.getItem("qName"));
             setQuizLength(myStorage.getItem("qLength"));
+            setQuizDuration(myStorage.getItem("qDuration"));
             document.getElementById("uploadSetBtn").style.display = "none";
         }
     }, [myStorage]);
@@ -75,10 +79,58 @@ function QuizBuilder() {
         );
     };
 
+    const createQuizInDB = () => {
+        //make an entry into the quizDB in Firestore and create a document
+
+        quizDB
+            .doc(quizID)
+            .set({
+                quizName: quizName,
+                quizDuration: quizDuration,
+                quizLength: quizLength,
+                Scores: [],
+            })
+            .then(() => {
+                console.log("Successfully written!");
+
+                Users.doc(handle).update({
+                    CreatedQuizes: firebase.firestore.FieldValue.arrayUnion({
+                        quizID: quizID,
+                        quizTitle: quizName,
+                    }),
+                });
+
+                render(
+                    <Toaster
+                        headerText={"Quiz Initiated"}
+                        bodyText={`${quizID} is your new quiz ID. Kindly make note of it.`}
+                        bgType={"bg-info"}
+                        delayTime={5000}
+                        textColor={"text-white"}
+                    />
+                );
+            })
+            .catch((err) => {
+                console.error("Document writing error: ", err);
+
+                render(
+                    <Toaster
+                        headerText={"Quiz Initiated"}
+                        bodyText={`An error occurred! Your quiz could not be set.`}
+                        bgType={"bg-danger"}
+                        delayTime={5000}
+                        textColor={"text-white"}
+                    />
+                );
+            });
+    }
+
     const uploadQuiz = () => {
         //upload the quiz to the Firestore DB
 
         nextQuestion(); //store the most recent question as well
+
+        createQuizInDB();   //create the quiz in firestore
 
         console.log("Quiz ID: " + quizID + "\nQuiz Length: " + quizLength);
 
@@ -143,7 +195,7 @@ function QuizBuilder() {
                 <form
                     id="quizform"
                     className=""
-                    onSubmit = {(e) => {
+                    onSubmit={(e) => {
                         e.preventDefault();
                         nextQuestion();
                     }}>

@@ -21,7 +21,6 @@ function Quiz(props) {
     const [loading, setLoading] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [scoreSheet, setScoreSheet] = useState([]);
-    
 
     let quizLength = 0;
     let myStorage = window.localStorage;
@@ -52,8 +51,8 @@ function Quiz(props) {
             setCurrentIndex(() => questions.length + 1);
 
             render(
-                <Toaster 
-                    headerText={"Timer expired!"} 
+                <Toaster
+                    headerText={"Timer expired!"}
                     bodyText={`Your timer ran out! Your answer submissions were saved.`}
                     bgType={"bg-danger"}
                     delayTime={5000}
@@ -130,7 +129,7 @@ function Quiz(props) {
                 questions = questions.splice(0, quizLength);
 
                 setQuestions(questions);
-                
+
             });
     };
 
@@ -140,10 +139,10 @@ function Quiz(props) {
 
     const displayAnswerInfo = () => {
 
-        if(selectedAnswer){
+        if (selectedAnswer) {
             render(
-                <Toaster 
-                    headerText={"Answer saved!"} 
+                <Toaster
+                    headerText={"Answer saved!"}
                     bodyText={`You selected ${selectedAnswer} for the previous question.`}
                     bgType={"bg-info"}
                     delayTime={2000}
@@ -151,10 +150,10 @@ function Quiz(props) {
             );
         }
 
-        else{
+        else {
             render(
-                <Toaster 
-                    headerText={"Answer not selected!"} 
+                <Toaster
+                    headerText={"Answer not selected!"}
                     bodyText={`You did not select an answer for the previous question.`}
                     bgType={"bg-warning"}
                     delayTime={2000}
@@ -171,13 +170,13 @@ function Quiz(props) {
         setTimeout(() => {
             //wait for the question set to render, then set focus on its answer
 
-            if(scoreSheet[currentIndex + direction] != null){
+            if (scoreSheet[currentIndex + direction] != null) {
                 //select the previously selected answer if it was selected
                 document.getElementById(`${scoreSheet[currentIndex + direction]}-opt`).click();
                 document.getElementById(`${scoreSheet[currentIndex + direction]}-opt`).focus();
             }
 
-            else{
+            else {
                 setSelectedAnswer(null);
             }
 
@@ -187,21 +186,21 @@ function Quiz(props) {
     }
 
     const handleNextQuestion = () => {
-        
+
         displayAnswerInfo();
 
-        if(currentIndex + 2 === questions.length){
+        if (currentIndex + 2 === questions.length) {
             //to change the next button style to a submit button on the last question
             document.getElementById("next-q-btn").className += " fa-check-circle icon-btn-submit";
         }
 
-        if(selectedAnswer){
+        if (selectedAnswer) {
             scoreSheet[currentIndex] = selectedAnswer;
-        } else{
+        } else {
             scoreSheet[currentIndex] = null;
         }
 
-        if(currentIndex + 1 === questions.length){
+        if (currentIndex + 1 === questions.length) {
             //to calculate the total score
             calculateScore(questions);
         }
@@ -219,14 +218,14 @@ function Quiz(props) {
 
         displayAnswerInfo();
 
-        if(currentIndex + 1 === questions.length){
+        if (currentIndex + 1 === questions.length) {
             //to change the next button style back to old style
             document.getElementById("next-q-btn").className = "icon-btn far fa-arrow-alt-circle-right";
         }
 
-        if(selectedAnswer){
+        if (selectedAnswer) {
             scoreSheet[currentIndex] = selectedAnswer;
-        } else{
+        } else {
             scoreSheet[currentIndex] = null;
         }
 
@@ -235,14 +234,14 @@ function Quiz(props) {
         setCurrentIndex(currentIndex - 1);
 
         selectAnsweredQuestion(-1);
-        
+
     }
 
     const calculateScore = (questions) => {
         let totalScore = 0;
 
         for (let i = 0; i < questions.length; i++) {
-            if(questions[i].correct_answer === scoreSheet[i]){
+            if (questions[i].correct_answer === scoreSheet[i]) {
                 totalScore += 1;
             }
         }
@@ -274,15 +273,15 @@ function Quiz(props) {
             .then((result) => {
                 console.log("matter over");
                 Users.doc(handle)
-                            .update({
-                                TakenQuizes: firebase.firestore.FieldValue.arrayUnion({
-                                    quizID: props.location.state.qID,
-                                    quizTitle: props.location.state.qName,
-                                    timestamp: timestamp,
-                                    Score: totalScore,
-                                    Percent: Math.round((totalScore / questions.length) * 100 * 100) / 100,                        
-                                }),
-                            })
+                    .update({
+                        TakenQuizes: firebase.firestore.FieldValue.arrayUnion({
+                            quizID: props.location.state.qID,
+                            quizTitle: props.location.state.qName,
+                            timestamp: timestamp,
+                            Score: totalScore,
+                            Percent: Math.round((totalScore / questions.length) * 100 * 100) / 100,
+                        }),
+                    })
                 //setLoading(false);
             });
         //setEndOfQuiz(true);
@@ -371,7 +370,7 @@ const Timer = ({ duration, update }) => {
             if (duration < 0) {
                 string = "Times Up!";
             }
-                
+
             //html = string;
             setDisplayTime(string);
         }
