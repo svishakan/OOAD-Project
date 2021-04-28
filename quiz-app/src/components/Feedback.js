@@ -12,12 +12,12 @@ const Feedback = () => {
     let myStorage = window.localStorage;
 
     useEffect(() => {
-        if (myStorage.getItem("handle") === handle) {
+        if (myStorage.getItem("handle") === null) {
             setRedirectHome(true);
         } else {
             setHandle(myStorage.getItem("handle"));
         }
-    }, []);
+    }, [handle, myStorage]);
 
     const sendEmail = (e) => {
         e.preventDefault();

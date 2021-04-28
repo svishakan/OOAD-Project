@@ -1,19 +1,17 @@
+/* eslint-disable jsx-a11y/scope */
 import React, { useState, useEffect } from "react";
 import { Redirect, Link } from "react-router-dom";
 import firebase from "../Firebase";
 import Loading from "./Loading";
 
 const QuizSelector = () => {
-    const [redirect, setRedirect] = useState(false);
+    const [redirect] = useState(false);
     const [redirectHome, setRedirectHome] = useState(false);
     const [quizIDS, setQuizIDS] = useState([]);
-    const [quizID, setQuizID] = useState("");
-    const [quizData, setQuizData] = useState([]);
-    const [handle, setHandle] = useState("");
+    const [quizID] = useState("");
     const [loading, setLoading] = useState(false);
 
     let myStorage = window.localStorage;
-    const quizDB = firebase.firestore().collection("QuizDB");
     const Users = firebase.firestore().collection("UserCreds");
 
     let qIDS = [];
@@ -21,16 +19,12 @@ const QuizSelector = () => {
         if (myStorage.getItem("handle") === null) {
             setRedirectHome(true);
         } else {
-            //setHandle(myStorage.getItem("handle"));
             setLoading(true);   //started loading data
             setData(myStorage.getItem("handle")).then(() => {
                 console.log(myStorage.getItem("handle"));
-                // makeQuizSet().then(() => {
-                //     console.log("here i am back");
-                //     console.log(quizData);
-                // });
             });
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [myStorage]);
 
     const setData = async (handle) => {
@@ -54,27 +48,6 @@ const QuizSelector = () => {
             setLoading(false);  //finished loading data
     
     };
-
-    // const makeQuizSet = async () => {
-    //     console.log("in make");
-    //     for (let i = 0; i < qIDS.length; i++) {
-    //         const id = qIDS[i];
-    //         await quizDB
-    //             .doc(id)
-    //             .get()
-    //             .then((data) => {
-    //                 setQuizData((old_array) => [
-    //                     ...old_array,
-    //                     { quizID: id, title: data.data().quizName },
-    //                 ]);
-    //             });
-    //     }
-    // };
-
-    // const linkChange = (qID) => {
-    //   setQuizID(qID);
-    //   setRedirect(true);
-    // };
 
     if (redirectHome) return <Redirect to="/" />;
     if (redirect) {
