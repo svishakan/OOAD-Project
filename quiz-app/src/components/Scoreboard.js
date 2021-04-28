@@ -5,6 +5,7 @@ import "react-circular-progressbar/dist/styles.css";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import firebase from "../Firebase";
 import Loading from "./Loading";
+import Navigation from "./Navigation";
 
 
 const ScoreBoard = (props) => {
@@ -82,71 +83,75 @@ const ScoreBoard = (props) => {
     if (redirectBack) return <Redirect to="/YourQuizes" />;
 
     return (
-        loading? <Loading /> : (<div className="container card col-lg-8 col-md-12 col-sm-12 text-center quiz-box">
-            <div className="card-img">
-                <i className="fas fa-poll quiz-img" aria-hidden="true"></i>
-            </div>
-            <div className="card-body">
-                <h1 className="col-lg-12 col-md-12 col-sm-12 quiz-title text-center">
-                    SCORECARD
-                </h1>
-                <div id="tablediv" style={{ height: "500px", overflowY: "auto" }}>
-                <table id="scoretable" class="table table-dark table-bordered table-hover table-striped table-responsive-md col-sm-12">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col" className="sticky-header"> # </th>
-                            <th scope="col" className="sticky-header"> Submission Time </th>
-                            <th scope="col" className="sticky-header"> Handle </th>
-                            <th scope="col" className="sticky-header"> Name </th>
-                            <th scope="col" className="sticky-header"> Score </th>
-                            <th scope="col" className="sticky-header"> Percentage </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {scoreData.map((scoreData, idx) => (
-                            <tr>
-                                <td scope="row">{idx + 1}</td>
-                                <td scope="row">{convertTimeStamp(scoreData.timestamp)}</td>
-                                <td scope="row">{scoreData.handle}</td>
-                                <td scope="row">{scoreData.Username}</td>
-                                <td scope="row">{scoreData.Score}</td>
-                                {/* <td scope="row">{scoreData.Percent}</td> */}
-                                <td className="d-flex justify-content-center" scope="row">
-                                        <div style={{ width: 65, height: 65 }}>
-                                            <CircularProgressbar
-                                                value={scoreData.Percent}
-                                                text={`${scoreData.Percent}%`}
-                                                styles={buildStyles({
-                                                    textSize: "25px",
-                                                    textColor: '#fff',
-                                                    backgroundColor: '#baf2ef'
-                                                })}
-                                            />
-                                        </div>
-                                    </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+        loading ? <Loading /> : (
+            <div>
+                <Navigation />
+                <div className="container card col-lg-8 col-md-12 col-sm-12 text-center quiz-box">
+                    <div className="card-img">
+                        <i className="fas fa-poll quiz-img" aria-hidden="true"></i>
+                    </div>
+                    <div className="card-body">
+                        <h1 className="col-lg-12 col-md-12 col-sm-12 quiz-title text-center">
+                            SCORECARD
+                        </h1>
+                        <div id="tablediv" style={{ height: "500px", overflowY: "auto" }}>
+                            <table id="scoretable" class="table table-dark table-bordered table-hover table-striped table-responsive-md col-sm-12">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col" className="sticky-header"> # </th>
+                                        <th scope="col" className="sticky-header"> Submission Time </th>
+                                        <th scope="col" className="sticky-header"> Handle </th>
+                                        <th scope="col" className="sticky-header"> Name </th>
+                                        <th scope="col" className="sticky-header"> Score </th>
+                                        <th scope="col" className="sticky-header"> Percentage </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {scoreData.map((scoreData, idx) => (
+                                        <tr>
+                                            <td scope="row">{idx + 1}</td>
+                                            <td scope="row">{convertTimeStamp(scoreData.timestamp)}</td>
+                                            <td scope="row">{scoreData.handle}</td>
+                                            <td scope="row">{scoreData.Username}</td>
+                                            <td scope="row">{scoreData.Score}</td>
+                                            {/* <td scope="row">{scoreData.Percent}</td> */}
+                                            <td className="d-flex justify-content-center" scope="row">
+                                                <div style={{ width: 65, height: 65 }}>
+                                                    <CircularProgressbar
+                                                        value={scoreData.Percent}
+                                                        text={`${scoreData.Percent}%`}
+                                                        styles={buildStyles({
+                                                            textSize: "25px",
+                                                            textColor: '#fff',
+                                                            backgroundColor: '#baf2ef'
+                                                        })}
+                                                    />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div className="d-flex justify-content-center pt-2 pb-5">
+                        <Link to="/YourQuizes">
+                            <button
+                                className="btn btn-qb-neon-primary"
+                                type="button"
+                                value="BACK">GO BACK</button></Link>
+
+                        <ReactHTMLTableToExcel
+                            className="download-table-xls-button btn btn-qb-neon-primary"
+                            table="scoretable"
+                            filename={`Marksheet: ${window.localStorage.getItem("qID")}`}
+                            sheet={qID}
+                            buttonText="EXPORT" />
+
+                    </div>
                 </div>
             </div>
-            <div className="d-flex justify-content-center pt-2 pb-5">
-                <Link to="/YourQuizes">
-                    <button
-                        className="btn btn-qb-neon-primary"
-                        type="button"
-                        value="BACK">GO BACK</button></Link>
-
-                    <ReactHTMLTableToExcel
-                    className="download-table-xls-button btn btn-qb-neon-primary"
-                    table="scoretable"
-                    filename={`Marksheet: ${window.localStorage.getItem("qID")}`}
-                    sheet={qID}
-                    buttonText="EXPORT"/>
-
-            </div>
-        </div>
-    ));
+        ));
 };
 
 export default ScoreBoard;

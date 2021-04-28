@@ -8,10 +8,11 @@ import {
 } from "react-router-dom";
 import { ToastProvider } from "react-toast-notifications";
 
-//File imports
+//Component imports
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Loading from "./components/Loading";
+import Navigation from "./components/Navigation";
 import Dashboard from "./components/Dashboard";
 import QuizFinder from "./components/QuizFinder";
 import QuizBuilder from "./components/QuizBuilder";
@@ -24,8 +25,6 @@ import About from "./components/About";
 import ForgotPassword from "./components/ForgotPassword"
 import Profile from "./components/Profile"
 
-
-//import "./App.css";
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -53,12 +52,14 @@ function App() {
                                     <Login />
                                 </Route>
                                 <Route path="/dashboard">
+                                    <Navigation />
                                     <Dashboard />
                                 </Route>
                                 <Route path="/quiz">
                                     <Redirect to="/quizfinder" />
                                 </Route>
                                 <Route path="/quizfinder">
+                                    <Navigation />
                                     <QuizFinder />
                                 </Route>
                                 <Route
@@ -69,9 +70,11 @@ function App() {
                                     <QuizBuilder />
                                 </Route>
                                 <Route path="/quizcreator">
+                                    <Navigation />
                                     <QuizCreator />
                                 </Route>
                                 <Route path="/YourQuizes">
+                                    <Navigation />
                                     <QuizSelector />
                                 </Route>
                                 <Route
@@ -79,15 +82,18 @@ function App() {
                                     render={(props) => <ScoreBoard {...props} />}
                                 />
                                 <Route path="/feedback">
+                                    <Navigation />
                                     <Feedback />
                                 </Route>
                                 <Route path="/about">
+                                    <Navigation />
                                     <About />
                                 </Route>
                                 <Route path="/passwordreset">
                                     <ForgotPassword />
                                 </Route>
                                 <Route path="/profile">
+                                    <Navigation />
                                     <Profile />
                                 </Route>
                             </Switch>

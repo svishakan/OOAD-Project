@@ -53,7 +53,7 @@ function Login() {
                     myStorage.setItem("Username", data.Username);
                     setRedirect(true);
 
-                    addToast(`Welcome, ${handle}. Your login was successful!`, { appearance: "success" });
+                    addToast(`Welcome, ${handle}. Your login was successful!`, { appearance: "success", autoDismissTimeout: 3000 });
 
                 } else {
                     setErrText("** Invalid Handle or Password");
