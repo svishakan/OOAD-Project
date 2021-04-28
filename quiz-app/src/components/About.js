@@ -64,17 +64,17 @@ const About = () => {
             </div>
             <div className="about-footer text-center">
                 <p>Powered By:
-                <i className="footer-img fab fa-github" />
-                    <i className="footer-img fab fa-react" />
-                    <i className="footer-img fab fa-bootstrap" />
-                    <i className="footer-img fab fa-google" />
-                    <i className="footer-img fab fa-font-awesome" />
-                    <i className="footer-img fab fa-html5" />
-                    <i className="footer-img fab fa-css3" />
-                    <i className="footer-img fab fa-js" />
-                    <i className="footer-img fab fa-npm" />
+                <i className="footer-img fab fa-github" data-toggle="tooltip" title="GitHub" />
+                    <i className="footer-img fab fa-react" data-toggle="tooltip" title="React" />
+                    <i className="footer-img fab fa-bootstrap" data-toggle="tooltip" title="Bootstrap" />
+                    <i className="footer-img fab fa-google" data-toggle="tooltip" title="Google Firebase" />
+                    <i className="footer-img fab fa-font-awesome" data-toggle="tooltip" title="Font Awesome" />
+                    <i className="footer-img fab fa-html5" data-toggle="tooltip" title="HTML5" />
+                    <i className="footer-img fab fa-css3" data-toggle="tooltip" title="CSS3" />
+                    <i className="footer-img fab fa-js" data-toggle="tooltip" title="JavaScript ES6" />
+                    <i className="footer-img fab fa-npm" data-toggle="tooltip" title="NPM" />
                     <div className="footer-text">
-                        <img className="user" height="25" width="25" src={HutLogo}/> 
+                        <img className="user" height="25" width="25" src={HutLogo} data-toggle="tooltip" title="QuizHut"/> 
                             Logo By 
                         <a href="https://www.freepik.com" title="Freepik"> Freepik.</a>
                     </div>

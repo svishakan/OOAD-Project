@@ -30,8 +30,9 @@ code {
 }
 
 @font-face {
-    font-family: "Pacifico";
-    src: local("Pacifico"), url(./fonts/Pacifico-Regular.ttf) format("truetype");
+    font-family: "Syne";
+    src: local("Syne"),
+        url(./fonts/Syne-VariableFont_wght.ttf) format("truetype");
 }
 
 /* @ Imports Ends */
@@ -74,11 +75,17 @@ body {
 .login-page-title {
     margin-top: 50px;
     text-align: center;
-    font-size: 40px;
+    font-size: 400%;
     font-weight: bold;
     text-align: center;
-    font-family: "Pacifico", cursive;
+    font-family: "Syne", sans-serif;
     color: #00f9ff;
+}
+
+.brand-text-gradient {
+    background: -webkit-linear-gradient(#ffee28, #ff7843);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .login-box {
@@ -388,12 +395,12 @@ div.card-body2 {
     transition-delay: 0.2s;
 }
 
-.footer-text{
+.footer-text {
     padding-top: 10px;
     font-size: 12px;
 }
 
-.footer-text a{
+.footer-text a {
     text-decoration: none;
     color: #0db8de;
 }
@@ -405,9 +412,22 @@ div.card-body2 {
 }
 
 .title-name {
-    font-family: "Pacifico", cursive;
+    font-family: "Syne", sans-serif;
     font-size: 2.5em;
     color: #00f9ff;
+}
+
+.brand-font {
+    font-family: "Syne", sans-serif;
+}
+
+.brand-u-style {
+    -moz-transform: scale(1, -1);
+    -webkit-transform: scale(1, -1);
+    -o-transform: scale(1, -1);
+    -ms-transform: scale(1, -1);
+    transform: scale(1, -1);
+    display: inline-block;
 }
 
 .card-p-text {

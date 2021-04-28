@@ -7,6 +7,7 @@ import * as crypto from "crypto";
 //File/Component imports
 import firebase from "../Firebase";
 import Loading from "./Loading";
+import HutLogo from "../images/hut_logo.svg"
 
 function Login() {
     const [loading, setLoading] = useState(false);
@@ -74,7 +75,15 @@ function Login() {
     else
         return (
             <div className="container">
-                <h1 className="col-lg-12 login-page-title" style={{textTransform: "none"}}>QuizHut</h1>
+                <h1 className="col-lg-12 login-page-title" style={{textTransform: "none"}}>
+                    <span className="brand-font">
+                        <img className="user" height="150px" width="150px" src={HutLogo} />
+                            <div className="brand-text-gradient">Qu
+                                <span className="brand-u-style brand-text-gradient">i</span>zH
+                                <span className="brand-u-style brand-text-gradient">u</span>t
+                            </div>
+                    </span>
+                </h1>
                 {redirect === true ? (
                     <Redirect to="/dashboard" />
                 ) : (
