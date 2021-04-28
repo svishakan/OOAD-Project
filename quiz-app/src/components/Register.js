@@ -115,6 +115,7 @@ function Register() {
 
         if (exit) {
             setLoading(false);
+            console.log("118 " + alertBody + alertBgColor);
             addToast(alertBody, { appearance: alertBgColor });
             return false;
         }
@@ -143,12 +144,19 @@ function Register() {
                                     setLoading(false);
                                 });
                             }
-                            addToast(alertBody, { appearance: alertBgColor });
+
+                            if (alertBody && alertBgColor) {
+                                addToast(alertBody, { appearance: alertBgColor });
+                            }
 
                         });
                     }
                     setLoading(false);
-                    addToast(alertBody, { appearance: alertBgColor });
+
+                    if (alertBody && alertBgColor) {
+                        addToast(alertBody, { appearance: alertBgColor });
+                    }
+
                 });
         });
     };
@@ -184,6 +192,7 @@ function Register() {
                     alertHeader = "Registration Success!";
                     alertBody = "You are successfully registered!";
                     alertBgColor = "success";
+                    console.log("190 " + alertBody + alertBgColor);
                     addToast(alertBody, { appearance: alertBgColor });
                     setRedirectHome(true);
                 })
@@ -235,7 +244,7 @@ function Register() {
                     setEmailChecker(true);
                 },
                 (error) => {
-                   
+
                     addToast("Your form could not be validated! Try again later!", { appearance: "error" });
 
                     console.log(error.text);
@@ -256,9 +265,8 @@ function Register() {
                             <i className="fa fa-address-card" aria-hidden="true"></i>
                         </div>
                         <div className="col-lg-12 login-title">VERIFY YOUR ACCOUNT</div>
-                        <div className="col-lg-12 login-title">
-                            Token has been sent to your specified email, Paste the token to
-                            complete your Registration process
+                        <div className="col-lg-12 login-title" style={{ fontSize: "25px" }}>
+                            Enter the token sent to your email to complete registration.
                         </div>
                         <div className="col-lg-12 login-form">
                             <form
