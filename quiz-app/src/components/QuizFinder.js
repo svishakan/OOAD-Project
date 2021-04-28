@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { useToasts } from 'react-toast-notifications';
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import firebase from "../Firebase";
 
 
 const QuizFinder = () => {
     const [redirect, setRedirect] = useState(false);
     const [redirectHome, setRedirectHome] = useState(false);
-    const [handle, setHandle] = useState("");
     let [quizID, setQuizID] = useState(null);
     const [duration, setDuration] = useState(0);
     const [title, setTitle] = useState("");
@@ -16,16 +15,12 @@ const QuizFinder = () => {
 
     let myStorage = window.localStorage;
     const quizDB = firebase.firestore().collection("QuizDB");
-    const Users = firebase.firestore().collection("UserCreds");
-
 
     useEffect(() => {
         if (myStorage.getItem("handle") === null) {
             setRedirectHome(true);
-        } else {
-            setHandle(myStorage.getItem("handle"));
         }
-    }, []);
+    }, [myStorage]);
 
     const findQuiz = () => {
         //to check if a quiz with the given quizID exists
@@ -35,7 +30,7 @@ const QuizFinder = () => {
 
         //console.log(qID);
 
-        if (qID == "") {
+        if (qID === "") {
             //fix later with required form attribute
             addToast(`The Quiz ID field cannot be left empty!`, { appearance: "error", autoDismissTimeout: 3000 });
 

@@ -77,7 +77,7 @@ function Login() {
             <div className="container">
                 <h1 className="col-lg-12 login-page-title" style={{textTransform: "none"}}>
                     <span className="brand-font">
-                        <img className="user" height="150px" width="150px" src={HutLogo} />
+                        <img className="user" height="150px" width="150px" src={HutLogo} alt=""/>
                             <div className="brand-text-gradient">Qu
                                 <span className="brand-u-style brand-text-gradient">i</span>zH
                                 <span className="brand-u-style brand-text-gradient">u</span>t

@@ -74,7 +74,7 @@ const About = () => {
                     <i className="footer-img fab fa-js" data-toggle="tooltip" title="JavaScript ES6" />
                     <i className="footer-img fab fa-npm" data-toggle="tooltip" title="NPM" />
                     <div className="footer-text">
-                        <img className="user" height="25" width="25" src={HutLogo} data-toggle="tooltip" title="QuizHut"/> 
+                        <img className="user" height="25" width="25" src={HutLogo} data-toggle="tooltip" title="QuizHut" alt=""/> 
                             Logo By 
                         <a href="https://www.freepik.com" title="Freepik"> Freepik.</a>
                     </div>
