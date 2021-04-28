@@ -28,7 +28,7 @@ const About = () => {
                         <i className="card-img-top card-custom-img fas fa-user-graduate"></i>
                         <div className="card-body">
                             <p className="card-text text-white card-p-text">
-                                "Namakku Vaaitha Adimaigal Migavum Thiramai Saaligal."
+                                "Life is like this &#128071;, I like this &#9757;."
                             </p>
                         </div>
                         <div class="card-footer d-flex justify-content-around">
@@ -42,7 +42,7 @@ const About = () => {
                         <i className="card-img-top card-custom-img fas fa-user-astronaut"></i>
                         <div className="card-body" style={{ wordWrap: "break-word" }}>
                             <p className="card-text text-white card-p-text">
-                                "Jaaminukkum Meenukum Vidhyaasame Theriyadha Ungala Enaku Assistant-ah Vechaen Paathiya, Adha Nenachu Naan Romba Perumai Padren Da."
+                                "Sometimes you gotta work a little, so you can ball a lot."
                             </p>
                         </div>
                         <div class="card-footer d-flex justify-content-around">

@@ -88,7 +88,7 @@ function Login() {
                     <Redirect to="/dashboard" />
                 ) : (
                     <div className="row justify-content-center">
-                        <div className="col-lg-6 col-md-8 login-box">
+                        <div className="col-lg-6 col-md-8 login-box" style={{marginTop: "30px"}}>
                             <div className="col-lg-12 login-img">
                                 <i className="fa fa-key" aria-hidden="true"></i>
                             </div>

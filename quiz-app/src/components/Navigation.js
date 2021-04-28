@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
     Navbar,
     Nav,
@@ -24,12 +25,15 @@ function Navigation() {
         <div className="flex justify-end right absolute right-10">
             <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
                 <Navbar.Brand>
-                    <span className="brand-font" style={{ fontSize: "30px" }}>
-                        <img className="user" height="50" width="50" src={HutLogo} />
-                        <span>Qu
-                            <span className="brand-u-style">i</span>zH
-                            <span className="brand-u-style">u</span>t</span>
-                    </span>
+                    <Link to="/dashboard" style={{ textDecoration: "none", color: "#fff" }}>
+                        <span className="brand-font" style={{ fontSize: "30px" }}>
+                            <img className="user" height="50" width="50" src={HutLogo} />
+                            <span>Qu
+                                <span className="brand-u-style">i</span>zH
+                                <span className="brand-u-style">u</span>t
+                            </span>
+                        </span>
+                    </Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
@@ -54,7 +58,7 @@ function Navigation() {
                             <NavDropdown.Item href="/enter">
                                 <div className="card-img">
                                     <i className="fa fa-sign-out" aria-hidden="true" />
-                                                        Logout
+                                        Logout
                                 </div>
                             </NavDropdown.Item>
                         </NavDropdown>
