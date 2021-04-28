@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+//Image imports
 import HutLogo from "../images/hut_logo.svg"
+
 
 const About = () => {
     return (

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { useToasts } from 'react-toast-notifications';
 import emailjs from "emailjs-com";
 

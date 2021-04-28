@@ -4,6 +4,8 @@ import {
     Nav,
     NavDropdown,
 } from "react-bootstrap";
+
+//Image imports
 import UserPic from "../images/user.svg";
 import HutLogo from "../images/hut_logo.svg";
 
@@ -25,7 +27,7 @@ function Navigation() {
             <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
                 <Navbar.Brand>
                     <span className="brand-font" style={{ fontSize: "30px" }}>
-                        <img className="user" height="50" width="50" src={HutLogo} />
+                        <img className="user" height="50" width="50" src={HutLogo} alt=""/>
                         <span>Qu
                             <span className="brand-u-style">i</span>zH
                             <span className="brand-u-style">u</span>t</span>
@@ -35,7 +37,7 @@ function Navigation() {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="navbar-nav ml-auto">
                         <NavDropdown
-                            title={<span><img className="user" height="35" src={UserPic} />{handle}</span>}
+                            title={<span><img className="user" height="35" src={UserPic} alt=""/>{handle}</span>}
                             id="collasible-nav-dropdown">
                             <NavDropdown.Item href="/profile">
                                 View Profile

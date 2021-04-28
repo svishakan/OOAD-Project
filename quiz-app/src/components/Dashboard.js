@@ -3,7 +3,6 @@ import { Redirect } from "react-router-dom";
 
 
 function DashBoard() {
-    const [handle, setHandle] = useState("");
     const [redirectHome, setRedirectHome] = useState(false);
     const [redirectTake, setRedirectTake] = useState(false);
     const [redirectSet, setRedirectSet] = useState(false);
@@ -15,8 +14,6 @@ function DashBoard() {
     useEffect(() => {
         if (myStorage.getItem("handle") === null) {
             setRedirectHome(true);
-        } else {
-            setHandle(myStorage.getItem("handle"));
         }
     }, [myStorage]);
 

@@ -5,6 +5,8 @@ import { useToasts } from 'react-toast-notifications';
 import * as EmailValidator from "email-validator";
 import * as crypto from "crypto";
 import emailjs from "emailjs-com";
+
+//Component imports
 import firebase from "../Firebase";
 import Loading from "./Loading";
 

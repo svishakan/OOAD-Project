@@ -4,6 +4,8 @@ import { Link, Redirect } from "react-router-dom";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+
+//Component imports
 import firebase from "../Firebase";
 import Loading from "./Loading";
 import Navigation from "./Navigation";
@@ -17,13 +19,11 @@ const ScoreBoard = (props) => {
     const [redirectBack, setRedirectBack] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    //  console.log("in");
     let myStorage = window.localStorage;
     let qID = "";
     let scoreList = [];
 
     useEffect(() => {
-        console.log(props);
         if (myStorage.getItem("handle") == null) {
             setRedirectHome(true);
         } else if (
@@ -34,9 +34,7 @@ const ScoreBoard = (props) => {
         } else {
             // eslint-disable-next-line react-hooks/exhaustive-deps
             qID = props.location.state.qID;
-            console.log(qID);
             getData().then(() => {
-                console.log(scoreList);
                 setScoreData([...scoreList])
             });
 
@@ -45,7 +43,6 @@ const ScoreBoard = (props) => {
     }, [scoreList]);
 
     const getData = async () => {
-        console.log("qID :" + qID);
 
         setLoading(true);   //started loading data
         //for extracting qID for export
@@ -57,7 +54,6 @@ const ScoreBoard = (props) => {
             .then((data) => {
                 if (data.exists) {
                     const score = data.data();
-                    console.log(score.Scores);
                     scoreList = scoreList.concat(score.Scores);
                 }
             })

@@ -3,6 +3,8 @@ import { Link, Redirect } from "react-router-dom";
 import { useToasts } from 'react-toast-notifications';
 import emailjs from "emailjs-com";
 import * as crypto from "crypto";
+
+//Component imports
 import firebase from "../Firebase";
 import Loading from "./Loading";
 

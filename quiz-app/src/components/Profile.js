@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+
+//Component imports
 import firebase from "../Firebase";
 import Loading from "./Loading";
 
