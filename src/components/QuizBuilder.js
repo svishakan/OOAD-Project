@@ -104,7 +104,7 @@ function QuizBuilder() {
     const uploadQuiz = () => {
         //upload the quiz to the Firestore DB
 
-        nextQuestion(); //store the most recent question as well
+        //nextQuestion(); //store the most recent question as well
 
         createQuizInDB();   //create the quiz in firestore
 
