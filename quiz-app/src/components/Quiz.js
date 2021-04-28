@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { useToasts } from 'react-toast-notifications';
 import useInterval from "@use-it/interval";
@@ -17,7 +17,6 @@ function Quiz(props) {
     const [quizDuration, setQuizDuration] = useState(0);
     const [handle, setHandle] = useState("");
     const [username, setUsername] = useState("");
-    const [loading, setLoading] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [scoreSheet, setScoreSheet] = useState([]);
     const { addToast } = useToasts();
@@ -40,24 +39,21 @@ function Quiz(props) {
     //}, [currentIndex]);
 
     const updateDuration = () => {
-        //console.log("Duration:" +  quizDuration)
         if (quizDuration >= 0)
             setQuizDuration((t) => Math.max(-1, t - 1));
     }
 
     useEffect(() => {
-        //console.log(quizDuration + " xD")
         if (quizDuration < 0) {
             setCurrentIndex(() => questions.length + 1);
 
             addToast(`Your timer ran out! Your answer submissions were saved.`, { appearance: "error" });
         }
-        //console.log(currentIndex);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [quizDuration]);
 
     useEffect(() => {
         //to get the quiz's metadata
-        console.log("here");
         if (myStorage.getItem("handle") === null) {
             setRedirectHome(true);
         } else if (
@@ -67,19 +63,15 @@ function Quiz(props) {
         ) {
             setRedirectBack(true);
         } else {
-            console.log("Props");
             setHandle(myStorage.getItem("handle"));
             setUsername(myStorage.getItem("Username"));
-            console.log(props.location.state);
             // eslint-disable-next-line react-hooks/exhaustive-deps
             quizID = props.location.state.qID;
-            console.log("quizID : " + quizID);
             getData();
         }
     }, []);
 
     const getData = () => {
-        //console.log(quizID);
 
         quizMeta
             .doc(quizID)
@@ -89,7 +81,6 @@ function Quiz(props) {
                 setQuizTitle(metadata.quizName);
                 setQuizDuration(metadata.quizDuration * 60 + 1);
                 quizLength = metadata.quizLength;
-                console.log(metadata);
             });
 
         //to get the quiz's questionnaire
@@ -99,7 +90,6 @@ function Quiz(props) {
             .get()
             .then((snapshot) => {
                 const documents = snapshot.docs.map((doc) => doc.data());
-                console.log(documents);
 
                 let questions = [];
 
@@ -233,7 +223,6 @@ function Quiz(props) {
     const loadIntoDB = (totalScore) => {
         let timestamp = Date.now().toString();
 
-        console.log("in exit");
         const scoreData = {
             handle: handle,
             Username: username,
@@ -241,16 +230,12 @@ function Quiz(props) {
             Score: totalScore,
             Percent: Math.round((totalScore / questions.length) * 100 * 100) / 100,
         };
-        console.log(scoreData);
-        console.log(quizDB);
-        console.log(props.location.state.qID);
         quizDB
             .doc(props.location.state.qID)
             .update({
                 Scores: firebase.firestore.FieldValue.arrayUnion(scoreData),
             })
             .then((result) => {
-                console.log("matter over");
                 Users.doc(handle)
                     .update({
                         TakenQuizes: firebase.firestore.FieldValue.arrayUnion({
@@ -271,8 +256,7 @@ function Quiz(props) {
     if (redirectHome) return <Redirect to="/" />;
     if (redirectDash) return <Redirect to="/dashboard" />;
     if (redirectBack) return <Redirect to="/quizfinder" />;
-    if (loading) return <Loading />;
-
+    
     return questions.length > 0 ? (
         <div className="container card col-lg-8 col-md-12 col-sm-12 text-justify quiz-box">
             <div className="card-img text-center">
@@ -316,18 +300,11 @@ function Quiz(props) {
 }
 
 const Timer = ({ duration, update }) => {
-    //duration = 4;
-    //const [Time] = useState(duration);
     const [displayTime, setDisplayTime] = useState(duration);
 
-    //setTime(() => duration*60);
-    //console.log(duration);
-
     let time = duration;
-    //duration = time;
     useInterval(() => {
         update();
-        //console.log("inside timer");
         let days = Math.floor(time / (24 * 60 * 60));
         time %= 24 * 60 * 60;
         let hours = Math.floor(time / (60 * 60));
@@ -335,7 +312,6 @@ const Timer = ({ duration, update }) => {
         let minutes = Math.floor(time / 60);
         time %= 60;
         let seconds = time;
-        //console.log(days, hours, minutes, seconds)
         if (days > 0) {
             setDisplayTime(`${days} Day(s)`);
         } else {
@@ -354,7 +330,6 @@ const Timer = ({ duration, update }) => {
             setDisplayTime(string);
         }
     }, 1000);
-    //console.log(html);
     return <h1 className="col-lg-12 quiz-title text-center">{displayTime}</h1>;
 };
 

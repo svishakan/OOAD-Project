@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
-import { useToasts } from 'react-toast-notifications';
 import UserPic from "../images/user.svg";
 import HutLogo from "../images/hut_logo.svg"
 import {
-    Button,
     Navbar,
     Nav,
-    NavItem,
     NavDropdown,
-    MenuItem,
 } from "react-bootstrap";
 
 
@@ -19,10 +15,7 @@ function DashBoard() {
     const [redirectTake, setRedirectTake] = useState(false);
     const [redirectSet, setRedirectSet] = useState(false);
     const [redirectReport, setRedirectReport] = useState(false);
-    const { addToast } = useToasts();
     // const [redirectFeedback, setredirectFeedback] = useState(false);
-
-    const [loading, setLoading] = useState(false);
 
     let myStorage = window.localStorage;
 
@@ -32,7 +25,7 @@ function DashBoard() {
         } else {
             setHandle(myStorage.getItem("handle"));
         }
-    }, []);
+    }, [myStorage]);
 
     if (redirectSet) return <Redirect to="/quizcreator" />;
     if (redirectTake) return <Redirect to="/quizfinder" />;

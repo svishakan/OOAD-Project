@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/scope */
 import React, { useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
@@ -7,7 +8,7 @@ import Loading from "./Loading";
 
 
 const Profile = (props) => {
-    const [handle, setHandle] = useState("");
+    const [, setHandle] = useState("");
     const UserCreds = firebase.firestore().collection("UserCreds");
     const [userDetails, setUserdetails] = useState([]);
     const [takenQuizzes, setTakenQuizes] = useState([]);
@@ -15,7 +16,6 @@ const Profile = (props) => {
     const [loading, setLoading] = useState(false);
 
     let myStorage = window.localStorage;
-    let details = {};
 
     useEffect(() => {
         if (myStorage.getItem("handle") == null) {
@@ -23,14 +23,11 @@ const Profile = (props) => {
         } else {
             setHandle(myStorage.getItem("handle"));
         }
-        console.log(handle);
         getData(myStorage.getItem("handle")).then(() => {
-            console.log(takenQuizzes);
-            //console.log(details);
-
-            setLoading(false);
+          setLoading(false);
         });
-    }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [myStorage]);
 
     const getData = async (handle) => {
         setLoading(true);
@@ -38,8 +35,6 @@ const Profile = (props) => {
             .get()
             .then((snapshot) => {
                 if (snapshot.exists) {
-                    details = snapshot.data();
-                    //console.log(snapshot.data());
                     setUserdetails(snapshot.data());
                     setTakenQuizes(snapshot.data().TakenQuizes);
                 }
