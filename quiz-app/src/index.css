@@ -18,10 +18,21 @@ code {
 
 /* @ Imports */
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
+@font-face {
+    font-family: "Roboto";
+    src: local("Roboto"), url(./fonts/Roboto-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Righteous";
+    src: local("Righteous"),
+        url(./fonts/Righteous-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Pacifico";
+    src: local("Pacifico"), url(./fonts/Pacifico-Regular.ttf) format("truetype");
+}
 
 /* @ Imports Ends */
 
@@ -258,7 +269,9 @@ div.card-custom {
 .card-header2 {
     /* background-color:rgba(1, 167, 167, 0.863); */
     /* background: -webkit-linear-gradient(#27ef9f, #0db8de); */
-    font-family: "Cabin", sans-serif;
+    font-family: "Righteous", sans-serif;
+    text-transform: uppercase;
+    font-size: 35px;
     background: rgba(0, 255, 235, 1);
     background: linear-gradient(
         331deg,
@@ -637,6 +650,11 @@ div.card-body2 {
     color: #000;
     box-shadow: 0px 0px 5px #26a0da, 0px 0px 20px#26a0da, 0px 0px 40px #26a0da;
     transition-delay: 0.2s;
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
 }
 
 /* Quiz Tables CSS Ends */

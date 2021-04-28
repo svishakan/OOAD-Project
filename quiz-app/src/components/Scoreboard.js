@@ -90,16 +90,16 @@ const ScoreBoard = (props) => {
                 <h1 className="col-lg-12 col-md-12 col-sm-12 quiz-title text-center">
                     SCORECARD
                 </h1>
-                <div id="tablediv">
-                <table id="scoretable" class="table table-dark table-bordered table-hover col-sm-12">
+                <div id="tablediv" style={{ height: "500px", overflowY: "auto" }}>
+                <table id="scoretable" class="table table-dark table-bordered table-hover table-striped table-responsive-md col-sm-12">
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col"> # </th>
-                            <th scope="col"> Submission Time </th>
-                            <th scope="col"> Handle </th>
-                            <th scope="col"> Name </th>
-                            <th scope="col"> Score </th>
-                            <th scope="col"> Percentage </th>
+                            <th scope="col" className="sticky-header"> # </th>
+                            <th scope="col" className="sticky-header"> Submission Time </th>
+                            <th scope="col" className="sticky-header"> Handle </th>
+                            <th scope="col" className="sticky-header"> Name </th>
+                            <th scope="col" className="sticky-header"> Score </th>
+                            <th scope="col" className="sticky-header"> Percentage </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -118,8 +118,8 @@ const ScoreBoard = (props) => {
                                                 text={`${scoreData.Percent}%`}
                                                 styles={buildStyles({
                                                     textSize: "25px",
-                                                    textColor: '#f4d03f',
-                                                    backgroundColor: '#26a0da',
+                                                    textColor: '#fff',
+                                                    backgroundColor: '#baf2ef'
                                                 })}
                                             />
                                         </div>

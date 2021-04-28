@@ -90,7 +90,7 @@ const QuizSelector = () => {
     }
     return (
         loading? <Loading /> : (
-        <div class="container card col-lg-8 col-md-8 text-center quiz-box">
+        <div className="container card col-lg-8 col-md-8 text-center quiz-box">
             <div className="card-img">
                 <i className="fas fa-scroll quiz-img" aria-hidden="true"></i>
             </div>
@@ -98,13 +98,14 @@ const QuizSelector = () => {
                 <h1 className="col-lg-12 quiz-title text-center">
                     QUIZ REPORTS
                 </h1>
-                <table class="table table-dark table-bordered table-hover col-sm-12">
-                    <thead class="thead-light">
+                <div id="tablediv" style={{ height: "500px", overflowY: "auto" }}>
+                <table className="table table-dark table-bordered table-hover table-responsive-md col-sm-12 col-sm-12">
+                    <thead className="thead-light">
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Quiz ID</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">View</th>
+                            <th scope="col" className="sticky-header">#</th>
+                            <th scope="col" className="sticky-header">Quiz ID</th>
+                            <th scope="col" className="sticky-header">Title</th>
+                            <th scope="col" className="sticky-header">View</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -124,6 +125,7 @@ const QuizSelector = () => {
                         ))}
                     </tbody>
                 </table>
+                </div>
             </div>
             <div className="d-flex justify-content-center pt-2 pb-5">
                 <Link to="/dashboard">

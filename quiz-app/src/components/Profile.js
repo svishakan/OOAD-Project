@@ -68,12 +68,12 @@ const Profile = (props) => {
             </div>
             <div className="card-body">
                 <h1 className="col-lg-12 col-md-12 col-sm-12 quiz-title text-center">
-                    User Profile
+                    My Profile
                 </h1>
                 <div id="tablediv">
                     <table
                         id="profiletable"
-                        className="table table-dark table-bordered table-hover col-sm-12">
+                        className="table table-dark table-bordered table-hover table-responsive-md col-sm-12">
                         <tbody>
                             <tr>
                                 <th>Handle</th>
@@ -93,22 +93,24 @@ const Profile = (props) => {
                             </tr>
                         </tbody>
                     </table>
-                    <br></br>
-                    <h1 className="col-lg-12 col-md-12 col-sm-12 quiz-title text-center">
-                        Quizzes Taken
+                </div>
+                <br></br>
+                <h1 className="col-lg-12 col-md-12 col-sm-12 quiz-title text-center">
+                    Quizzes Taken
                     </h1>
 
+                <div style={{ height: "250px", overflowY: "auto" }}>
                     <table
                         id="scoretable"
-                        className="table table-dark table-bordered table-hover col-sm-12">
+                        className="table table-dark table-bordered table-hover table-striped table-responsive-md col-sm-12">
                         <thead className="thead-light">
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">QuizID</th>
-                                <th scopr="col">Title</th>
-                                <th scope="col">Time of Attempt</th>
-                                <th scope="col">Score</th>
-                                <th scope="col">Percentage</th>
+                                <th scope="col" className="sticky-header"> # </th>
+                                <th scope="col" className="sticky-header"> QuizID </th>
+                                <th scopr="col" className="sticky-header"> Title </th>
+                                <th scope="col" className="sticky-header"> Submission Time </th>
+                                <th scope="col" className="sticky-header"> Score </th>
+                                <th scope="col" className="sticky-header"> Percentage </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -126,8 +128,8 @@ const Profile = (props) => {
                                                 text={`${takenQuizzes.Percent}%`}
                                                 styles={buildStyles({
                                                     textSize: "25px",
-                                                    textColor: '#f4d03f',
-                                                    backgroundColor: '#26a0da',
+                                                    textColor: '#fff',
+                                                    backgroundColor: '#baf2ef'
                                                 })}
                                             />
                                         </div>

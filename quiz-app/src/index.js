@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './fonts/Roboto-Regular.ttf'
+import './fonts/Righteous-Regular.ttf'
+import './fonts/Pacifico-Regular.ttf'
 import "bootstrap/dist/css/bootstrap.min.css";
 import './index.css';
 import App from './App';
