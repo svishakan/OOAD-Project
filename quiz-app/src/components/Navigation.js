@@ -47,17 +47,17 @@ function Navigation() {
                                 View Profile
                             </NavDropdown.Item>
 
-                            <NavDropdown.Item href="/Feedback">
+                            <NavDropdown.Item href="/feedback">
                                 Got a feedback?
                             </NavDropdown.Item>
 
                             <NavDropdown.Divider />
 
-                            <NavDropdown.Item href="/About">
+                            <NavDropdown.Item href="/aboutus">
                                 About Us
                             </NavDropdown.Item>
 
-                            <NavDropdown.Item href="/enter">
+                            <NavDropdown.Item href="/signin">
                                 <div className="card-img">
                                     <i className="fa fa-sign-out" aria-hidden="true" />
                                         Logout

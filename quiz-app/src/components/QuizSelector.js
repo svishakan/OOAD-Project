@@ -50,7 +50,7 @@ function QuizSelector() {
         return (
             <Redirect
                 to={{
-                    pathname: "/results",
+                    pathname: "/report",
                     state: { qID: quizID },
                 }}
             />
@@ -83,7 +83,7 @@ function QuizSelector() {
                                 <td scope="row">{quizdet.quizID}</td>
                                 <td scope="row">{quizdet.quizTitle}</td>
                                 <td scope="row">
-                                    <Link to={{ pathname: "/results", state: { qID: quizdet.quizID } }}>
+                                    <Link to={{ pathname: "/report", state: { qID: quizdet.quizID } }}>
                                         <button
                                             className="btn btn-l-neon-primary text-nowrap"
                                             type="button"

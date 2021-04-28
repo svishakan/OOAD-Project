@@ -32,11 +32,6 @@ function Quiz(props) {
     const quizMeta = firebase.firestore().collection("QuizDB");
     const Users = firebase.firestore().collection("UserCreds");
 
-    //useEffect(() => {
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    //}, [currentIndex]);
-
     const updateDuration = () => {
         if (quizDuration >= 0)
             setQuizDuration((t) => Math.max(-1, t - 1));
@@ -254,7 +249,7 @@ function Quiz(props) {
     //if(true) return <Timer duration={4} />
     if (redirectHome) return <Redirect to="/" />;
     if (redirectDash) return <Redirect to="/dashboard" />;
-    if (redirectBack) return <Redirect to="/quizfinder" />;
+    if (redirectBack) return <Redirect to="/findquiz" />;
     
     return questions.length > 0 ? (
         <div className="container card col-lg-8 col-md-12 col-sm-12 text-justify quiz-box">

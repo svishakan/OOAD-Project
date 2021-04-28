@@ -17,15 +17,15 @@ function DashBoard() {
         }
     }, [myStorage]);
 
-    if (redirectSet) return <Redirect to="/quizcreator" />;
-    if (redirectTake) return <Redirect to="/quizfinder" />;
-    if (redirectReport) return <Redirect to="/YourQuizes" />;
+    if (redirectSet) return <Redirect to="/createquiz" />;
+    if (redirectTake) return <Redirect to="/findquiz" />;
+    if (redirectReport) return <Redirect to="/myquizzes" />;
     //if (redirectFeedback) return <Redirect to="/Feedback" />;
 
     return (
         <div>
             {redirectHome === true ? (
-                <Redirect to="/enter" />
+                <Redirect to="/signin" />
             ) : (
                 <div>
                     <div className="justify-items-center">
