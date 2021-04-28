@@ -23,6 +23,7 @@ import Feedback from "./components/Feedback";
 import About from "./components/About";
 import ForgotPassword from "./components/ForgotPassword"
 import Profile from "./components/Profile"
+import PageNotFound from "./components/PageNotFound";
 
 
 function App() {
@@ -95,6 +96,7 @@ function App() {
                                     <Navigation />
                                     <Profile />
                                 </Route>
+                                <Route component={PageNotFound}/>
                             </Switch>
                         </div>
                     </Router>

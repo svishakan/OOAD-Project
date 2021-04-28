@@ -17,7 +17,7 @@ function About() {
                         <i className="card-img-top card-custom-img fas fa-user-ninja"></i>
                         <div className="card-body">
                             <p className="card-text text-white card-p-text">
-                                "Build Up Panramo, Peela Udramo Adhu Mukkiyam Illa, Namma Edhu Pannalum Indha Ulagam Nammala Odaney Uththu Paakanum."
+                                "They're humid, prepossessing Homo sapiens with full-sized aortic pumps"
                             </p>
                         </div>
                         <div class="card-footer d-flex justify-content-around">
@@ -31,7 +31,7 @@ function About() {
                         <i className="card-img-top card-custom-img fas fa-user-graduate"></i>
                         <div className="card-body">
                             <p className="card-text text-white card-p-text">
-                                "Life is like this &#128071;, I like this &#9757;."
+                                "Life is like this &#128201;, I like this &#128200;."
                             </p>
                         </div>
                         <div class="card-footer d-flex justify-content-around">

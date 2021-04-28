@@ -29,7 +29,7 @@ function Navigation() {
                 <Navbar.Brand>
                     <Link to="/dashboard" style={{ textDecoration: "none", color: "#fff" }}>
                         <span className="brand-font" style={{ fontSize: "30px" }}>
-                            <img className="user" height="50" width="50" src={HutLogo} />
+                            <img className="user" height="50" width="50" src={HutLogo} alt=""/>
                             <span>Qu
                                 <span className="brand-u-style">i</span>zH
                                 <span className="brand-u-style">u</span>t
