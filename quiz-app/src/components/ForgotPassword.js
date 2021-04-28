@@ -151,7 +151,7 @@ function ForgotPassword() {
                         <div className="col-lg-12 login-img">
                             <i className="fas fa-lock-open" aria-hidden="true"></i>
                         </div>
-                        <div className="col-lg-12 login-title">CREATE AN ACCOUNT</div>
+                        <div className="col-lg-12 login-title">ENTER NEW PASSWORD</div>
                         <div className="col-lg-12 login-form">
                             <div className="important-text">* Required Fields</div>
                             <div className="important-text">
@@ -227,9 +227,8 @@ function ForgotPassword() {
                             <i className="fas fa-unlock" aria-hidden="true"></i>
                         </div>
                         <div className="col-lg-12 login-title">VERIFY YOUR ACCOUNT</div>
-                        <div className="col-lg-12 login-title">
-                            Token has been sent to your specified email, Paste the token to
-                            complete your Registration process
+                        <div className="col-lg-12 login-title" style={{fontSize: "25px"}}>
+                            Enter the token sent to your email.
                         </div>
                         <div className="col-lg-12 login-form">
                             <form

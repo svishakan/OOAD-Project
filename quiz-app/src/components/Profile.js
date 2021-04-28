@@ -10,7 +10,6 @@ import Loading from "./Loading";
 
 
 function Profile() {
-    const [, setHandle] = useState("");
     const UserCreds = firebase.firestore().collection("UserCreds");
     const [userDetails, setUserdetails] = useState([]);
     const [takenQuizzes, setTakenQuizes] = useState([]);
@@ -22,8 +21,6 @@ function Profile() {
     useEffect(() => {
         if (myStorage.getItem("handle") == null) {
             setRedirectHome(true);
-        } else {
-            setHandle(myStorage.getItem("handle"));
         }
         getData(myStorage.getItem("handle")).then(() => {
           setLoading(false);

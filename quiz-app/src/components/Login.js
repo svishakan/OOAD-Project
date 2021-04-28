@@ -136,7 +136,7 @@ function Login() {
                                         <div className="col-lg-12 login-btm login-text">
                                             {errorText}
                                         </div>
-                                        <Link to="/passwordreset">
+                                        <Link to="/forgotpassword">
                                             <div className="col-lg-12 login-btm login-text pb-3">
                                                 Forgot Password ?
                                             </div>

@@ -40,7 +40,7 @@ function QuizCreator() {
     return (
         <div className="">
             {redirect === true ? (
-                <Redirect to="/quizbuilder" />
+                <Redirect to="/quizwizard" />
             ) : (
                 <div className="container card col-lg-4 col-md-8 text-center quiz-box">
                     <div className="card-img">

@@ -137,7 +137,7 @@ function QuizBuilder() {
 
     if (redirectHome) return <Redirect to="/" />;
     if (redirectDash) return <Redirect to="/dashboard" />;
-    if (redirectBack) return <Redirect to="/quizcreator" />;
+    if (redirectBack) return <Redirect to="/createquiz" />;
 
     return (
         <div className="container card col-lg-8 col-md-12 col-sm-12 text-justify quiz-box">

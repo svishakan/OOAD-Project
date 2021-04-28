@@ -87,8 +87,8 @@ function Feedback() {
                                         <button
                                             className="btn btn-qf-neon-primary text-nowrap"
                                             type="button"
-                                            value="BACK">
-                                            BACK</button>
+                                            value="GO BACK">
+                                            GO BACK</button>
                                     </Link>
                                     <button
                                         type="submit"

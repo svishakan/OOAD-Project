@@ -48,17 +48,20 @@ function App() {
                                 <Route path="/signup">
                                     <Register />
                                 </Route>
-                                <Route path="/enter">
+                                <Route path="/signin">
                                     <Login />
                                 </Route>
                                 <Route path="/dashboard">
                                     <Navigation />
                                     <Dashboard />
                                 </Route>
-                                <Route path="/quiz">
-                                    <Redirect to="/quizfinder" />
+                                <Route path="/home">
+                                    <Redirect to="/dashboard" />
                                 </Route>
-                                <Route path="/quizfinder">
+                                <Route path="/quiz">
+                                    <Redirect to="/findquiz" />
+                                </Route>
+                                <Route path="/findquiz">
                                     <Navigation />
                                     <QuizFinder />
                                 </Route>
@@ -66,30 +69,30 @@ function App() {
                                     path="/questionnaire"
                                     render={(props) => <Quiz {...props} />}
                                 />
-                                <Route path="/quizbuilder">
+                                <Route path="/quizwizard">
                                     <QuizBuilder />
                                 </Route>
-                                <Route path="/quizcreator">
+                                <Route path="/createquiz">
                                     <Navigation />
                                     <QuizCreator />
                                 </Route>
-                                <Route path="/YourQuizes">
+                                <Route path="/myquizzes">
                                     <Navigation />
                                     <QuizSelector />
                                 </Route>
                                 <Route
-                                    path="/results"
+                                    path="/report"
                                     render={(props) => <ScoreBoard {...props} />}
                                 />
                                 <Route path="/feedback">
                                     <Navigation />
                                     <Feedback />
                                 </Route>
-                                <Route path="/about">
+                                <Route path="/aboutus">
                                     <Navigation />
                                     <About />
                                 </Route>
-                                <Route path="/passwordreset">
+                                <Route path="/forgotpassword">
                                     <ForgotPassword />
                                 </Route>
                                 <Route path="/profile">

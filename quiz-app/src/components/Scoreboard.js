@@ -71,7 +71,7 @@ const ScoreBoard = (props) => {
     }
 
     if (redirectHome) return <Redirect to="/" />;
-    if (redirectBack) return <Redirect to="/YourQuizes" />;
+    if (redirectBack) return <Redirect to="/myquizzes" />;
 
     return (
         loading ? <Loading /> : (
@@ -126,7 +126,7 @@ const ScoreBoard = (props) => {
                         </div>
                     </div>
                     <div className="d-flex justify-content-center pt-2 pb-5">
-                        <Link to="/YourQuizes">
+                        <Link to="/myquizzes">
                             <button
                                 className="btn btn-qb-neon-primary"
                                 type="button"
