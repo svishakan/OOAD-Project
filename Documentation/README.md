@@ -2,6 +2,13 @@
 
 ## Documentation Links ##
 
+
+🔗 [Complete Documentation](https://drive.google.com/uc?export=view&id=1aG29IqwqjwRI6MV_nUQlo2uNTdYnm_5l)
+
+<details open>
+<summary>Specific Links</summary>
+<br>
+
 🔗 [Software Requirements Specification](https://drive.google.com/uc?export=view&id=1aG29IqwqjwRI6MV_nUQlo2uNTdYnm_5l#page=8)
 
 🔗 [Use Case Model](https://drive.google.com/uc?export=view&id=1aG29IqwqjwRI6MV_nUQlo2uNTdYnm_5l#page=22)
@@ -20,3 +27,4 @@
 
 🔗 [Deployment Diagram](./Complete%20Documentation.pdf#page=48)
 
+</details>
