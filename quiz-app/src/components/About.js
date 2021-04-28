@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import HutLogo from "../images/hut_logo.svg"
 
 const About = () => {
@@ -18,9 +18,9 @@ const About = () => {
                             </p>
                         </div>
                         <div class="card-footer d-flex justify-content-around">
-                            <a href="https://github.com/Venkataraman-Nagarajan" target="_blank" className=""><i className="connect-img fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/venkataraman-nagarajan/" target="_blank" className=""><i className="connect-img fab fa-linkedin"></i></a>
-                            <a href="mailto:venkataraman18192@cse.ssn.edu.in" target="_blank" className=""><i className="connect-img fas fa-at"></i></a>
+                            <a href="https://github.com/Venkataraman-Nagarajan" target="_blank" className="" rel="noreferrer"><i className="connect-img fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/venkataraman-nagarajan/" target="_blank" className="" rel="noreferrer"><i className="connect-img fab fa-linkedin"></i></a>
+                            <a href="mailto:venkataraman18192@cse.ssn.edu.in" target="_blank" className="" rel="noreferrer"><i className="connect-img fas fa-at"></i></a>
                         </div>
                     </div>
                     <div className="card about-box">
@@ -32,9 +32,9 @@ const About = () => {
                             </p>
                         </div>
                         <div class="card-footer d-flex justify-content-around">
-                            <a href="https://github.com/VikramVenkatapathi" target="_blank" className=""><i className="connect-img fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/vikram-venkatapathi-615ab21b3/" target="_blank" className=""><i className="connect-img fab fa-linkedin"></i></a>
-                            <a href="mailto:vikram18194@cse.ssn.edu.in" target="_blank" className=""><i className="connect-img fas fa-at"></i></a>
+                            <a href="https://github.com/VikramVenkatapathi" target="_blank" className="" rel="noreferrer"><i className="connect-img fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/vikram-venkatapathi-615ab21b3/" target="_blank" className="" rel="noreferrer"><i className="connect-img fab fa-linkedin"></i></a>
+                            <a href="mailto:vikram18194@cse.ssn.edu.in" target="_blank" className="" rel="noreferrer"><i className="connect-img fas fa-at"></i></a>
                         </div>
                     </div>
                     <div className="card about-box">
@@ -46,9 +46,9 @@ const About = () => {
                             </p>
                         </div>
                         <div class="card-footer d-flex justify-content-around">
-                            <a href="https://github.com/svishakan" target="_blank" className=""><i className="connect-img fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/vishakan-subramanian/" target="_blank" className=""><i className="connect-img fab fa-linkedin"></i></a>
-                            <a href="mailto:vishakan18196@cse.ssn.edu.in" target="_blank" className=""><i className="connect-img fas fa-at"></i></a>
+                            <a href="https://github.com/svishakan" target="_blank" className="" rel="noreferrer"><i className="connect-img fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/vishakan-subramanian/" target="_blank" className="" rel="noreferrer"><i className="connect-img fab fa-linkedin"></i></a>
+                            <a href="mailto:vishakan18196@cse.ssn.edu.in" target="_blank" className="" rel="noreferrer"><i className="connect-img fas fa-at"></i></a>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@ const About = () => {
                     <i className="footer-img fab fa-js" />
                     <i className="footer-img fab fa-npm" />
                     <div className="footer-text">
-                        <img className="user" height="25" width="25" src={HutLogo}/> 
+                        <img className="user" height="25" width="25" src={HutLogo} alt=""/> 
                             Logo By 
                         <a href="https://www.freepik.com" title="Freepik"> Freepik.</a>
                     </div>

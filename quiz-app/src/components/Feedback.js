@@ -17,7 +17,7 @@ const Feedback = () => {
         } else {
             setHandle(myStorage.getItem("handle"));
         }
-    }, [handle, myStorage]);
+    }, [myStorage]);
 
     const sendEmail = (e) => {
         e.preventDefault();

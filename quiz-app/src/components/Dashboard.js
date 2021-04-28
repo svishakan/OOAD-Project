@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
-import { useToasts } from 'react-toast-notifications';
 import UserPic from "../images/user.svg";
 import HutLogo from "../images/hut_logo.svg"
 import {
-    Button,
     Navbar,
     Nav,
-    NavItem,
     NavDropdown,
-    MenuItem,
 } from "react-bootstrap";
 
 
@@ -19,10 +15,7 @@ function DashBoard() {
     const [redirectTake, setRedirectTake] = useState(false);
     const [redirectSet, setRedirectSet] = useState(false);
     const [redirectReport, setRedirectReport] = useState(false);
-    const { addToast } = useToasts();
     // const [redirectFeedback, setredirectFeedback] = useState(false);
-
-    const [loading, setLoading] = useState(false);
 
     let myStorage = window.localStorage;
 
@@ -32,7 +25,7 @@ function DashBoard() {
         } else {
             setHandle(myStorage.getItem("handle"));
         }
-    }, []);
+    }, [myStorage]);
 
     if (redirectSet) return <Redirect to="/quizcreator" />;
     if (redirectTake) return <Redirect to="/quizfinder" />;
@@ -49,13 +42,13 @@ function DashBoard() {
                         <div className="flex justify-end right absolute right-10">
                             <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
                                 <Navbar.Brand>
-                                <span><img className="user" height="50" width="50" src={HutLogo}/>Wecome to QuizHut!</span>
+                                <span><img className="user" height="50" width="50" src={HutLogo} alt=""/>Wecome to QuizHut!</span>
                                 </Navbar.Brand>
                                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                                 <Navbar.Collapse id="responsive-navbar-nav">
                                     <Nav className="navbar-nav ml-auto">
                                             <NavDropdown
-                                                title={<span><img className="user" height="35" src={UserPic}/>{handle}</span>}
+                                                title={<span><img className="user" height="35" src={UserPic} alt=""/>{handle}</span>}
                                                 id="collasible-nav-dropdown"
                                             >
                                                 <NavDropdown.Item href="/profile">

@@ -38,7 +38,6 @@ const ForgotPassword = () => {
 
     const sendEmail = async () => {
         setLoading(true);
-        console.log("inside mail");
         emailjs
             .send(
                 process.env.REACT_APP_EMAILJS_SERVICE_ID,
@@ -52,14 +51,12 @@ const ForgotPassword = () => {
             )
             .then(
                 (result) => {
-                    console.log("Send Successfully");
                     addToast("A Token has been sent to you via e-mail.", { appearance: "success" });
 
                     console.log(result.text);
                     setReset(true);
                 },
                 (error) => {
-                    console.log("gotcha");
                     addToast("Your reset email could not be sent! Try again later!", { appearance: "error" });
 
                     console.log(error.text);
@@ -132,7 +129,6 @@ const ForgotPassword = () => {
     const updatePswrd = () => {
         setLoading(true);
         let alertBody, alertBgColor;
-        console.log(passwordValidator());
         if (!passwordValidator()) return;
 
         ref.doc(handle).update({ Password: encrpyt(password) });
