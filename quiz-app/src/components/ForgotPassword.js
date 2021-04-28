@@ -3,11 +3,13 @@ import { Link, Redirect } from "react-router-dom";
 import { useToasts } from 'react-toast-notifications';
 import emailjs from "emailjs-com";
 import * as crypto from "crypto";
+
+//Component imports
 import firebase from "../Firebase";
 import Loading from "./Loading";
 
 
-const ForgotPassword = () => {
+function ForgotPassword() {
     const [loading, setLoading] = useState(false);
     const [handle, setHandle] = useState("");
     const [email, setEmail] = useState("");

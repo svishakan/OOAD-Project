@@ -5,6 +5,8 @@ import {
     Nav,
     NavDropdown,
 } from "react-bootstrap";
+
+//Image imports
 import UserPic from "../images/user.svg";
 import HutLogo from "../images/hut_logo.svg";
 
@@ -39,7 +41,7 @@ function Navigation() {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="navbar-nav ml-auto">
                         <NavDropdown
-                            title={<span><img className="user" height="35" src={UserPic} />{handle}</span>}
+                            title={<span><img className="user" height="35" src={UserPic} alt="" />{handle}</span>}
                             id="collasible-nav-dropdown">
                             <NavDropdown.Item href="/profile">
                                 View Profile

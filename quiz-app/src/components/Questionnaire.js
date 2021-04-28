@@ -2,7 +2,8 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react';
 
-const Questionnaire = ({ totalQuestions, questionNumber, handleAnswer, data: { question, correct_answer, answers }, handlePreviousQuestion, handleNextQuestion }) => {
+
+function Questionnaire({ totalQuestions, questionNumber, handleAnswer, data: { question, correct_answer, answers }, handlePreviousQuestion, handleNextQuestion }) {
     let setPreviousHidden = "";
 
     if(questionNumber === 1){

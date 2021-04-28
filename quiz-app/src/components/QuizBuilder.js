@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useToasts } from 'react-toast-notifications';
 import { Redirect } from "react-router-dom";
+
+//Component imports
 import firebase from "../Firebase";
 
 let records = [];
@@ -85,8 +87,6 @@ function QuizBuilder() {
                 Scores: [],
             })
             .then(() => {
-                console.log("Successfully written!");
-
                 Users.doc(handle).update({
                     CreatedQuizes: firebase.firestore.FieldValue.arrayUnion({
                         quizID: quizID,
@@ -97,7 +97,6 @@ function QuizBuilder() {
                 addToast(`${quizID} is your new quiz ID. Kindly make note of it.`, { appearance: "info" });
             })
             .catch((err) => {
-                console.error("Document writing error: ", err);
                 addToast(`An error occurred! Your quiz could not be set.`, { appearance: "error" });
             });
     }
@@ -108,8 +107,6 @@ function QuizBuilder() {
         nextQuestion(); //store the most recent question as well
 
         createQuizInDB();   //create the quiz in firestore
-
-        console.log("Quiz ID: " + quizID + "\nQuiz Length: " + quizLength);
 
         for (let i = 0; i < records.length; i++) {
             quizDB
@@ -122,11 +119,9 @@ function QuizBuilder() {
                     incorrect_answers: records[i][3],
                 })
                 .then(() => {
-                    console.log("Successfully written!");
                     setRedirectDash(true);
                 })
                 .catch((err) => {
-                    console.error("Document writing error: ", err);
                     addToast(`Your quiz ${quizID} could not be uploaded. Try again!`, { appearance: "error" });
                 })
                 // eslint-disable-next-line no-loop-func

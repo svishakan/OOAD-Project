@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { useToasts } from 'react-toast-notifications';
 import useInterval from "@use-it/interval";
+
+//Component imports
 import firebase from "../Firebase";
 import Loading from "./Loading";
 import Questionnaire from "./Questionnaire";
-
-//const API_URL = "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy";
 
 
 function Quiz(props) {
@@ -28,7 +28,6 @@ function Quiz(props) {
     const [redirectDash, setRedirectDash] = useState(false);
     const [redirectHome, setRedirectHome] = useState(false);
 
-    // console.log(quizID);
     const quizDB = firebase.firestore().collection("QuizDB");
     const quizMeta = firebase.firestore().collection("QuizDB");
     const Users = firebase.firestore().collection("UserCreds");

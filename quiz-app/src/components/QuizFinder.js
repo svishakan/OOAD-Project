@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { useToasts } from 'react-toast-notifications';
 import { Link } from "react-router-dom";
+
+//Component imports
 import firebase from "../Firebase";
 
 
-const QuizFinder = () => {
+function QuizFinder() {
     const [redirect, setRedirect] = useState(false);
     const [redirectHome, setRedirectHome] = useState(false);
     let [quizID, setQuizID] = useState(null);
@@ -28,8 +30,6 @@ const QuizFinder = () => {
         let qID = document.getElementById("qid").value.toString().trim();
         setQuizID(qID); //setState is necessary to pass quizID via redirect
 
-        //console.log(qID);
-
         if (qID === "") {
             //fix later with required form attribute
             addToast(`The Quiz ID field cannot be left empty!`, { appearance: "error", autoDismissTimeout: 3000 });
@@ -50,7 +50,6 @@ const QuizFinder = () => {
                         setTitle(snapshot.data().quizName);
                     } else {
                         addToast(`No quiz with the specified Quiz ID exists!`, { appearance: "error", autoDismissTimeout: 3000 });
-                        //console.log("Does not exist.");
                     }
                 });
         }

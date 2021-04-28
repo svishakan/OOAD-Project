@@ -1,10 +1,13 @@
 /* eslint-disable jsx-a11y/scope */
 import React, { useState, useEffect } from "react";
 import { Redirect, Link } from "react-router-dom";
+
+//Component imports
 import firebase from "../Firebase";
 import Loading from "./Loading";
 
-const QuizSelector = () => {
+
+function QuizSelector() {
     const [redirect] = useState(false);
     const [redirectHome, setRedirectHome] = useState(false);
     const [quizIDS, setQuizIDS] = useState([]);
@@ -20,26 +23,19 @@ const QuizSelector = () => {
             setRedirectHome(true);
         } else {
             setLoading(true);   //started loading data
-            setData(myStorage.getItem("handle")).then(() => {
-                console.log(myStorage.getItem("handle"));
-            });
+            setData(myStorage.getItem("handle"))
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [myStorage]);
 
     const setData = async (handle) => {
-        console.log("handle :" + handle);
         await Users.doc(handle)
             .get()
             .then((data) => {
                 if (data.exists) {
                     const quizList = data.data();
-                    console.log(quizList.CreatedQuizes);
                     qIDS = qIDS.concat(quizList.CreatedQuizes);
                     setQuizIDS([...quizList.CreatedQuizes]);
-                    console.log(quizIDS);
-                    console.log(qIDS);
-                    console.log("in");
                 }
             })
             .catch((err) => {
@@ -51,7 +47,6 @@ const QuizSelector = () => {
 
     if (redirectHome) return <Redirect to="/" />;
     if (redirect) {
-        console.log(quizID);
         return (
             <Redirect
                 to={{

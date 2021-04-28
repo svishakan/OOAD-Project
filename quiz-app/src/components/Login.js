@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 import { useToasts } from 'react-toast-notifications';
 import * as crypto from "crypto";
 
-//File/Component imports
+//Component imports
 import firebase from "../Firebase";
 import Loading from "./Loading";
+
+//Image imports
 import HutLogo from "../images/hut_logo.svg"
+
 
 function Login() {
     const [loading, setLoading] = useState(false);

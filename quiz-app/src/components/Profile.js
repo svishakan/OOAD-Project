@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+
+//Component imports
 import firebase from "../Firebase";
 import Loading from "./Loading";
 
 
-const Profile = (props) => {
+function Profile() {
     const [, setHandle] = useState("");
     const UserCreds = firebase.firestore().collection("UserCreds");
     const [userDetails, setUserdetails] = useState([]);
