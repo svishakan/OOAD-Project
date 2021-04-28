@@ -9,7 +9,7 @@ import firebase from "../Firebase";
 import Loading from "./Loading";
 
 
-const Profile = (props) => {
+function Profile() {
     const [, setHandle] = useState("");
     const UserCreds = firebase.firestore().collection("UserCreds");
     const [userDetails, setUserdetails] = useState([]);

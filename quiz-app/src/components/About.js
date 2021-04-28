@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import HutLogo from "../images/hut_logo.svg"
 
 
-const About = () => {
+function About() {
     return (
         <div>
             <i className="card-img-top about-img fas fa-code"></i>

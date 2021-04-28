@@ -7,7 +7,7 @@ import firebase from "../Firebase";
 import Loading from "./Loading";
 
 
-const QuizSelector = () => {
+function QuizSelector() {
     const [redirect] = useState(false);
     const [redirectHome, setRedirectHome] = useState(false);
     const [quizIDS, setQuizIDS] = useState([]);

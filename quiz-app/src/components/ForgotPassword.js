@@ -9,7 +9,7 @@ import firebase from "../Firebase";
 import Loading from "./Loading";
 
 
-const ForgotPassword = () => {
+function ForgotPassword() {
     const [loading, setLoading] = useState(false);
     const [handle, setHandle] = useState("");
     const [email, setEmail] = useState("");

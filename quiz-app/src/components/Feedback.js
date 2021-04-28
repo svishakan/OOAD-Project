@@ -4,7 +4,7 @@ import { useToasts } from 'react-toast-notifications';
 import emailjs from "emailjs-com";
 
 
-const Feedback = () => {
+function Feedback() {
     const [handle, setHandle] = useState("");
     const [redirectHome, setRedirectHome] = useState(false);
     const { addToast } = useToasts();

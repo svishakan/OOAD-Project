@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import firebase from "../Firebase";
 
 
-const QuizFinder = () => {
+function QuizFinder() {
     const [redirect, setRedirect] = useState(false);
     const [redirectHome, setRedirectHome] = useState(false);
     let [quizID, setQuizID] = useState(null);
