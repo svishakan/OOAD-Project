@@ -45,12 +45,65 @@ localhost:<PORT>/
 
 The port for React-App is gerneraly 3000, if not, check your terminal and use the port number specified there.
 
-### Documentation
-The [Software Documentation](./Documentation/) of the project consists of Detailed UML Diagrams explaining the plannig  that went behind this Project
+## Documentation
+The [Software Documentation](./Documentation/) of the project consists of Detailed UML Diagrams explaining the planning  that went behind this Project
+
+## Features
+
+### Basic Authentication 
+
+<img style="float: right; width: 300px" src="./images/Login.gif">
+<div style="display:flex;height: 400px; align-items:center; justify-content: left">
+<h4>Login into an existing Account</h4>
+</div>
+
+<br />
+<br />
+
+<img style="float: right; width: 300px" src="./images/Registration.gif">
+<div style="display:flex;height: 400px; align-items:center; justify-content: left">
+<h4>Create a new account with unique handle</h4>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+### Take up a Quiz
+
+![alt Take up a Quiz GIF](./images/TakeQuiz.gif)
 
 
+### Create a new Quiz
 
 
+![alt Take up a Quiz GIF](./images/CreateQuiz.gif)
 
 
+### View Quiz Reports
 
+![alt Take up a Quiz GIF](./images/ViewReports.gif)
+
+
+### Other Features
+
+![alt Take up a Quiz GIF](./images/OtherFeatures.gif)
+
+
+## Footnote
+
+<div>
+<img style="height: 15px" src="./quiz-app/public/logo192.png">
+<span>POWERED BY <a href="https://www.freepik.com/">FREEPIK</span>
+</div>
