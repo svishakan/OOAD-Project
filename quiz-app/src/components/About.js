@@ -17,7 +17,7 @@ function About() {
                         <i className="card-img-top card-custom-img fas fa-user-ninja"></i>
                         <div className="card-body">
                             <p className="card-text text-white card-p-text">
-                                "They're humid, prepossessing Homo sapiens with full-sized aortic pumps"
+                                “They're humid, prepossessing Homo sapiens with full-sized aortic pumps.”
                             </p>
                         </div>
                         <div class="card-footer d-flex justify-content-around">
@@ -31,7 +31,7 @@ function About() {
                         <i className="card-img-top card-custom-img fas fa-user-graduate"></i>
                         <div className="card-body">
                             <p className="card-text text-white card-p-text">
-                                "Life is like this &#128201;, I like this &#128200;."
+                                “Don’t raise your voice, improve your argument.”
                             </p>
                         </div>
                         <div class="card-footer d-flex justify-content-around">
@@ -45,7 +45,7 @@ function About() {
                         <i className="card-img-top card-custom-img fas fa-user-astronaut"></i>
                         <div className="card-body" style={{ wordWrap: "break-word" }}>
                             <p className="card-text text-white card-p-text">
-                                "Sometimes you gotta work a little, so you can ball a lot."
+                                “Sometimes you gotta work a little, so you can ball a lot.”
                             </p>
                         </div>
                         <div class="card-footer d-flex justify-content-around">
