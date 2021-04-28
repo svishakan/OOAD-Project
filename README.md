@@ -52,33 +52,13 @@ The [Software Documentation](./Documentation/) of the project consists of Detail
 
 ### Basic Authentication 
 
-<img style="float: right; width: 300px" src="./images/Login.gif">
-<div style="display:flex;height: 400px; align-items:center; justify-content: left">
-<h4>Login into an existing Account</h4>
-</div>
+### Login into an existing account
 
-<br />
-<br />
+![alt Take up a Quiz GIF](./images/Login.gif)
 
-<img style="float: right; width: 300px" src="./images/Registration.gif">
-<div style="display:flex;height: 400px; align-items:center; justify-content: left">
-<h4>Create a new account with unique handle</h4>
-</div>
+### Create a new account with Unique handle
 
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+![alt Take up a Quiz GIF](./images/Registration.gif)
 
 ### Take up a Quiz
 
