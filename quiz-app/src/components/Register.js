@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useToasts } from 'react-toast-notifications';
 import * as EmailValidator from "email-validator";
 import * as crypto from "crypto";
@@ -61,13 +61,12 @@ function Register() {
 
     const isFormValid = async () => {
         let exit = false;
-        let alertHeader = "",
+        let
             alertBody = "",
             alertBgColor = "";
 
         if (!username.match(/^[A-Za-z][A-Za-z ]+$/)) {
             setUsername("");
-            alertHeader = "Error: Name";
             alertBody = "Name can only contain alphabets and spaces!";
             alertBgColor = "error";
             exit = true;
@@ -75,7 +74,6 @@ function Register() {
 
         if (!exit && handle.length < 5) {
             setHandle("");
-            alertHeader = "Error: Handle";
             alertBody = "Handle must contain atleast 5 characters.";
             alertBgColor = "error";
             exit = true;
@@ -83,7 +81,6 @@ function Register() {
 
         if (!exit && handle.length >= 5 && !handle.match(/^[A-Za-z0-9_]+$/)) {
             setHandle("");
-            alertHeader = "Error: Handle";
             alertBody = "Handle can only contain alphabets, digits and underscore!";
             alertBgColor = "error";
             exit = true;
@@ -93,7 +90,6 @@ function Register() {
 
         if (!exit && !valid) {
             setEmail("");
-            alertHeader = "Error: Email  ";
             alertBody = "Invalid Email ID entered! Re-enter your email ID.";
             alertBgColor = "error";
             exit = true;
@@ -102,7 +98,6 @@ function Register() {
         if (!exit && password.length < 5) {
             setPassword("");
             setCPassword("");
-            alertHeader = "Error: Password";
             alertBody = "Password must contain atleast 5 characters";
             alertBgColor = "error";
             exit = true;
@@ -111,7 +106,6 @@ function Register() {
         if (!exit && password.length >= 5 && !isPasswordCorrect()) {
             setPassword("");
             setCPassword("");
-            alertHeader = "Error: Password Match  ";
             alertBody = "Passwords do not match! Please enter the same password.";
             alertBgColor = "error";
             exit = true;
@@ -128,19 +122,17 @@ function Register() {
 
     const addUserCred = () => {
         setLoading(true);
-        let alertHeader, alertBody, alertBgColor;
+        let alertBody, alertBgColor;
         isFormValid().then((flag) => {
             if (flag)
                 isHandlePresent(handle).then((result) => {
                     if (result === true) {
-                        alertHeader = "Sorry, Handle Exists";
                         alertBody = "Handle already exists, please try another one!";
                         alertBgColor = "warning";
                         setHandle("");
                     } else {
                         isEmailPresent(email).then((res) => {
                             if (res === true) {
-                                alertHeader = "Sorry, Email already registered";
                                 alertBody = "The provided email is already registered to another account, please try a different one or log in";
                                 alertBgColor = "warning";
                                 setEmail("");
@@ -152,8 +144,6 @@ function Register() {
                             addToast(alertBody, { appearance: alertBgColor });
 
                         });
-                        //Printing the output on the console
-                        //console.log(" hmac : " + gen_hmac);
                     }
                     setLoading(false);
                     addToast(alertBody, { appearance: alertBgColor });
@@ -236,7 +226,6 @@ function Register() {
             )
             .then(
                 (result) => {
-                    console.log("Send Successfully");
 
                     addToast("A token has been sent to you via mail. Please use that to change your password", { appearance: "info" });
 
@@ -244,8 +233,7 @@ function Register() {
                     setEmailChecker(true);
                 },
                 (error) => {
-                    console.log("gotcha");
-
+                   
                     addToast("Your form could not be validated! Try again later!", { appearance: "error" });
 
                     console.log(error.text);

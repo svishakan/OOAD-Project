@@ -72,7 +72,6 @@ const ForgotPassword = () => {
         if (token === encrpyt(handle + "34")) {
             setAcceptPassword(true);
         } else {
-            let alertHeader = "Error!";
             let alertBody = "Token doesn't match";
             let alertBgColor = "error";
 
@@ -87,8 +86,7 @@ const ForgotPassword = () => {
             if (flag === true && data.Email === email) {
                 sendEmail();
             } else {
-                let alertHeader, alertBody, alertBgColor;
-                alertHeader = "Error!";
+                let alertBody, alertBgColor;
                 alertBody = "Handle or email not found/doesn't belong to the same acoount.";
                 alertBgColor = "error";
 
@@ -105,12 +103,11 @@ const ForgotPassword = () => {
 
     const passwordValidator = () => {
         let exit = false;
-        let alertHeader, alertBody, alertBgColor;
+        let alertBody, alertBgColor;
 
         if (!exit && password.length < 5) {
             setPassword("");
             setCPassword("");
-            alertHeader = "Error: Password";
             alertBody = "Password must contain atleast 5 characters";
             alertBgColor = "error";
             exit = true;
@@ -119,7 +116,6 @@ const ForgotPassword = () => {
         if (!exit && password.length >= 5 && !isPasswordCorrect()) {
             setPassword("");
             setCPassword("");
-            alertHeader = "Error: Password Match";
             alertBody = "Passwords do not match! Please enter the same password.";
             alertBgColor = "error";
             exit = true;
@@ -135,12 +131,11 @@ const ForgotPassword = () => {
     };
     const updatePswrd = () => {
         setLoading(true);
-        let alertHeader, alertBody, alertBgColor;
+        let alertBody, alertBgColor;
         console.log(passwordValidator());
         if (!passwordValidator()) return;
 
         ref.doc(handle).update({ Password: encrpyt(password) });
-        alertHeader = "Success!";
         alertBody = "Your password has been updated. Try logging in after 20-30s.";
         alertBgColor = "success";
         setLoading(false);

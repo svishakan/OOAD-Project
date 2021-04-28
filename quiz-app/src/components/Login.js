@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useToasts } from 'react-toast-notifications';
 import * as crypto from "crypto";
+
+//File/Component imports
 import firebase from "../Firebase";
 import Loading from "./Loading";
-
 
 function Login() {
     const [loading, setLoading] = useState(false);
@@ -44,9 +45,7 @@ function Login() {
                 const data1 = hmac.update(password);
                 //Creating the hmac in the required format
                 const gen_hmac = data1.digest("hex");
-                //Printing the output on the console
-                //console.log(" hmac : " + gen_hmac);
-                //console.log(" paswerd : " + data.Password)
+                
                 if (data["Password"] === gen_hmac) {
                     setLoading(false);
                     myStorage.setItem("handle", handle);
@@ -55,7 +54,6 @@ function Login() {
 
                     addToast(`Welcome, ${handle}. Your login was successful!`, { appearance: "success" });
 
-                    console.log("not redirected");
                 } else {
                     setErrText("** Invalid Handle or Password");
                     addToast(`You entered invalid credentials. Kindly re-check.`, { appearance: "error" });
