@@ -1,27 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import firebase from "../Firebase";
+import { Link } from "react-router-dom";
 
 const { nanoid } = require("nanoid");
 
 
 function QuizCreator() {
     const quizID = nanoid(8);
-    const quizDB = firebase.firestore().collection("QuizDB");
     const [redirect, setRedirect] = useState(false);
     const [redirectHome, setRedirectHome] = useState(false);
-    const [handle, setHandle] = useState("");
 
     let myStorage = window.localStorage;
 
     useEffect(() => {
         if (myStorage.getItem("handle") === null) {
             setRedirectHome(true);
-        } else {
-            setHandle(myStorage.getItem("handle"));
         }
-    }, []);
+    }, [myStorage]);
 
     const createQuiz = () => {
         //create the quiz in a new FireStore collection

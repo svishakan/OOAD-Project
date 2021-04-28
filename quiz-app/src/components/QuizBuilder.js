@@ -129,6 +129,7 @@ function QuizBuilder() {
                     console.error("Document writing error: ", err);
                     addToast(`Your quiz ${quizID} could not be uploaded. Try again!`, { appearance: "error" });
                 })
+                // eslint-disable-next-line no-loop-func
                 .finally(() => {
                     records = [];
 

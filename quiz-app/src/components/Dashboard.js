@@ -32,8 +32,6 @@ function DashBoard() {
             ) : (
                 <div>
                     <div className="justify-items-center">
-
-                        <div className="">
                             <div className="card-deck card-custom-margin">
                                 <div className="card about-box ice-hover">
                                     <h1 className="card-header2">Take Up a Quiz</h1>
@@ -92,7 +90,6 @@ function DashBoard() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             )}

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/scope */
 import React, { useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
@@ -9,7 +10,6 @@ import Navigation from "./Navigation";
 
 
 const ScoreBoard = (props) => {
-    const [handle, setHandle] = useState("");
     const [scoreData, setScoreData] = useState([]);
 
     const quizDB = firebase.firestore().collection("QuizDB");
@@ -32,7 +32,6 @@ const ScoreBoard = (props) => {
         ) {
             setRedirectBack(true);
         } else {
-            setHandle(myStorage.getItem("handle"));
             // eslint-disable-next-line react-hooks/exhaustive-deps
             qID = props.location.state.qID;
             console.log(qID);
@@ -60,10 +59,6 @@ const ScoreBoard = (props) => {
                     const score = data.data();
                     console.log(score.Scores);
                     scoreList = scoreList.concat(score.Scores);
-                    //setQuizIDS([...quizList.CreatedQuizes]);
-                    //console.log(scoreList);
-                    //console.log(qIDS);
-                    console.log("in");
                 }
             })
             .catch((err) => {
