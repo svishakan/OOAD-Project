@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
+import HutLogo from "../images/hut_logo.svg"
 
 const About = () => {
     return (
@@ -72,6 +73,11 @@ const About = () => {
                     <i className="footer-img fab fa-css3" />
                     <i className="footer-img fab fa-js" />
                     <i className="footer-img fab fa-npm" />
+                    <div className="footer-text">
+                        <img className="user" height="25" width="25" src={HutLogo}/> 
+                            Logo By 
+                        <a href="https://www.freepik.com" title="Freepik"> Freepik.</a>
+                    </div>
                 </p>
             </div>
         </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { useToasts } from 'react-toast-notifications';
 import UserPic from "../images/user.svg";
+import HutLogo from "../images/hut_logo.svg"
 import {
     Button,
     Navbar,
@@ -48,13 +49,13 @@ function DashBoard() {
                         <div className="flex justify-end right absolute right-10">
                             <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
                                 <Navbar.Brand>
-                                    Wecome to QuizHut!
+                                <span><img className="user" height="50" width="50" src={HutLogo}/>Wecome to QuizHut!</span>
                                 </Navbar.Brand>
                                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                                 <Navbar.Collapse id="responsive-navbar-nav">
                                     <Nav className="navbar-nav ml-auto">
                                             <NavDropdown
-                                                title={<span><img className="user" height="37" src={UserPic}/>{handle}</span>}
+                                                title={<span><img className="user" height="35" src={UserPic}/>{handle}</span>}
                                                 id="collasible-nav-dropdown"
                                             >
                                                 <NavDropdown.Item href="/profile">

@@ -297,7 +297,7 @@ div.card-body2 {
 }
 
 .user {
-    padding-right: 10pt;
+    padding-right: 7px;
 }
 
 .about-box {
@@ -386,6 +386,16 @@ div.card-body2 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition-delay: 0.2s;
+}
+
+.footer-text{
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+.footer-text a{
+    text-decoration: none;
+    color: #0db8de;
 }
 
 .about-title {
