@@ -3,19 +3,22 @@
 
 🔗 You can check out our project live here : http://quizhut.herokuapp.com/
 
-<p align='center>
+<br>
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: GPL v3](https://img.shields.io/github/license/svishakan/OOAD-Project?style=for-the-badge)](https://github.com/svishakan/OOAD-Project/blob/main/LICENSE)
 
-<a href="https://github.com/svishakan/OOAD-Project/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/svishakan/OOAD-Project?style=for-the-badge" alt="License" >
-</a>
+[![Issues](https://img.shields.io/github/issues/svishakan/OOAD-Project?style=for-the-badge)](https://github.com/svishakan/OOAD-Project/issues)
 
-<a href="https://github.com/svishakan/OOAD-Project/issues">
-    <img src="https://img.shields.io/github/issues/svishakan/OOAD-Project?style=for-the-badge" alt="Issues" >
-</a>
+[![Stars](https://img.shields.io/github/stars/svishakan/OOAD-Project?style=for-the-badge)](https://github.com/svishakan/OOAD-Project/stargazers)
 
-</p>
+[![Forks](https://img.shields.io/github/forks/svishakan/OOAD-Project?style=for-the-badge)](https://github.com/svishakan/OOAD-Project/)
+
+[![Repo Size](https://img.shields.io/github/repo-size/svishakan/OOAD-Project?style=for-the-badge)](https://github.com/svishakan/OOAD-Project/)
+
+[![Forks](https://img.shields.io/website?down_message=OFFLINE&style=for-the-badge&up_message=ONLINE&url=https%3A%2F%2Fquiz-hut.herokuapp.com%2F)](https://quiz-hut.herokuapp.com/)
+
+
+<br>
 
 ## About
 
