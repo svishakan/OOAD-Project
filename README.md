@@ -112,5 +112,7 @@ you can get in touch with us! 😃
 
 <div>
 <img src="./quiz-app/public/logo30.png">
-QuizHut Logo made by [Freepik](https://www.flaticon.com/authors/freepik) from [Flaticon.com.](https://www.flaticon.com/)
 </div>
+
+QuizHut Logo made by [Freepik](https://www.flaticon.com/authors/freepik) from [Flaticon.com.](https://www.flaticon.com/)
+
