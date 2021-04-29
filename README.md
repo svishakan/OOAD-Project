@@ -1,16 +1,35 @@
 # QuizHut v1.0
 [![alt QuizHutLogo](./images/logo.png)](http://quizhut.herokuapp.com/)
 
-🔗 You can experience our project out here : http://quizhut.herokuapp.com/
+🔗 You can check out our project live here : http://quizhut.herokuapp.com/
 
+<p align='center>
 
-A website built in ReactJS, that allows users to create their own quizzes or take quizzes created by others. 
+<a href="https://github.com/svishakan/OOAD-Project/stargazers">
+    <img src="https://img.shields.io/github/stars/svishakan/OOAD-Project?style=for-the-badge" alt="Stars" >
+</a>
+
+<a href="https://github.com/svishakan/OOAD-Project/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/svishakan/OOAD-Project?style=for-the-badge" alt="License" >
+</a>
+
+<a href="https://github.com/svishakan/OOAD-Project/issues">
+    <img src="https://img.shields.io/github/issues/svishakan/OOAD-Project?style=for-the-badge" alt="Issues" >
+</a>
+
+</p>
 
 ## About
-- Users can Signup and create an acount by providing the required credentials.
-- Upon signing in, the users can create a Quiz, or take a Quiz created by others by providing a unique QuizID .
 
-## Running in localhost
+The website was built using ReactJS & Bootstrap 4.0, and it uses Google Firebase's Firestore as a back-end to store and serve data dynamically.
+
+## Short Description
+- Users can Sign Up and create an acount by providing the required credentials.
+- Upon signing in, the users can create a quiz, or take a quiz created by others by using a unique quiz ID generated from the creation of another quiz.
+- Users can also view & export reports for the quizzes they have set.
+- Users can check their past quiz scores in their profile.
+
+## Running in Localhost
 ### Installation - Windows, Linux and Mac
 #### Clone the repository
 ```bash
@@ -21,13 +40,15 @@ git clone https://github.com/svishakan/OOAD-Project.git
 cd OOAD-Project/quiz-app/
 ```
 #### Add ```.env``` file in quiz-app/
+1. Fill the empty ENV.txt with the API keys obtained from the following:
 1. Create a Project in https://console.firebase.google.com/
-1. Obtain the enviroinment varibles for your project - [refer from here](https://youtu.be/3ZEz-iposj8)
+1. Obtain the enviroinment varibles for your project - [Reference Here](https://youtu.be/3ZEz-iposj8)
 1. Create an account in [EmailJS.com](https://dashboard.emailjs.com/sign-in) 
-1. Obtain the enviroinment Variables for EmailJS  - [refer from here](https://youtu.be/NgWGllOjkbs)
-1. Add a HMAC key to you file.
+1. Obtain the enviroinment Variables for EmailJS  - [Reference Here](https://youtu.be/NgWGllOjkbs)
+1. Add a HMAC key to your file.
+1. Store the the now filled ENV.text as a .env file in the same directory.
 
-#### Install node modules and other dependent packages
+#### Install the dependencies required for running this project
 ```zsh
 npm install
 ```
@@ -38,52 +59,58 @@ npm start
 
 ![alt Instruction](./images/Instruction.gif)
 
-The App should be open in your browser now, if not us paste this in your Browser
+The App should be open in your browser now. If not, then paste this in your browser
 ```
 localhost:<PORT>/
 ``` 
 
-The port for React-App is gerneraly 3000, if not, check your terminal and use the port number specified there.
+The port for React-App is generally 3000, if not, check your terminal and use the port number specified there.
 
 ## Documentation
-The [Software Documentation](./Documentation/) of the project consists of Detailed UML Diagrams explaining the planning  that went behind this Project
+The [Software Documentation](./Documentation/) of the project consists of different UML diagrams that explain and illustrate the design and thought process that went behind the implementation of this project.
 
 ## Features
 
 ### Basic Authentication 
 
-### Login into an existing account
+#### Login To An Existing Account 🔑
 
 ![alt Take up a Quiz GIF](./images/Login.gif)
 
-### Create a new account with Unique handle
+#### Create An Account 🔐
 
 ![alt Take up a Quiz GIF](./images/Registration.gif)
 
-### Take up a Quiz
+#### Take Up A Quiz 📚
 
 ![alt Take up a Quiz GIF](./images/TakeQuiz.gif)
 
 
-### Create a new Quiz
+#### Create A New Quiz 📝
 
 
 ![alt Take up a Quiz GIF](./images/CreateQuiz.gif)
 
 
-### View Quiz Reports
+#### View Quiz Reports ✅
 
 ![alt Take up a Quiz GIF](./images/ViewReports.gif)
 
 
-### Other Features
+### Other Features ✨
 
 ![alt Take up a Quiz GIF](./images/OtherFeatures.gif)
 
+## Author Notes 👓
 
-## Footnote
+Kindly show us some ❤️ by ⭐ing this repository! Thanks! 
+The project is also open to contributions from others, so if you're interested, 
+you can get in touch with us! 😃
+
+
+## Icon Credits 📎
 
 <div>
-<img style="height: 15px" src="./quiz-app/public/logo192.png">
-<span>POWERED BY <a href="https://www.freepik.com/">FREEPIK</span>
+<img src="./quiz-app/public/logo30.png">
+QuizHut Logo made by [Freepik](https://www.flaticon.com/authors/freepik) from [Flaticon.com.](https://www.flaticon.com/)
 </div>
