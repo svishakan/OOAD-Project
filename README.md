@@ -5,17 +5,18 @@
 
 <br>
 
+
 [![License: GPL v3](https://img.shields.io/github/license/svishakan/OOAD-Project?style=for-the-badge)](https://github.com/svishakan/OOAD-Project/blob/main/LICENSE)
 
-[![Issues](https://img.shields.io/github/issues/svishakan/OOAD-Project?style=for-the-badge)](https://github.com/svishakan/OOAD-Project/issues)
+[![Issues](https://img.shields.io/github/issues/svishakan/OOAD-Project)](https://github.com/svishakan/OOAD-Project/issues)
 
-[![Stars](https://img.shields.io/github/stars/svishakan/OOAD-Project?style=for-the-badge)](https://github.com/svishakan/OOAD-Project/stargazers)
+[![Stars](https://img.shields.io/github/stars/svishakan/OOAD-Project)](https://github.com/svishakan/OOAD-Project/stargazers)
 
-[![Forks](https://img.shields.io/github/forks/svishakan/OOAD-Project?style=for-the-badge)](https://github.com/svishakan/OOAD-Project/)
+[![Forks](https://img.shields.io/github/forks/svishakan/OOAD-Project)](https://github.com/svishakan/OOAD-Project/)
 
-[![Repo Size](https://img.shields.io/github/repo-size/svishakan/OOAD-Project?style=for-the-badge)](https://github.com/svishakan/OOAD-Project/)
+[![Repo Size](https://img.shields.io/github/repo-size/svishakan/OOAD-Project)](https://github.com/svishakan/OOAD-Project/)
 
-[![Forks](https://img.shields.io/website?down_message=OFFLINE&style=for-the-badge&up_message=ONLINE&url=https%3A%2F%2Fquiz-hut.herokuapp.com%2F)](https://quiz-hut.herokuapp.com/)
+[![Forks](https://img.shields.io/website?down_message=OFFLINE&up_message=ONLINE&url=https%3A%2F%2Fquiz-hut.herokuapp.com%2F)](https://quiz-hut.herokuapp.com/)
 
 
 <br>
