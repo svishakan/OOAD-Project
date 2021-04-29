@@ -1,23 +1,37 @@
 # QuizHut v1.0
-[![alt QuizHutLogo](./images/logo.png)](http://quizhut.herokuapp.com/)
+[![alt QuizHutLogo](./images/logo.png)](https://quiz-hut.herokuapp.com/)
 
-🔗 You can check out our project live here : http://quizhut.herokuapp.com/
+🔗 You can check out our project live here : https://quiz-hut.herokuapp.com/
 
 <br>
 
+<p align='center'>
+  
+<a href="https://github.com/svishakan/OOAD-Project/stargazers">
+    <img src="https://img.shields.io/github/stars/svishakan/OOAD-Project" alt="Stars" >
+</a>
 
-[![License: GPL v3](https://img.shields.io/github/license/svishakan/OOAD-Project)](https://github.com/svishakan/OOAD-Project/blob/main/LICENSE)
+<a href="https://github.com/svishakan/OOAD-Project/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/svishakan/OOAD-Project" alt="License" >
+</a>
 
-[![Issues](https://img.shields.io/github/issues/svishakan/OOAD-Project)](https://github.com/svishakan/OOAD-Project/issues)
+<a href="https://github.com/svishakan/OOAD-Project/">
+    <img src="https://img.shields.io/github/forks/svishakan/OOAD-Project" alt="Forks" >
+</a>
 
-[![Stars](https://img.shields.io/github/stars/svishakan/OOAD-Project)](https://github.com/svishakan/OOAD-Project/stargazers)
+<a href="https://github.com/svishakan/OOAD-Project/issues">
+    <img src="https://img.shields.io/github/issues/svishakan/OOAD-Project" alt="Issues" >
+</a>
 
-[![Forks](https://img.shields.io/github/forks/svishakan/OOAD-Project)](https://github.com/svishakan/OOAD-Project/)
+<a href="https://github.com/svishakan/OOAD-Project/">
+    <img src="https://img.shields.io/github/repo-size/svishakan/OOAD-Project" alt="Repo Size" >
+</a>
 
-[![Repo Size](https://img.shields.io/github/repo-size/svishakan/OOAD-Project)](https://github.com/svishakan/OOAD-Project/)
+<a href="https://quiz-hut.herokuapp.com/">
+    <img src="https://img.shields.io/website?down_message=OFFLINE&up_message=ONLINE&url=https%3A%2F%2Fquiz-hut.herokuapp.com%2F" alt="Website" >
+</a>
 
-[![Forks](https://img.shields.io/website?down_message=OFFLINE&up_message=ONLINE&url=https%3A%2F%2Fquiz-hut.herokuapp.com%2F)](https://quiz-hut.herokuapp.com/)
-
+</p>
 
 <br>
 
