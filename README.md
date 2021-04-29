@@ -22,7 +22,7 @@
 The website was built using ReactJS & Bootstrap 4.0, and it uses Google Firebase's Firestore as a back-end to store and serve data dynamically.
 
 ## Short Description
-- Users can Sign Up and create an acount by providing the required credentials.
+- Users can sign up and create an acount by providing the required credentials.
 - Upon signing in, the users can create a quiz, or take a quiz created by others by using a unique quiz ID generated from the creation of another quiz.
 - Users can also view & export reports for the quizzes they have set.
 - Users can check their past quiz scores in their profile.
