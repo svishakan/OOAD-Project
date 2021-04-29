@@ -5,9 +5,7 @@
 
 <p align='center>
 
-<a href="https://github.com/svishakan/OOAD-Project/stargazers">
-    <img src="https://img.shields.io/github/stars/svishakan/OOAD-Project?style=for-the-badge" alt="Stars" >
-</a>
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 <a href="https://github.com/svishakan/OOAD-Project/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/svishakan/OOAD-Project?style=for-the-badge" alt="License" >
