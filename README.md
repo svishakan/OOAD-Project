@@ -6,7 +6,7 @@
 <br>
 
 
-[![License: GPL v3](https://img.shields.io/github/license/svishakan/OOAD-Project?style=for-the-badge)](https://github.com/svishakan/OOAD-Project/blob/main/LICENSE)
+[![License: GPL v3](https://img.shields.io/github/license/svishakan/OOAD-Project)](https://github.com/svishakan/OOAD-Project/blob/main/LICENSE)
 
 [![Issues](https://img.shields.io/github/issues/svishakan/OOAD-Project)](https://github.com/svishakan/OOAD-Project/issues)
 
