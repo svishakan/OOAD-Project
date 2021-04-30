@@ -1,7 +1,7 @@
 # QuizHut v1.0
-[![alt QuizHutLogo](./images/logo.png)](https://quiz-hut.herokuapp.com/)
+[![alt QuizHutLogo](./images/logo.png)](https://quizhut.herokuapp.com/)
 
-🔗 You can check out our project live here : https://quiz-hut.herokuapp.com/
+🔗 You can check out our project live here : https://quizhut.herokuapp.com/
 
 <br>
 
@@ -28,7 +28,7 @@
 </a>
 
 <a href="https://quiz-hut.herokuapp.com/">
-    <img src="https://img.shields.io/website?down_message=OFFLINE&up_message=ONLINE&url=https%3A%2F%2Fquiz-hut.herokuapp.com%2F" alt="Website" >
+    <img src="https://img.shields.io/website?down_message=OFFLINE&up_message=ONLINE&url=https%3A%2F%2Fquizhut.herokuapp.com%2F" alt="Website" >
 </a>
 
 </p>
