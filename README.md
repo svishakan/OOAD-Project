@@ -27,7 +27,7 @@
     <img src="https://img.shields.io/github/repo-size/svishakan/OOAD-Project" alt="Repo Size" >
 </a>
 
-<a href="https://quiz-hut.herokuapp.com/">
+<a href="https://quizhut.herokuapp.com/">
     <img src="https://img.shields.io/website?down_message=OFFLINE&up_message=ONLINE&url=https%3A%2F%2Fquizhut.herokuapp.com%2F" alt="Website" >
 </a>
 
